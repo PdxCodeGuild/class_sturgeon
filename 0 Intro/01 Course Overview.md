@@ -241,8 +241,8 @@ For your capstone presentation, you should plan out what features of your projec
 
 - Week 1, 2, 3, 4: Python
 - Week 5, 6: HTML + CSS + Flask
-- Week 7, 8, 9: JavaScript + Vue
-- Week 9, 10, 11: Django + Django Rest Framework
+- Week 7, 8, 9: Django + Django Rest Framework
+- Week 9, 10, 11: JavaScript + Vue
 - Week 12, 13, 14: Capstone
 
 ## Code of Conduct
