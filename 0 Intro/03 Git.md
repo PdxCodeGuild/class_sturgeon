@@ -273,6 +273,7 @@ Create your own folder in the `code` folder of our class repository. You'll use 
 2. Create a new branch for yourself and make sure you are inside your branch (not the main branch)
 3. Use the command line to create your own folder in the `code` folder. Name it your first name, all lower case.
 4. Add a `.gitkeep` file inside your new folder so that Git can track it.
-5. Add, commit, and push your changes to the class repo on GitHub. Remember that Git will make you `pull` changes from the server before you can `push` your own changes up to the server.
+5. Add, commit, and push your changes to your branch on the class repo on GitHub. Remember that Git will make you `pull` changes from the server before you can `push` your own changes up to the server.
+6. Go onto the GitHub website for the class repository and create a pull request. I'll accept and merge the pull request, and you're done!
 
 You'll have completed this exercise when you have a folder for yourself on the class repo on GitHub. This folder is where you will write, store, and push your lab files as you work on them. 
