@@ -1,15 +1,14 @@
 # 2021-09-13 Full-Stack Python/JavaScript Day Class
 Repo for the PDX Code Guild Python Full Stack day course starting 9/13/2021
 
-Class is held from **September 13th, 2021 to TBD**
+Class is held from **September 13th, 2021 to December 27th, 2021**
 M-F 9:30 am – 4:30 pm
 
 ### Holidays
 
 Thanksgiving  
-Veterans Day
+Veterans Day  
 Christmas  
-New Years  
 
 ### Staff
 
