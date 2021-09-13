@@ -6,8 +6,8 @@ M-F 9:30 am – 4:30 pm
 
 ### Holidays
 
-Thanksgiving  
 Veterans Day  
+Thanksgiving -- November 25th and 26th   
 Christmas  
 
 ### Staff
