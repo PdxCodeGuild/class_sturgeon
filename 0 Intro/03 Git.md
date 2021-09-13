@@ -270,8 +270,9 @@ git push
 Create your own folder in the `code` folder of our class repository. You'll use this folder to post your labs as you work on them. For now, you don't have anything to post, so you'll have to create a `.gitkeep` file. For this exercise, practice using the command line. You may not use Windows Explorer, the Finder, VS Code, or any other desktop programs.
 
 1. Clone the class repo to your own project folder on your computer.
-2. Use the command line to create your own folder in the `code` folder. Name it your first name, all lower case.
-3. Add a `.gitkeep` file inside your new folder so that Git can track it.
-4. Add, commit, and push your changes to the class repo on GitHub. Remember that Git will make you `pull` changes from the server before you can `push` your own changes up to the server.
+2. Create a new branch for yourself and make sure you are inside your branch (not the main branch)
+3. Use the command line to create your own folder in the `code` folder. Name it your first name, all lower case.
+4. Add a `.gitkeep` file inside your new folder so that Git can track it.
+5. Add, commit, and push your changes to the class repo on GitHub. Remember that Git will make you `pull` changes from the server before you can `push` your own changes up to the server.
 
 You'll have completed this exercise when you have a folder for yourself on the class repo on GitHub. This folder is where you will write, store, and push your lab files as you work on them. 
