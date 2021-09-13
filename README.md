@@ -6,7 +6,7 @@ M-F 9:30 am – 4:30 pm
 
 ### Holidays
 
-Thanksgiving  
+Thanksgiving  last thursday of the month
 Veterans Day  
 Christmas  
 
