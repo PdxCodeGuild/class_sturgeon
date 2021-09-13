@@ -16,7 +16,7 @@ New Years
 - Merritt Lawrenson, Instructor
     - merritt@pdxcodeguild.com
 
-- Pete Jones, TA
+- Calen Ray, TA
     - calen.w.ray@gmail.com
 
 ## Capstone Dates:
