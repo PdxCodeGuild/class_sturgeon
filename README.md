@@ -8,7 +8,7 @@ M-F 9:30 am – 4:30 pm
 
 Veterans Day  
 Thanksgiving -- November 25th and 26th   
-Christmas  
+Christmas!!!  
 
 ### Staff
 
