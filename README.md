@@ -7,6 +7,7 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 Thanksgiving  
+Veterans Day
 Christmas  
 New Years  
 
