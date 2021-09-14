@@ -51,9 +51,9 @@ Lab 06 Mini-Capstone
 
 ## Python Labs Assigned:
 
+01 Unit Converter  
+02 Average Numbers  
 <!--
-01 Unit Converter
-02 Average Numbers
 03 Number To Phrase
 04 Blackjack Advice
 05 Pick 6
