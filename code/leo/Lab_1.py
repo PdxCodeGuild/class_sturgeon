@@ -18,21 +18,21 @@ meter_convertion = distance * measurements[input_unit] # cover input distance to
 output_unit = (input('what are the output units unit you are looking for ft, mi, m, km, yard, or inch? '))
 
 if output_unit == "ft":
-    answer = int(meter_convertion * 3.28084)
+    answer = float(meter_convertion * 3.28084)
 
 elif output_unit == "mi":
-    answer = int(meter_convertion * 0.000621371)
+    answer = float(meter_convertion * 0.000621371)
 
 elif output_unit == "m":
     answer = meter_convertion
 
 elif output_unit == "km":
-    answer = int(meter_convertion * 0.001)
+    answer = float(meter_convertion * 0.001)
 
 elif output_unit == "yard":
-    answer = int(meter_convertion * 1.09361)
+    answer = float(meter_convertion * 1.09361)
 
 elif output_unit == "inch":
-    answer = int(meter_convertion * 39.3701)
+    answer = float(meter_convertion * 39.3701)
 
 print(f'{distance} {input_unit} is {answer} {output_unit}')
