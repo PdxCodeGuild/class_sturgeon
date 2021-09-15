@@ -8,7 +8,7 @@ while True:
     number_in = input("Enter a number or type 'done': ")
     if number_in == 'done':
         break
-    numbers.append(int(number_in))
+    numbers.append(float(number_in))
 
 #add each number in the list
 for num in numbers:
