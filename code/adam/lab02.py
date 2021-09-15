@@ -42,7 +42,7 @@ while nums != 'done':
 sum_of_nums = 0
 
 for num in nums:
-    sum_of_nums = sum_of_nums + int(num) #make sure it knows num is intiger after the 'done' was entered earlier
+    sum_of_nums += num #**This was annoyingly simple to fix**
 
 length = len(nums)
 average = sum_of_nums / length
