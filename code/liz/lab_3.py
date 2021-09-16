@@ -48,6 +48,8 @@ def convert_teens (num):
 
 # converting tens to an english phrase
 def convert_tens (num):
+    #print(num, 'num')
+    
     if num == 2:
         return 'twenty'
     if num == 3:
@@ -64,6 +66,7 @@ def convert_tens (num):
         return 'eighty'
     if num == 9:
         return 'ninety'
+
 
 # converting hundreds to an english phrase
 def convert_hundreds (num):
@@ -86,31 +89,51 @@ def convert_hundreds (num):
     if num == 9:
         return 'nine hundred'
 
+
 # number input... maybe make user input?
-x = 111
+user_num = input('What number would you like to convert to English? 0-999: ')
+user_num = int(user_num)
 
 # seperating ones, tens, and hundreds
-hundreds_digit = x//100
-tens_digit = x//10
-ones_digit = x%10
+hundreds_digit = user_num//100
+tens_digit = (user_num//10)%10
+teens_digit = user_num - (hundreds_digit * 100)
+ones_digit = user_num%10
 
 # converting number input to english
 ones_phrase = convert_ones(ones_digit)
-teens_phrase = convert_teens(x)
+#had user_num which is wrong input for teens_phrase. only works with two digit teens
+teens_phrase = convert_teens(teens_digit)
 tens_phrase = convert_tens(tens_digit)
 hundreds_phrase = convert_hundreds(hundreds_digit)
 
 # logic on how to print correct phrases
 # can this be a function?
-if len(str(x)) == 1:
-    print(ones_phrase)
-elif len(str(x)) == 2:
+#print(teens_phrase)
+
+if user_num < 10:
+    print(f'The number {user_num} is "{ones_phrase}" in English')
+
+elif user_num < 100:
     if tens_digit == 1:
-        print(teens_phrase)
+        print(f'The number {user_num} is "{teens_phrase}" in English')
+    elif ones_digit == 0:
+        print(f'The number {user_num} is "{tens_phrase}" in English')
     else:
-        print(f'{tens_phrase}-{ones_phrase}')
+        print(f'The number {user_num} is "{tens_phrase}-{ones_phrase}" in English')
 
 # issues with the hundreds-phrase returning None in the tens place
 # also... how to deal with the teens in the hundreds section?
-elif len(str(x)) == 3:
-    print(f'{hundreds_phrase} and {tens_phrase}-{ones_phrase}')
+
+elif user_num < 1000:
+    if ones_digit == 0 and tens_digit == 0:
+        print(f'The number {user_num} is "{hundreds_phrase}" in English')
+    elif tens_digit == 0:
+        print(f'The number {user_num} is "{hundreds_phrase} and {ones_phrase}" in English')
+    elif tens_digit == 1:
+        print(f'The number {user_num} is "{hundreds_phrase} and {teens_phrase}" in English')
+    elif tens_digit > 1 and ones_digit == 0:
+        print(f'The number {user_num} is "{hundreds_phrase} and {tens_phrase}" in English')
+    else:
+        print(f'The number {user_num} is "{hundreds_phrase} and {tens_phrase}-{ones_phrase}" in English')
+
