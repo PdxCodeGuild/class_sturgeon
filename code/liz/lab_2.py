@@ -1,3 +1,4 @@
+# average numbers
 nums = []
 
 while True:
