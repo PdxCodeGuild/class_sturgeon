@@ -54,8 +54,8 @@ Lab 06 Mini-Capstone
 01 Unit Converter  
 02 Average Numbers  
 03 Number To Phrase  
+04 Blackjack Advice  
 <!--
-04 Blackjack Advice
 05 Pick 6
 06 Credit Card Validation
 07 ROT13
