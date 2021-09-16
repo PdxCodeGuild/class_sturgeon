@@ -1,17 +1,28 @@
+def number_converter(user_choice):
+    single = ["", "One", "Two", "Three", "Four",
+              "Five", "Six", "Seven", "Eight", "Nine"]
+
+    teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
+             "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+
+    tens = ["Twenty", "Thirty", "Fourty", "Fifty",
+            "Sixty", "Seventy", "Eighty", "Ninety"]
+
+    if user_choice <= 9:
+        return single[user_choice]
+    elif user_choice >= 10 and user_choice <= 19:
+        return teens[user_choice - 10]
+    elif user_choice >= 20 and user_choice <= 100:
+        return tens[user_choice//10-2] + '' + single[user_choice % 10]
+    elif user_choice >= 100 and user_choice <= 999:
+        # use_choice is 500 then this would be 5 hundered
+        hund = single[user_choice//100] + ' ' + "hundered"
+        # 40 would be 4 (index 4)
+        temp = user_choice % 100
+    if temp >= 20 and temp <= 100:
+        return f'{hund} and {tens[temp//10-2]} {single[temp % 10]}'
 
 
-word_converter = {
-    1: 'one', 2: 'two', 3: 'four', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight',
-    9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve', 13: ' thriteen', 14: 'fourteen',
-    16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen', 20: 'twenty',
-    30: 'thirty', 40: 'fourty', 50: 'fifty', 60: 'sixty', 70: 'eighty', 90: 'ninety'
-
-
-}
-
-num = int(input('Pick a number from 0 to 999 that you want to convert to english. '))
-
-
-def final_conv(word_converter, num):
-
-    # print(word_converter[num])
+user_choice = int(
+    input('Please enter a number that you want to convert to english "1-999". '))
+print(number_converter(user_choice))
