@@ -25,10 +25,7 @@ def total(card1, card2, card3):
     if card1 == "J" or card1 == "Q" or card1 == "K":
         total += 10
     elif card1 == "A":
-        if total >= 11:
             total += 1
-        else:
-            total += 11
     else:
         total += int(card1)
     #Player's Second Card
@@ -51,6 +48,9 @@ def total(card1, card2, card3):
             total += 11
     else:
         total += int(card3)
+    #Here we're doing the ace check on card1. If the total is 10 or below, make A worth 11 by adding 10 to the earlier 1 already added
+    if total <=10 and card1 == "A":
+        total += 10
     #Determining soft hit below 17, stay 17-21, win at 21, and busted over 21   
     print("")
     print(f'You have a total of {total} and should follow advice: ')
