@@ -38,9 +38,11 @@ numbers = {
 
 
 x = int(input('Enter a number: '))
+
 hundreds_digit = x//100
 tens_digit = x//10
 ones_digit = x%10
+
 
 if x == 0:
     print('zero')
