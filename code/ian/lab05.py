@@ -4,13 +4,15 @@ balance = 0
 expenses = 0
 earnings = 0
 
-def pick6(num_list):
-    number_1 = num_list.append(random.randint(1, 99))
-    number_2 = num_list.append(random.randint(1, 99))
-    number_3 = num_list.append(random.randint(1, 99))
-    number_4 = num_list.append(random.randint(1, 99))
-    number_5 = num_list.append(random.randint(1, 99))
-    number_6 = num_list.append(random.randint(1, 99))
+def pick6():
+    num_list = []
+    num_list.append(random.randint(1, 99))
+    num_list.append(random.randint(1, 99))
+    num_list.append(random.randint(1, 99))
+    num_list.append(random.randint(1, 99))
+    num_list.append(random.randint(1, 99))
+    num_list.append(random.randint(1, 99))
+    return num_list
 
 def num_matches(winning, ticket):
     matches = 0
@@ -28,8 +30,8 @@ def num_matches(winning, ticket):
         matches += 1
     return matches
 
-winning_numbers = []
-pick6(winning_numbers)
+winning_numbers = pick6()
+
 
 while counter < 100000:
     ticket_numbers = []
@@ -38,7 +40,7 @@ while counter < 100000:
     expenses += 2
 
 
-    pick6(ticket_numbers)
+    ticket_numbers = pick6()
 
     matches = num_matches(winning_numbers, ticket_numbers)
 
