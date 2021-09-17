@@ -1,6 +1,5 @@
 """Lab 3"""
 #Dictionary uses key value pairs to create number strings 
-from typing import final
 
 num_dict = {
     0 : "zero",
@@ -34,16 +33,13 @@ tens_dict = {
     70 : "seventy",
     80 : "eighty",
     90 : "ninety",
-    100 : "hundred" 
 }
-
-hundo = "hundred"
 
 #Ensures the user input was an int 
 while True: 
     try:
         user_input = int(input("Please input a number between 0-999 and I'll tell you how it's written out in English! "))
-        print("Thank you! Calculating....")
+        print("Thank you! Calculating...")
         break
     except ValueError:
             print("Please follow directions next time.") 
@@ -66,24 +62,34 @@ if user_input <=99:
     else: 
         print("Give me more time!")
 elif user_input <= 999: 
-    if user_input//100 != 0: 
+    if user_input%100 == 0:
         hundreths_digit = user_input//100
-        while user_input > 100: 
-            user_input -= 100
-        tens_digit = (user_input//10) * 10
-        ones_digit = user_input%10 
+        if hundreths_digit in num_dict:
+            hundreths_answer = num_dict[hundreths_digit]
+            print(f"{hundreths_answer} hundred")
+    elif user_input//100 != 0: 
+        hundreths_digit = user_input//100
         if hundreths_digit in num_dict: 
             hundred_answer = num_dict[hundreths_digit]
-        if tens_digit in tens_dict:
-            tens_answer = tens_dict[tens_digit]
-        if ones_digit in num_dict: 
-            ones_answer = num_dict[ones_digit]
-        while True: 
-            try: 
-                print(f"{hundred_answer} hundred {tens_answer}-{ones_answer}")
-                break
-            except NameError: 
-                print(f"{hundred_answer} hundred and {ones_answer}")
-                break
+        while user_input > 100: 
+            user_input -= 100
+            if user_input in num_dict:
+                rebel_teen = num_dict[user_input]
+                print(f"{hundred_answer} hundred {rebel_teen}")
+            elif user_input > 100: 
+                tens_digit = (user_input//10) * 10
+                ones_digit = user_input%10 
+                if tens_digit in tens_dict:
+                    tens_answer = tens_dict[tens_digit]
+                if ones_digit in num_dict: 
+                    ones_answer = num_dict[ones_digit]
+                while True: 
+                    try: 
+                        print(f"{hundred_answer} hundred {tens_answer}-{ones_answer}")
+                        break
+                    except NameError: 
+                        print(f"{hundred_answer} hundred and {ones_answer}")
+                        break
 else:
-    print("more time please")
+    print("That's too many numbers!")
+
