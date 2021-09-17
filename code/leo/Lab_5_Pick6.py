@@ -22,11 +22,11 @@ def num_matches(winning, ticket): #Matches two tickets and return number of matc
 cost = 0
 earn = 0
 result = 0
+winning = pick6() #generate 6 random winning numbers
 
 for x in range(100000): #run the loop 100 thousand time adding to cost and earning
     cost = cost + 2 #adding $2 each loop
-    winning = pick6() #generete a new random ticket each loop
-    ticket = pick6()
+    ticket = pick6() #generate a new random ticket each loop
     result = num_matches(winning, ticket) # result for each match
 
     if result == 1:    # add winning $ 
@@ -66,3 +66,4 @@ else:
 
    ''')
 
+print(winning)
