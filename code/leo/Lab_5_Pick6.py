@@ -65,5 +65,3 @@ else:
    dont forget to save the taxes !!!
 
    ''')
-
-print(winning)
