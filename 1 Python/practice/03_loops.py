@@ -34,7 +34,7 @@ def test_stars():
 def extract_less_than_ten(nums):
     ...
 
-def test_extract_less_than_ten(nums):
+def test_extract_less_than_ten():
     extract_less_than_ten([2, 8, 12, 18]) == [2, 8]
 
 
