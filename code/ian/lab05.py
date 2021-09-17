@@ -52,4 +52,4 @@ while counter < 100000:
     elif matches == 1:
         balance += 4
         
-print(f'Final Balance = {balance}')
+print(f'Final Balance = ${balance}')
