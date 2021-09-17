@@ -1,6 +1,8 @@
 import random
 counter = 0
 balance = 0
+expenses = 0
+earnings = 0
 
 def pick6(num_list):
     number_1 = num_list.append(random.randint(1, 99))
@@ -33,6 +35,7 @@ while counter < 100000:
     ticket_numbers = []
     counter += 1
     balance -= 2
+    expenses += 2
 
 
     pick6(ticket_numbers)
@@ -41,15 +44,26 @@ while counter < 100000:
 
     if matches == 6:
         balance += 25000000
+        earnings += 25000000
     elif matches == 5:
         balance += 1000000
+        earnings += 1000000
     elif matches == 4:
         balance += 50000
+        earnings += 50000
     elif matches == 3:
         balance += 100
+        earnings += 100
     elif matches == 2:
         balance += 7
+        earnings += 7
     elif matches == 1:
         balance += 4
-        
+        earnings += 4
+
+roi = (earnings - expenses)/expenses   
+
 print(f'Final Balance = ${balance}')
+print(f'Expenses = ${expenses}')
+print(f'Earnings = ${earnings}')
+print(f'ROI = {roi}')
