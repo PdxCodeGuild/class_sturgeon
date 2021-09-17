@@ -60,7 +60,7 @@ elif total > 21:
     
     if total < 17:
         print(f'{total} Hit')
-    elif total >= 17 > 21:
+    elif total >= 17 < 21:
         print(f'{total} Stay')
     elif total == 21:
         print(f'{total} Blackjack!')
