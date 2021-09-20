@@ -48,7 +48,7 @@ try: # avoid items that are not on the list
             code.append(characters[location]) 
         
         else: 
-            location = location - 26 # in case index is larger than list 
+            location = location - 26 # in case index is larger than list ( if needed, add more elif for very large numbers)
             code.append(characters[location]) 
 
     print(f"The encode input is :  {''.join(code)}") #list into string
