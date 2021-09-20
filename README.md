@@ -97,6 +97,15 @@ In all three presentations, you should first explain the development process and
 
 ## Odds and Ends
 
+SQL Island  
+https://sql-island.informatik.uni-kl.de/
+
+Select Star SQL  
+https://selectstarsql.com/
+
+SQL Murder Mystery  
+https://mystery.knightlab.com/walkthrough.html
+
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
 https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/
 
