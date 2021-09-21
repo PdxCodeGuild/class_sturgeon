@@ -13,6 +13,7 @@ def pick6():
     num_list.append(random.randint(1, 99))
     num_list.append(random.randint(1, 99))
     return num_list
+# return [ random.randint(1,99) for x in range(6)] = list comprehension
 
 def num_matches(winning, ticket):
     matches = 0
@@ -29,7 +30,18 @@ def num_matches(winning, ticket):
     if winning[5] == ticket[5]:
         matches += 1
     return matches
-
+''' def num_matches(winning, ticket):
+    for i in range(len(winning_ticket)):
+        if winning[i] == ticket[i]:
+            matches += 1
+        return matches
+'''
+'''
+creates tuples to compare 2 lists
+list1 = []
+list2 = []
+print(list(zip(list1, list2)))
+'''
 winning_numbers = pick6()
 
 
@@ -62,7 +74,8 @@ while counter < 100000:
     elif matches == 1:
         balance += 4
         earnings += 4
-
+# could simplify above with dict instead of if statements
+# dict is outside of loop
 roi = (earnings - expenses)/expenses   
 
 print(f'Final Balance = ${balance}')

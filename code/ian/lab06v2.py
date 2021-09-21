@@ -14,9 +14,14 @@ def card_validator():
     second_digit = total%10
 
     if second_digit == check_digit:
-        print('Valid!')
+        return True
         
     else:
-        print('Invalid card number..')
+        return False
 
-card_validator()
+#return second_digit == check_digit for boolean
+if card_validator() == True:
+    print('Valid!')
+else: print('Invalid entry..')
+
+

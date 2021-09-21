@@ -6,7 +6,7 @@ rot = int(input('Security Level: '))
 
 m_i_list = []
 for letter in message_in:
-    
+   
     letter_index = m_i_list.append(english.index(letter))
 
 
