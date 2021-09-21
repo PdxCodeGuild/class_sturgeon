@@ -1,41 +1,34 @@
 
+def peak(data): #peaks list
+    peak = []
+
+    for index in range(len(data) - 1): #add -1 to avoid end of list error
+        if data[index] > (data[index - 1]) and data[index] > data[index + 1]: 
+            # if item is bigger than item location -1 and item location +1
+            peak.append(index)
+    return peak
+
+def valley(data): #valley list
+    valley = []
+    
+    for index in range(len(data)):
+        if index == 0: # skip first item on the list
+            index = index + 1 
+        elif data[index] < (data[index - 1]) and data[index] < data[index + 1]:
+            #if item is smaller than item location -1 and item location +1
+            valley.append(index)
+         
+    return valley
 
 data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
-def peak(data):
-    peak = []
-    for x in range(len(data)-1):
-        if data[x] > data[x - 1] and data[x] > data[x + 1]:
-            peak.append(x)
-        return peak
+print(f'''
+Peak index/es: 
+{peak(data)}
 
-def valley(data):
-    valley = []
-    for x in range(len(data)-1):
-        if data[x] < data[x-1] and data[x] < data[x + 1]:
-            valley.append(x)
-        return valley
+Valley index/es: 
+{valley(data)}
 
-x = peak(data) 
-y = valley(data)
-
-print(x)
-print(y)
-
-
-
-
-
-#    if data[i] > data[i-1] and data[i] > data[i+1]:
-#        peak.append(i)
- 
-
-    
-#print(f'{data[1]}')
-#peak = []
-
-#for x in data:
-#    if data[x] > data[x - 1] and data[x] > data[x + 1]:
-#        peak.append(x)
-
-#print(peak)
+Peak and Valley index/es: 
+{peak(data) + valley(data)} 
+''')
