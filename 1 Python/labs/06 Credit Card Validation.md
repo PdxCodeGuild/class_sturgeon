@@ -12,6 +12,8 @@ Let's write a function which returns whether a string containing a credit card n
 7. Take the second digit of that sum.
 8. If that matches the check digit, the whole card number is valid.
 
+Here is a valid credit card number to test with: 4556737586899855
+
 For example, the worked out steps would be:
 
 1. `4  5  5  6  7  3  7  5  8  6  8  9  9  8  5  5`
