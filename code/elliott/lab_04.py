@@ -22,10 +22,12 @@ total = sum(sum_of_cards)
 def helper(total):
     if total <= 16:
         return "Hit"
-    elif total >= 17 or 20:
+    elif total >= 17 and total <= 20:
         return 'Stay'
     elif total == 21:
         return 'Blackjack'
+    else:
+        return "You have went over 21"
 
 
 print(helper(total))
