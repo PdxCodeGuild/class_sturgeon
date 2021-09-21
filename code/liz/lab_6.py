@@ -14,12 +14,11 @@ def credit_card_validator (card_num):
     print(num_list)
 
     # doubling every other element in the reversed list
-    # Need to do this by index, not number value
-    doubled_odds = [n * 2 if n % 2 == 1 else n for n in num_list]
-    print(doubled_odds)
+    doubled_evens = [n * 2 if i % 2 == 0 else n for i, n in enumerate(num_list)]
+    print('doubled evens', doubled_evens)
 
     # if a number is over 9, subtracting 9 from it
-    under_nine = [n - 9 if n > 9 else n for n in doubled_odds]
+    under_nine = [n - 9 if n > 9 else n for n in doubled_evens]
     print(under_nine)
 
     # summing up all the numbers in the list. Is there a way to do list comprehension for this?
@@ -39,7 +38,7 @@ def credit_card_validator (card_num):
 
 
 
-credit_card = '4556737586899855'
+credit_card = input('Please enter the credit card number you want to check: ')
 
 print(credit_card_validator(credit_card))
 
