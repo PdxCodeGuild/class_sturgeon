@@ -67,29 +67,28 @@ elif user_input <= 999:
         if hundreths_digit in num_dict:
             hundreths_answer = num_dict[hundreths_digit]
             print(f"{hundreths_answer} hundred")
-    elif user_input//100 != 0: 
+    elif user_input%100 != 0:
         hundreths_digit = user_input//100
-        if hundreths_digit in num_dict: 
-            hundred_answer = num_dict[hundreths_digit]
-        while user_input > 100: 
-            user_input -= 100
-            if user_input in num_dict:
-                rebel_teen = num_dict[user_input]
-                print(f"{hundred_answer} hundred {rebel_teen}")
-            elif user_input > 100: 
+        if hundreths_digit in num_dict:
+            hundreths_answer = num_dict[hundreths_digit]
+            while user_input > 100:
+                user_input -= 100
+                last_two = user_input
+            if last_two in num_dict:
+                answer = num_dict[user_input]
+                print(f"{hundreths_answer} hundred and {answer}")
+            elif user_input in tens_dict:
+                answer = tens_dict[user_input]
+                print(f"{hundreths_answer} hundred and {answer}")
+            elif user_input//10 != 0 and user_input%10 != 0: 
                 tens_digit = (user_input//10) * 10
                 ones_digit = user_input%10 
                 if tens_digit in tens_dict:
                     tens_answer = tens_dict[tens_digit]
                 if ones_digit in num_dict: 
                     ones_answer = num_dict[ones_digit]
-                while True: 
-                    try: 
-                        print(f"{hundred_answer} hundred {tens_answer}-{ones_answer}")
-                        break
-                    except NameError: 
-                        print(f"{hundred_answer} hundred and {ones_answer}")
-                        break
+                print(f"{hundreths_answer} hundred and {tens_answer}-{ones_answer}")
+            else:
+                print(f"{hundreths_answer} hundred")
 else:
-    print("That's too many numbers!")
-
+    print("That's too many numbers!")   
