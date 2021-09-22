@@ -1,7 +1,9 @@
 #Lab05: Pick6
 #We don't have lottery in Utah, so this one will interesting
+#Alternate methods from going over program with Merrit Lawrenson
 import random
 import time
+import secrets
 
 print("")
 welcome_message = "Welcome to the Library-Interface's 100,000 Pick 6 Lottery Generator"
@@ -19,8 +21,23 @@ def generate_numbers():
         count += 1
     return numbers
 
+#Alternate function to do the same thing usinf 'for x' instead of 'while' (Alt Method)
+def pick6():
+    ticket = []
+    for x in range(6):
+        ticket.append(random.randint(1,99))
+    return ticket
+
+#Even faster alternate using list comprehension (Alt Method)
+def lotto():
+    return [random.randint(1,99) for x in range(6)]
+
+#Secure way to ensure numbers are random. Use + 1 to change from 0-98 to 1-99 (Alt Method)
+def secure_lotto():
+    return [secrets.randbelow(99) + 1 for x in range(6)]
+
 #Step 1: Generate a list of 6 random numbers representing the winning ticket:
-winning_ticket = generate_numbers()
+winning_ticket = secure_lotto()
 print("Drawing the winning lottory ticket now...")
 time.sleep(1.5)
 print(f"The winning ticket is: {winning_ticket}")
@@ -37,7 +54,7 @@ earnings = 0
 #Step 3 thru 5: loop 100,000 times, generating 6 numbered tickets and subtracting 2 from balance
 i = 1
 
-while i < 100001: #temp 11 instead of 100001 to make testing easier
+while i < 11: #temp 11 instead of 100001 to make testing easier
     ticket = generate_numbers()
     balance -= 2
     match = 0
@@ -89,6 +106,42 @@ ROI = (earnings - expenses)/expenses
 print(f'We hope you enjoyed gambling. After spending ${expenses} and winning ${earnings}, your current balance is:${balance}, netting you an ROI of:{round(ROI, 2)}')
 print("")
 time.sleep(1.5)
+
+#A function to determine winners (alternate method)
+def num_matches(winning, ticket):
+    matches = 0
+    for i in range(len(winning)): #not hard coded to range(6) in case we do a pick(8)
+        if winning[i] == ticket[i]:
+            matches += 1
+    return matches
+
+#Another version using the zip process (Alternate method)
+def the_matches(winners, tickets):
+    matches_ = 0
+    for win, tix in zip(winners, tickets):
+        if win == tix:
+            matches_ += 1
+        return matches_
+
+#Making a dictionary for winnings (Alternate Method)
+winnings = {6: 25000000, 5: 10000000, 4: 50000, 3: 100, 2: 7, 1: 4, 0: 0}
+
+num_of_matches = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+
+#(Alternate method) for generating the 100k and doing the program
+# for n in range(1000000):
+#     current_ticket = pick6()
+#     balance -= 2
+#     expenses += 2
+#     matches = num_matches(winning_ticket, current_ticket)
+#     balance += winnings[matches]
+#     earnings += winnings[matches]
+#     num_of_matches[matches] +=1
+# print("Balance: ", balance)
+# print("Earnings: ", earnings)
+# print("Expenses ", expenses)
+# print("Roli: ", (earnings - expenses)/expenses)
+# print(num_of_matches)
 
 while True: #Check to see if you won the big one
     if winning_ticket != ticket:
