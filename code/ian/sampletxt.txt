@@ -1,1 +1,1 @@
-This is a sample for lab 9. This is a secondary sentence and now I have two sentences.
+This is a sample text file for lab 9. This is a second sentence. Here are even more sentences with new punctuation! Is the reading level higher than before? We will see.
