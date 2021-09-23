@@ -34,12 +34,15 @@ data_peaks = peaks(data)
 data_valleys = valleys(data)
 #print(data_valleys)
 data_peaks_and_valleys = peaks_and_valleys(data_peaks, data_valleys)
-
 print(data_peaks_and_valleys)
 
-
-# for i in data:
-#     print(i * 'X')
+# this is not correct. i need to figure out how to create a new line between each loop
+for i in range(9, 0, -1):
+    for j in data:
+        if j >= i:
+            print('X', end='')
+        else:
+            print(' ', end='')
         
 
 
