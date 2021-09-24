@@ -20,7 +20,7 @@ def lookup(contacts_list):
                 print(values)
                 return values
     else:
-        print('Contact not found')
+        print('Contact not found..')
 
 def update(result):
     attribute = input('Attribute: ')
@@ -35,6 +35,8 @@ def erase(result):
         deleted.append(result)
         contacts.remove(result)
         print(f'Deleted Contacts - {deleted}')
+    if snap == 'n':
+        print('Okay nevermind..')
 
 def writer(file):
     with open('practice.csv', 'w') as file:
@@ -42,6 +44,7 @@ def writer(file):
             for i, details in enumerate(contacts):
                 temp = (f'\n{details[keys_list[0]]},{details[keys_list[1]]},{details[keys_list[2]]}')
                 file.write(str(temp))
+
 
 deleted = []         
 contacts = []
@@ -64,6 +67,7 @@ while True:
     selection = input('''
 Enter a selection:
 ------------------
+All    - a
 Create - c
 Search - s
 Update - u
@@ -78,9 +82,11 @@ Exit   - e
         update(lookup(contacts))
     elif selection == 'd':
         erase(lookup(contacts))
+    elif selection == 'a':
+        print(*contacts, sep = '\n')
     elif selection == 'e':
         writer('practice.csv')
-        print('Goodbye')
+        print('\nGoodbye.')
         break
 
     else:
