@@ -1,148 +1,154 @@
 # Lab 10: Contact List
+import time
 
-#method 1
-# print("")
-# contacts = {}
-# with open('contacts.csv', 'r') as file:
-#     lines = file.read().split('\n')
-#     # print(lines)
-#     for line in lines:
-#         (key, *val) = line.split(",")
-#         contacts[key] = val
-# print(contacts)
-
-# def merge(dict1, dict2):
-#     res = dict1 | dict2
-#     return res
-
-# merge(contacts['name'], contacts['adam'])
-
-
-# This makes: {'name': ['relationship status', 'kids (yes/no)', 'state'], 'adam': ['single', 'no', 'utah'], 'erin': ['single', 'no', 'florida']}
-
-#method 2
-#Load csv data into a string variable
-# with open('contacts.csv', 'r') as f:
-#     contacts_list = [[val.strip() for val in r.split(",")] for r in f.readlines()] 
-#     #Create a list of each row by splitting it and getting rid of the \n with .split("\n") 
-#     #Get rid of the \n in the dictionary by also using .strip()
-#     #Readlines() is used to read all the lines at a single go and then return them as each line a string element in a list. 
-
-# print("")
-
-# #Create the dictionary
-# contacts_dict = {}
-
-# (_, *header), *data = contacts_list
-# #This (_, *header) line makes it so instead of {'name': {...}} it reads {'adam': {...}} initially and creates a header
-# #the '*' next to the header and data keeps it from complaining about unpacking too many values (expected 2)
-# for row in data:
-#     key, *values = row
-#     contacts_dict[key] = {key: value for key, value in zip(header, values)}
-
-# print(contacts_dict)
-# print(type(contacts_dict))
-# print(contacts_dict["adam"])
-# print(f"Contacts = {list(contacts_list.items())}")
-
-#method 3
-from ast import Index
-
-
+csv_folder = 'contacts.csv'
 print("")
-with open('contacts.csv', 'r') as f:
+with open(csv_folder, 'r') as f:
     lines = f.read().split('\n')
-    # print(lines)
     for i in range(len(lines)):
         #Break up the big list into smaller lists
         lines[i] = lines[i].split(',')
-    # print(lines)
-# print("")
 
+#make a list of dictionaries using a function that inputs the above 'lines' variable
 contacts = []
-for i in range(1,len(lines)):
-    #force the lists into a dictionary by adding {lines:lines} method
+def list_maker(my_row):
+    for i in range(1,len(my_row)):
+    #force the lists into a dictionary by adding {my_row:my_row} method
+        contacts.append({
+            my_row[0][0]: my_row[i][0], #Name
+            my_row[0][1]: my_row[i][1], #Relationship Status
+            my_row[0][2]: my_row[i][2], #Kids?
+            my_row[0][3]: my_row[i][3]  #State
+        })
+    return contacts
+
+list_maker(lines)
+
+#Version 2, Part 1: Create: Ask for user input and make another contact in the list
+new_person = ""
+def new_contact():
+    value4_0 = input("Enter your first name:-->")
+    value4_1 = input("Enter your relationships status (ie married, single, etc):-->")
+    value4_2 = input("Do you have any children?-->")
+    value4_3 = input("What state do you reside in?-->")
+    global new_person
+    new_person = value4_0
     contacts.append({
-        lines[0][0]: lines[i][0], #Name
-        lines[0][1]: lines[i][1], #Relationship Status
-        lines[0][2]: lines[i][2], #Kids?
-        lines[0][3]: lines[i][3]  #State
-    })
+    lines[0][0]: value4_0, #Name
+    lines[0][1]: value4_1, #Relationship Status
+    lines[0][2]: value4_2, #Children?
+    lines[0][3]: value4_3  #State
+})
 
-print("")
-print(contacts)
-print(type(contacts))
-#Version 2, Part 1: Ask for user input and make another contact in the list
-# value4_0 = input("Enter your first name:-->")
-# value4_1 = input("Enter your relationships status (ie married, single, etc):-->")
-# value4_2 = input("Do you have any children?-->")
-# value4_3 = input("What state do you reside in?-->")
-# contacts.append({
-#     lines[0][0]: value4_0,
-#     lines[0][1]: value4_1,
-#     lines[0][2]: value4_2,
-#     lines[0][3]: value4_3
-# })
+# new_contact()
 
-# print("")
+#Version 2, Part 2: Retrieve: ask user for contact's name, find it, display information
+# query = input("Whom are you searching for?-->")
+
+query_result = ""
+#Merritt is awesome
+def find_user():
+    while True:
+        query = input("Enter Name:-->")
+        for contact in contacts:
+            if contact["name"] == query:
+                global query_result
+                query_result = contact
+                return query_result
+        answer = input("Name not found. Try again? (y/n)-->").lower()
+        if answer == 'n':
+            break
+
+# find_user()
+# print(query_result)
+
+#Version 2, Part 3: Update: ask user for contact's name, find the attribute they want to update, and the value of the attribute to set
+def user_update():
+    find_user()
+    while True:
+        key_to_update = input("What would you like to update? (name(n) relationship status(r) children (c) state (s))-->").lower()
+        if key_to_update == "n":
+            value_to_update = input("Enter updated name:-->")
+            query_result["name"] = value_to_update
+            break
+        if key_to_update == "r":
+            value_to_update = input("Enter updated relationship status:-->")
+            query_result["relationship status"] = value_to_update
+            break
+        if key_to_update == "c":
+            value_to_update = input("Enter updated children status (yes/no):-->")
+            query_result["kids (yes/no)"] = value_to_update
+            break
+        if key_to_update == "s":
+            value_to_update = input("Enter updated state:-->")
+            query_result["state"] = value_to_update
+            break
+        else:
+            print("Your choice was not recognized")
+            continue
+
+# user_update()
 # print(contacts)
 
-#Version 2, Part 2: Ask user for contact's name, find the name, and display their information
+#Version 2, Part 4: Delete: ask user for contact's name, remove the contact from the list
+bye_user = ""
+def del_user():
+    bye = input("Enter Name to be removed:-->")
+    global bye_user
+    bye_user = bye 
+    for i in range(len(contacts)):
+        if contacts[i]['name'] == bye:
+            print(f'{bye} is being deleted from the Database...')
+            time.sleep(1)
+            print(f'{bye} has been deleted')
+            del contacts[i]
+            break
+    else:
+        print("User not Found")
 
-a_key = "name"
-values_of_key = [a_dict[a_key] for a_dict in contacts]
-print(values_of_key) #['adam', 'erin', 'ephraim']
+# del_user()
+# print(contacts)
+header = contacts[0]
+def save(contacts, csv_folder, header):
+    lines = [','.join(header)] #Put 'em back together
+    for contact in contacts: #Loop through the contacts, just like searching
+        row = ','.join(contact.values()) #Make the values in contact actually be separated by commas
+        lines.append(row)  #Put each line in a row
 
-query = input("What name are you looking for?-->")
-# if query in contacts:
-#     print("yep")
+    csv_string = '\n'.join(lines) #Need this to make the lines list a string again
 
-#Merritt is awesome
-for contact in contacts:
-    if contact["name"] == query:
-        print(contact)
+    with open(csv_folder, 'w') as f: #Doing the 'w' instead of 'r' so we can write and using 'f:' instead of file as per Merritt's suggestion in class
+        f.write(csv_string)
 
-# print(query)
+#Run the CRUD
+while True:
+    crud = input("Welcome to the Library-Interface Database. Username: New(N) Lookup(L) Update(U) Delete(D) or Quit(Q):-->").upper()
+    if crud == "N":
+        new_contact()
+        print(f'{new_person} has been added to the database')
+        time.sleep(1.5)
+        save(contacts, csv_folder, header)
+    elif crud == "L":
+        find_user()
+        time.sleep(1)
+        print(query_result)
+        save(contacts, csv_folder, header)
+    elif crud == "U":
+        user_update()
+        time.sleep(1)
+        print(contacts)
+        save(contacts, csv_folder, header)
+    elif crud == "D":
+        del_user()
+        time.sleep(1.5)
+        save(contacts, csv_folder, header)
+    elif crud == "Q":
+        break
+    else:
+        print("Incorrect entry. Try Again.")
+        continue
 
-# if contacts["name" == "adam"] in contacts[0]:
-#     print("It's in the first one")
-# if query in contacts[1]:
-#     print("It's in the second one")
-# if query in contacts[2]:
-#     print("It's in the third one")
-
-# for item in contacts:
-#     if  "name" in item:
-#         print("yahoo")
-
-
-# if query in values_of_key:
-#     print("found it")
-    # print(contacts[0])
-    # print(dict(contacts["name":query])
-    # print(contacts["name":query])
-    # print(values_of_key[query])
-    # print(dict(contacts["adam"]))
-    # print(contacts.get("names", query))
-
-
-''' so far we're getting:
-method 1:
-{'name': ['relationship status', 'kids (yes/no)', 'state'], 'adam': ['single', 'no', 'utah'], 'erin': ['single', 'no', 'florida']}
-method 2:
-{'adam': {'relationship status': 'single', 'kids (yes/no)': 'no', 'state': 'utah'}, 'erin': {'relationship status': 'single', 'kids (yes/no)': 'no', 'state': 'florida'}}
-method 3: This works
-[{'name': 'adam', 'relationship status': 'single', 'kids (yes/no)': 'no', 'state': 'utah'}, 
-    {'name': 'erin', 'relationship status': 'single', 'kids (yes/no)': 'no', 'state': 'florida'}, 
-    {'name': 'ephraim', 'relationship status': 'married', 'kids (yes/no)': 'no', 'state': 'idaho'}]
-'''
-
-''' example from lab10
-contacts = [
-    {'name':'matthew', 'favorite fruit':'blackberries', 'favorite color':'orange'},
-    {'name':'sam', 'favorite fruit':'pineapple' ...}
-]
-'''
+print("Thank you for using the Library-Interface Database")
 
 
 ''' A backup of the initial csv information
