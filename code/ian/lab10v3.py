@@ -21,6 +21,8 @@ def lookup(contacts_list):
         if search in contacts_list[x][keys_list[0]]: 
                 print(values)
                 return values
+    else:
+        print('Contact not found')
 
 #def update
 def update(result):
@@ -57,14 +59,14 @@ for i, line in enumerate(lines):
 
 while True:
     selection = input('''
-    Enter a selection:
-    ------------------
-    Create - c
-    Search - s
-    Update - u
-    Delete - d
-    Exit   - e
-    ''')
+Enter a selection:
+------------------
+Create - c
+Search - s
+Update - u
+Delete - d
+Exit   - e
+''')
     if selection == 'c':
         add_contact(contacts)
     elif selection == 's':
@@ -74,7 +76,14 @@ while True:
     elif selection == 'd':
         erase(lookup(contacts))
     elif selection == 'e':
-        print('Goodbye')
-        break
+        with open('practice.csv', 'w') as file:
+            file.write(f'{keys_list[0]},{keys_list[1]},{keys_list[2]}')
+            for i, details in enumerate(contacts):
+                temp = (f'\n{details[keys_list[0]]},{details[keys_list[1]]},{details[keys_list[2]]}')
+                file.write(str(temp))
+            print('Goodbye')
+            break
+
     else:
         print('Please enter a valid selection..')
+

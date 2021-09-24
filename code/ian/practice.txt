@@ -7,4 +7,3 @@ alfred,banana,pink
 chris,peaches,salmon
 jerry,skittles',rainbow
 gerald,gooseberries,surf green
-harry,legumes,yellowish
