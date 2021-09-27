@@ -1,6 +1,7 @@
 import re
 import math 
 
+#Dictionary give grade level and age
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -18,31 +19,36 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
+#opens and closes txt doc
 with open('gettysburg.txt', 'r') as f:
     contents = f.read()
 
+#measures # of sentences in speech
 def num_sentences(speech):
     sentences = re.split("[.!?]", speech)
     return len(sentences)
-
+ 
+#measuers # of words in speech
 def num_words(speech):
     words = re.split(r" ", speech)
     return len(words)
 
+#measures # of characters in speech
 def num_characters(speech):
     characters = re.findall("[A-Za-z]", speech)
     return len(characters)
 
+#calls functions to new variables
 characters = num_characters(contents)
 words = num_words(contents)
 sentences = num_sentences(contents)
 
+#QuickMAFS
 ari_score = 4.71*(characters/words)+0.5*(words/sentences)-21.43
-
 give_score = math.ceil(ari_score)
-
 ari_details = ari_scale[give_score]
 
-#print(f"The ARI for gettysburg-address.txt is {give_score}")
-#print(f"This corresponds to a {ari_details[1]} Grade level of difficulty")
-#print(f"that is suitable for an average person {ari_details[2]} years old.")
+#prints response to the client
+print(f"The ARI for gettysburg-address.txt is {give_score}")
+print(f"This corresponds to a {ari_details['grade_level']} Grade level of difficulty")
+print(f"that is suitable for an average person {ari_details['ages']} years old.")
