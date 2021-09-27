@@ -4,7 +4,6 @@ with open('practice.csv' , 'r') as file:
 
 keys_list = re.split(',', lines[0])
 
-#def add contact
 def add_contact(c_list):
     new_contact = {
         keys_list[0] : input('Enter name: '),
@@ -14,15 +13,15 @@ def add_contact(c_list):
     c_list.append(new_contact)
     print(new_contact)
 
-#def lookup
 def lookup(contacts_list):
     search = input('Search name: ')
     for x, values in enumerate(contacts_list):
         if search in contacts_list[x][keys_list[0]]: 
                 print(values)
                 return values
+    else:
+        print('Contact not found..')
 
-#def update
 def update(result):
     attribute = input('Attribute: ')
     if attribute in keys_list:
@@ -36,7 +35,16 @@ def erase(result):
         deleted.append(result)
         contacts.remove(result)
         print(f'Deleted Contacts - {deleted}')
-        
+    if snap == 'n':
+        print('Okay nevermind..')
+
+def writer(file):
+    with open('practice.csv', 'w') as file:
+            file.write(f'{keys_list[0]},{keys_list[1]},{keys_list[2]}')
+            for i, details in enumerate(contacts):
+                temp = (f'\n{details[keys_list[0]]},{details[keys_list[1]]},{details[keys_list[2]]}')
+                file.write(str(temp))
+
 
 deleted = []         
 contacts = []
@@ -57,14 +65,15 @@ for i, line in enumerate(lines):
 
 while True:
     selection = input('''
-    Enter a selection:
-    ------------------
-    Create - c
-    Search - s
-    Update - u
-    Delete - d
-    Exit   - e
-    ''')
+Enter a selection:
+------------------
+All    - a
+Create - c
+Search - s
+Update - u
+Delete - d
+Exit   - e
+''')
     if selection == 'c':
         add_contact(contacts)
     elif selection == 's':
@@ -73,8 +82,13 @@ while True:
         update(lookup(contacts))
     elif selection == 'd':
         erase(lookup(contacts))
+    elif selection == 'a':
+        print(*contacts, sep = '\n')
     elif selection == 'e':
-        print('Goodbye')
+        writer('practice.csv')
+        print('\nGoodbye.')
         break
+
     else:
         print('Please enter a valid selection..')
+
