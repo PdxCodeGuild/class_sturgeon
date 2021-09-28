@@ -1,6 +1,5 @@
 # Lab 12: ATM
-# Keping it simple this time
-
+import time
 
 class ATM:
     def __init__(self):
@@ -28,7 +27,7 @@ class ATM:
         return self.balance
 
     def calc_interest(self):
-        extra = self.balance * self.interest
+        extra = round((self.balance * self.interest), 2)
         self.transactions.append(f'User checked account interest of ${extra}')
         return extra
 
@@ -39,11 +38,16 @@ class ATM:
         print(log_rows)
 
 
-
 atm = ATM() # create an instance of our class
-print('Welcome to the ATM')
+welcome_message = 'Welcome to the ATM'
+for char in welcome_message:
+  print(char, end='', flush=True)
+  time.sleep(.04)
+time.sleep(.5)
+print("")
+time.sleep(.5)
 while True:
-    command = input('Enter a command or type help: ')
+    command = input('Enter a command, exit, or help: ').lower()
     if command == 'balance':
         balance = atm.check_balance() # call the check_balance() method
         print(f'Your balance is ${balance}')
@@ -69,10 +73,15 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
-        print('log - print log of activity')
+        print('log      - view log of activity')
     elif command == 'log':
+        print('=============================')
         atm.print_transactions()
+        print('=============================')
     elif command == 'exit':
+        print('=============================')
+        print("Thank you for visiting ATM")
+        print('=============================')
         break
     else:
         print('Command not recognized')
