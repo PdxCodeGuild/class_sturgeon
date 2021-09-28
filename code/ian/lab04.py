@@ -48,7 +48,7 @@ total = card_1 + card_2 + card_3
 
 if total < 17:
     print(f'{total} Hit')
-elif total >= 17 < 21:
+elif 17 >= total < 21:
     print(f'{total} Stay')
 elif total == 21:
     print(f'{total} Blackjack!')
@@ -60,7 +60,7 @@ elif total > 21:
     
     if total < 17:
         print(f'{total} Hit')
-    elif total >= 17 < 21:
+    elif 17 >= total < 21:
         print(f'{total} Stay')
     elif total == 21:
         print(f'{total} Blackjack!')
