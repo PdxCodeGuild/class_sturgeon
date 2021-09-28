@@ -55,19 +55,18 @@ Lab 06 Mini-Capstone
 02 Average Numbers  
 03 Number To Phrase  
 04 Blackjack Advice  
+05 Pick 6  
+06 Credit Card Validation  
+07 ROT13  
+08 Peaks And Valleys  
+09 ARI  
+10 Contact List  
+12 ATM  
+13 Tic-Tac-Toe  
 <!--
-05 Pick 6
-06 Credit Card Validation
-07 ROT13
-08 Peaks And Valleys
-09 ARI
-10 Contact List
-11 Searching And Sorting
-12 ATM
-13 Tic-Tac-Toe
-14 Dad Joke API
-15 Quotes API
-16 Mini-Capstone
+14 Dad Joke API  
+15 Quotes API  
+16 Mini-Capstone  
 -->
 
 ## Student Presentations
