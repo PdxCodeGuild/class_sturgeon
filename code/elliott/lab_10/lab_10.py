@@ -3,7 +3,7 @@ contacts = []
 
 with open('code/elliott/lab_10/back_contacts.csv', 'r') as file:
     data = file.read().split('\n')
-    #print("the csv data", data)
+    # print("the csv data", data)
     # split()
     # join()
     csv_header = True
@@ -11,12 +11,12 @@ with open('code/elliott/lab_10/back_contacts.csv', 'r') as file:
         if csv_header:
             dict_keys = " ".join(line.split()).split(',')
             csv_header = False
-            #print("these are the dict keys", dict_keys)
+            # print("these are the dict keys", dict_keys)
         else:
             values = " ".join(line.split()).split(',')
             contacts.append({dict_keys[n]: values[n]
                             for n in range(0, len(dict_keys))})
-            #print("these are the dict values", values)
+            # print("these are the dict values", values)
 
 # ---------------------------------------------Create record--------------------------------------------------#
 user_values = input("Enter a name,favorite fruit and favorite color. ")
@@ -73,21 +73,16 @@ print("Del Contact:", contacts)
 
 
 # ---------------------------------------------csv write--------------------------------------------------#
-print('Contacts: \n', contacts)
-'\n'
-'\n'
 
 names = [i["name"] for i in contacts]
-favorite_fruit = [i['favorite fruit'] for i in contacts]
-favorite_color = [i['favorite color'] for i in contacts]
-header = 'name' 'favorite fruit' 'favorite color'
+favorite_fruit = [i[' favorite fruit'] for i in contacts]
+favorite_color = [i[' favorite color'] for i in contacts]
+header = 'name' + ' ' + 'favorite fruit' + ' ' + 'favorite color'
 
 
-print(favorite_fruit, favorite_color)
-'''
-def listToString(a):
+def listToString(object):
     str1 = " "
-    return (str1.join(a))
+    return (str1.join(object))
 
 
 h = listToString(header)
@@ -95,15 +90,13 @@ n = listToString(names)
 fc = listToString(favorite_color)
 ff = listToString(favorite_fruit)
 
-final_write = header, '\n', n, '\n', fc, '\n', ff
-
 with open('code/elliott/lab_10/back_contacts.csv', 'w') as file2:
-    file2.write(final_write)
+    file2.write(f'{header} \n {n}\n{ff}\n{fc}')
+
+
 # elliott,apple,red
 
-
-
-
+'''
 for f in contacts:
         fruits = f['favorite fruit']
         for c in contacts:
@@ -128,7 +121,6 @@ print(names, fruits, color)
 # elliott,apple,red
 
 
-
 new_dict.items()
 
 new_data = list(new_dict.items())
@@ -149,7 +141,7 @@ Implement a CRUD REPL
 Create a record: ask the user for each attribute, add a new contact to your contact list with the attributes that the user entered.
 Retrieve a record: ask the user for the contact's name, find the user with the given name, and display their information
 
-Update a record: ask the user for the contact's name, then for which attribute of the user 
+Update a record: ask the user for the contact's name, then for which attribute of the user
 they'd like to update and the value of the attribute they'd like to set.
 
 Delete a record: ask the user for the contact's name, remove the contact with the given name from the contact list.
