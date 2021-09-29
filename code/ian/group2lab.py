@@ -1,17 +1,40 @@
-#counter = =0
-#digits are age and list total = pop
-jacks = [0,0]
+counter = 100
+
+jacks = [10, 10, 9, 9, 6, 6, 0, 0]
 pop = len(jacks)
-while pop < 1000:
-    for i  in jacks:
-        if i >= 4 and i <= 8:
-            jacks.append(0)
-        i += 1
+
+for i in range(pop):
+    jacks[i] += 1
+    if jacks[i] >= 4 and jacks[i] <= 8:
+        jacks.append(0)
+ #   jacks[i] += 1
+    if jacks[i] > 9:
+       del jacks[i]
+  #  for i in jacks:
+   #     i += 1
+    
+    print(jacks)
+
 print(pop)
+print(jacks)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 0 increase first 4 loops(years)
 # for i in list
 #i+=1
 # if i >= 4 <= 8:
 # list.append(0)
 #---------------------------
-#pop = [2, 0, 0, 0, 2]
+#population = [2]
