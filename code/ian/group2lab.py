@@ -1,21 +1,27 @@
-counter = 100
 
-jacks = [10, 10, 9, 9, 6, 6, 0, 0]
-pop = len(jacks)
+years = 0
+# jacks is age of each jackalope
+jacks = [0, 0]
 
-for i in range(pop):
-    jacks[i] += 1
-    if jacks[i] >= 4 and jacks[i] <= 8:
-        jacks.append(0)
- #   jacks[i] += 1
-    if jacks[i] > 9:
-       del jacks[i]
+
+while len(jacks) < 20:
+    for i in range(len(jacks)):
+        jacks[i] += 1
+        if jacks[i] >= 4 and jacks[i] <= 8:
+            jacks.append(0)
+        
+        # jacks[i] += 1
+        # elif jacks[i] > 9:
+        # jacks.pop(i)
   #  for i in jacks:
    #     i += 1
     
-    print(jacks)
+        print(jacks)
+    years += 1
+    print(years)
+    print('_______')
 
-print(pop)
+print(len(jacks))
 print(jacks)
 
 
