@@ -4,26 +4,19 @@ years = 0
 jacks = [0, 0]
 
 
-while len(jacks) < 20:
+while len(jacks) < 1000:
     for i in range(len(jacks)):
         jacks[i] += 1
         if jacks[i] >= 4 and jacks[i] <= 8:
             jacks.append(0)
-        
-        # jacks[i] += 1
-        # elif jacks[i] > 9:
-        # jacks.pop(i)
-  #  for i in jacks:
-   #     i += 1
-    
-        print(jacks)
+        if jacks[i] > 9:
+            jacks.remove(jacks[i])
     years += 1
-    print(years)
-    print('_______')
-
-print(len(jacks))
-print(jacks)
-
+    
+        
+    
+print(f'Pop = {len(jacks)}')
+print(f'Years = {years}')
 
 
 
