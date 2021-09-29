@@ -1,5 +1,15 @@
 import random
 
+import time
+
+print("")
+welcome_message = "Welcome to the Jackalope Simulator"
+for char in welcome_message:
+  print(char, end='', flush=True)
+  time.sleep(.04)
+time.sleep(2)
+print("")
+
 
 def newbaby():
     
@@ -13,12 +23,27 @@ def newbaby():
     newjackalope["pregnant"] = 'no'
     
     return newjackalope
+'''
+class Jackalope:
+    def __init__(self, name, age, sex, pregnant):
+        self.name = name
+        self.age = age
+        self.sex = sex
+        self.pregnant = pregnant
+
+jackalope1 = Jackalope('bob', 0, 'male', 'no')
+jackalope_dic = {}
+jackalope_dic = {'name': jackalope1.name}
+for i in jackalope1:
+    if jackalope1.pregnant == 'no':
+'''
 
 jackalopes = [{'name': "burger", 'age': 0, 'sex': 'female', 'pregnant': 'no'}, {'name': "notburger", 'age': 0, 'sex': 'male', 'pregnant': 'no'}, {'name': "otherburger", 'age': 0, 'sex': 'male', 'pregnant': 'no'}, {'name': "cheeseburger", 'age': 0, 'sex': 'female', 'pregnant': 'no'}]
 pregnant = ['yes', 'no']
 
-year = 0
-
+year = 2021
+deathcount = 0
+anti_jackal = []
 while len(jackalopes) < 1000 and len(jackalopes) != 0:
     year += 1
     for i in range(len(jackalopes)):
@@ -43,11 +68,19 @@ while len(jackalopes) < 1000 and len(jackalopes) != 0:
             jackalopes.append(newbaby())
             jackalopes[i]['pregnant'] = 'no'
     random.shuffle(jackalopes)
+    before = len(jackalopes)
     jackalopes = [jack for jack in jackalopes if jack['age'] <= 10]
-    print(len(jackalopes))
-# print(jackalopes)
-if len(jackalopes) >= 1000:
-    print(f"It will take {year} years to build a population of 1000 jackalopes")
-else:
-    print(f"Your population died at year {year}")
+    deathcount += (before - len(jackalopes))
+    anti_jackal.append(deathcount)
+    alive = len(jackalopes)
+    print(f'\nIn the year{year}')
+    print("-----------------")
+    print(f'{alive} Jackalopes remain alive')
+    print(f'{deathcount} found dead\n')
 
+total_dead = sum(anti_jackal)
+print(f'The total deaths of jackalopes is {total_dead}')
+if len(jackalopes) >= 1000:
+    print(f"In the year {year}, we have a population of {alive} jackalopes")
+else:
+    print(f"Your population of jackalopes died in the year {year}")
