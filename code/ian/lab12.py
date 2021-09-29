@@ -1,7 +1,8 @@
 class ATM:
-    def __init__(self, balance = 0, interest = 0.1):
+    def __init__(self, balance = 0, interest = 0.1, transactions = []):
         self.balance = balance
         self.interest = interest
+        self.transactions = transactions
 
     def check_balance(self):
         balance = self.balance
@@ -9,6 +10,7 @@ class ATM:
 
     def deposit(self, amount):
         self.balance += amount
+        self.transactions.append(f'User deposited ${amount}')
         return self.check_balance()
 
     def check_withdrawal(self, amount):
@@ -20,18 +22,12 @@ class ATM:
     def withdraw(self, amount):
         if True:
             self.balance -= amount
+            self.transactions.append(f'User withdrew ${amount}')
             return self.check_balance()
 
     def calc_interest(self):
         i = self.balance * self.interest
         return i
-
-    def print_transactions(history):
-        history = transaction_history
-        print(history)
-        
-
-
 
 
 transaction_history = []
@@ -46,7 +42,7 @@ while True:
         amount = float(input('How much would you like to deposit? '))
         atm.deposit(amount) # call the deposit(amount) method
         print(f'Deposited ${amount}')
-        transaction_history.append(f'User deposited ${amount}')
+        
     elif command == 'withdraw':
         amount = float(input('How much would you like '))
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
@@ -59,7 +55,9 @@ while True:
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'history':
-        history = atm.print_transactions()
+        print(*atm.transactions, sep = '\n')
+        balance = atm.check_balance()
+        print(f'Your balance is ${balance}')
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
