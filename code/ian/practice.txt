@@ -1,0 +1,9 @@
+name,favorite fruit,favorite color
+john,apple,green
+kevin,pear,yellow
+ron,peach,orange
+angus,mango,black
+alfred,banana,pink
+chris,peaches,salmon
+jerry,skittles',rainbow
+gerald,gooseberries,surf green
