@@ -32,7 +32,7 @@ class Game:
                             x0 y1 | x1 y1 | x2 y1
                             x0 y2 | x1 y2 | x2 y2
                             >>>> '''))
-        
+
         self.gameboard[y][x] = player.token
 
         return self.gameboard
