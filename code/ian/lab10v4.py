@@ -12,7 +12,7 @@ def add_contact(c_list):
     }
     c_list.append(new_contact)
     print(new_contact)
-
+ 
 def lookup(contacts_list):
     search = input('Search name: ')
     for x, values in enumerate(contacts_list):
