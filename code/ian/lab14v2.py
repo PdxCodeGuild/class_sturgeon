@@ -25,7 +25,7 @@ while True:
     while True:
         
         for i, line in enumerate(data['results']):
-            #print(line['joke'] + '\n')
+            
 
             dad_joke = line['joke']
             split_joke = re.split('[?.,]', dad_joke)
@@ -35,7 +35,6 @@ while True:
             another_joke = input('Wanna hear another? y/n: ')
             if another_joke == 'n':
                 print("okay, thats enough of those.\n")
-                new_joke = 'y'
                 break
             
             elif another_joke not in ['y', 'n']:
