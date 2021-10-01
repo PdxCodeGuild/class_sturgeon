@@ -96,6 +96,9 @@ In all three presentations, you should first explain the development process and
 
 ## Odds and Ends
 
+A Friendly Guide to Promise.all  
+https://levelup.gitconnected.com/a-friendly-guide-to-promise-all-68e7cd57b65d
+
 SQL Island  
 https://sql-island.informatik.uni-kl.de/
 
