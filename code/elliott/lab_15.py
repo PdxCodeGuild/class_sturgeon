@@ -1,17 +1,21 @@
 import requests
 
+while True:
+    keyword = input("Enter a phrase to search for a quote: ")
+    page = input('Enter page number or done: ')
 
-response = requests.get('https://favqs.com/api/qotd',
-                        headers={'Content-Type': 'application/json'}).json()
-quote = response['quote']['body']
-author = response['quote']['author']
+    response = requests.get('https://favqs.com/api/quotes', params={'page': page, 'filter': keyword},
+                            headers={'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}).json()
 
-#print(f'{quote} By the author {author}')
+    quotes = response['quotes']
 
-#user_quote = input("Enter a phrase to search for a quote")
-response1 = requests.get('https://favqs.com/api/quotes', params={'page': '<page>', 'filter': '<keyword>'},
-                         headers={'Content-Type': 'application/json'}).json()
-# https://favqs.com/api/quotes ? page=<page>&filter=<keyword>
+    amount_of_quotes = len(quotes)
+    print(
+        f'There are {amount_of_quotes} quotes associated with the keyword {keyword}. Page {page}')
 
+    for quote in quotes:
+        list_quotes = quote['body']
+        print("--------------------------------------------------------------------" '\n', list_quotes)
 
-print(response1)
+    if page == 'done':
+        break
