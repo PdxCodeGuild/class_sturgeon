@@ -5,6 +5,9 @@ response = requests.get('https://icanhazdadjoke.com', headers= {'accept': 'appli
 
 data = response.json()
 
+
+
+
 dad_joke = data['joke']
 split_joke = re.split('[?.,]', dad_joke)
 for i in split_joke:

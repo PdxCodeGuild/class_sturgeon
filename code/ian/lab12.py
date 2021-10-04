@@ -1,5 +1,5 @@
 class ATM:
-    def __init__(self, balance = 0, interest = 0.1, transactions = []):
+    def __init__(self, balance = 0, interest = 0.001, transactions = []):
         self.balance = balance
         self.interest = interest
         self.transactions = transactions
@@ -14,7 +14,7 @@ class ATM:
         return self.check_balance()
 
     def check_withdrawal(self, amount):
-        if amount < self.check_balance():
+        if amount <= self.check_balance():
             return True
         else:
             return False
