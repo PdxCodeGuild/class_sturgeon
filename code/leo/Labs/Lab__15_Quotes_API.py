@@ -50,8 +50,6 @@ while True:
 
             if choice == "done" or page > 24 :
                 break
-        
-
 
 print(f'\n>>>>>>>> OK! Bye bye')
 
