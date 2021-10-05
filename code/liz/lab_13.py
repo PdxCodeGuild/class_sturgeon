@@ -24,6 +24,7 @@ class Game:
     
     def move (self, x, y, player):
         self.b[y][x] = player.t
+     
 
     def calc_winner (self, player):
         if self.b[0][0] == self.b[1][0] == self.b[2][0] == player.t:
@@ -66,30 +67,51 @@ def valid_token ():
             return token1
         print("Not a valid token. Please enter 'X' or 'O'")
 
-def valid_move1 ():
+def valid_move (gb):
+    terms = [
+        {
+            'axis' : 'column',
+            'dir1' : 'left',
+            'dir2' : 'middle',
+            'dir3' : 'right',
+        },
+        {
+            'axis' : 'row',
+            'dir1' : 'top',
+            'dir2' : 'middle',
+            'dir3' : 'bottom',
+        }
+    ]
+    
     while True:
-        try:
-            move1 = int(input(f'{current_player}: What column would you like to place your token in?\n(left = 0), (middle = 1), (right = 2)\n'))
-        
-            if move1 in [0, 1, 2]:
-                return move1
-            print('Not a valid move. Please select 0, 1, or 2\n')
-        except ValueError:
-            print('Please enter a valid number: 0, 1, or 2')
+        results = []
+        for term in terms:
+            while True:
+                try:
+                    move = int(input(f"{current_player}: What {term['axis']} would you like to place your token in?\n({term['dir1']} = 0), ({term['dir2']} = 1), ({term['dir3']} = 2)\n"))
+                    
+                    if move in [0, 1, 2]:
+                        results.append(move)
+                        break
+                    print('Not a valid move. Please select 0, 1, or 2\n')
+                except ValueError:
+                    print('Please enter a valid number: 0, 1, or 2')
+        if empty_space(results, gb):
+            break
+        else:
+            print('This spot is taken!')
+    return results
 
-def valid_move2 ():
-    while True:
-        try:
-            move2 = int(input(f'{current_player}: What row would you like to place your token in?\n(top = 0), (middle = 1), (bottom = 2)\n'))
-            if move2 in [0, 1, 2]:
-                return move2
-            print('Not a valid move. Please select 0, 1, or 2\n')
-        except ValueError:
-            print('Please enter a valid number: 0, 1, or 2')
+def empty_space (value_lst, gb):
+    if gb.b[value_lst[0]][value_lst[1]] == ' ':
+        return True
+    else:
+        return False
+
+
 
 
   
-
 
 # start game!
 print('Welcome to Tic-Tac-Toe!')
@@ -110,9 +132,8 @@ while True:
         while True:
             current_player = player1 if counter % 2 == 0 else player2
             counter += 1
-            move1 = valid_move1()
-            move2 = valid_move2()
-            game.move(move1, move2, current_player)
+            move = valid_move(game)
+            game.move(move[0], move[1], current_player)
             game.__repr__()
             if game.is_game_over(current_player):
                 print('The game is over')

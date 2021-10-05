@@ -3,9 +3,9 @@
 class ATM:
 
     def __init__ (self):
-        self.b = int()
-        self.ir = 0.001
-        self.t = []
+        self.b = int() # balance
+        self.ir = 0.001 # interest rate
+        self.t = [] # transactions
     
     def check_balance (self):
         return self.b
@@ -15,7 +15,7 @@ class ATM:
         self.t.append(f'user deposited ${d}')
     
     def check_withdrawal (self, wa):
-        cw = self.b - wa
+        cw = self.b - wa # withdrawal amount
         return cw >= 0
     
     def withdraw (self, wa):
