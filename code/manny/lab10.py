@@ -1,41 +1,46 @@
 import re
+from types import new_class
 #Opens CSV file
-with open('contacts.csv', 'r') as file:
+with open('contacts_copy.csv', 'r') as file:
     lines = file.read().split('\n')
 
 #Final Contact list
-contact_list_complete = []    
+contact_complete = []    
 
 #Splits list, uses for loors to create dict's and appends to final list
-def contact_maker(contacts):
-    nested_list = [each.split(",") for each in contacts]
-    person_marker = 1
-    num_people = len(nested_list[0]) - 1 
 
-    for babuska in range(num_people):
-        key_marker = 0
-        contact_dict = {}
-        
-        for matryoshka in nested_list:
-            key = nested_list[key_marker][0]
-            person = nested_list[key_marker][person_marker]
-            key_marker += 1
-            contact_dict.update({key:person})
-        
-        person_marker += 1
-        contact_list_complete.append(contact_dict)
-    print(contact_list_complete)
+nested_list = [each.split(",") for each in lines]
+num_people = len(nested_list[0]) - 1 
+person_marker = 1
 
-contact_maker(lines)
+key_maker = [key[0] for key in nested_list]
 
-"""__________________Verson 2____________________"""
+for babuska in range(num_people):
+    marker = 0
+    contact_dict = {}
+    for matryoshka in nested_list:
+        key = nested_list[marker][0]
+        data = nested_list[marker][person_marker]
+        marker += 1
+        contact_dict.update({key:data})    
+    
+    person_marker += 1
+    contact_complete.append(contact_dict)
 
-def create_contact(data, keys):
+data
+
+"""__________________________________Version 2__________________________________________________"""
+def create_contact(contact_dict, key_maker):
     new_contact = {}
-    for key in keys:
-        new_contact [key] = input(f"What is your new contact's {key}")
-    data.append(new_contact) 
+    for key in key_maker:
+        new_contact[key] = input(f"What is your new contact's {key}: ")
+    contact_dict.append(new_contact) 
 
+
+
+
+
+"""
 def read_contact(data, keys):
     #first we need a list of keys
     key_string = "\n" + "\n".join(keys) + "\n"
@@ -65,23 +70,22 @@ def update_contact(data, keys):
 
 def delete_contact(data, keys):
     pass
-
+"""
 while True:
-    client_input = input("What would you like to do to a record? Create? Read? Update? Delete?")
-    if client_input == "create":
-        pass #write the funciton about the input
-    elif client_input == "read":
+    client_input = input("What would you like to do to a record? (C)reate? (R)ead? (U)pdate? (D)elete? ")
+    if client_input == "C":
+       create_contact(data,key_maker)
+    elif client_input == "R":
         pass
-    elif client_input == "update":
+    elif client_input == "U":
         pass
-    elif client_input == "delete":
+    elif client_input == "D":
         pass
     else: 
         print("Wrong command, bud")
-    break
 
-"""___________________________Version 3________________________________"""
-
+"""
+#VERSION 3 
 data_csv_output = []
 
 data_csv_output.append(keys)
@@ -100,3 +104,4 @@ print(data_csv_output)
 with open("contacts_copy.csv", "w") as f:
     f.write(data_csv_output)
 
+"""
