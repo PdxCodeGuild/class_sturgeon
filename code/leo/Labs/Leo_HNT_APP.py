@@ -2,6 +2,8 @@ import requests
 import datetime
 from statistics import mean
 import time
+import lenny
+
 
 def slowprint(text): # print txt slow
     for character in text:
@@ -22,7 +24,6 @@ def address_url_converter(): #Asks user for Address and concatenated it into Goo
 def lat_log():#Uses address_url_converted to connect with GoogleMaps API, and returns Latitude and Longitude in HNT URL format
     
     while True:
-        # MapQuestKEY = '5TbsKqN9vG810Qy5ckoUVcALAGKrurVm'
         GoogleMapsKEY = 'AIzaSyC4-KZ9XLmhlZ4GpKMiXC1JCtUiL0ZO6fM'
         GoogleMaps_url = requests.get(f'https://maps.googleapis.com/maps/api/geocode/json?address={address_url_converter()}&key={GoogleMapsKEY}')
         GoogleMaps_data = GoogleMaps_url.json()
