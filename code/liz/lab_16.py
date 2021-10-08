@@ -6,17 +6,15 @@
 import requests
 import pygal
 import webbrowser
+import datetime
+
 
 
 def all_critters (critter_list):
     return [''.join(critter.keys()) for critter in critter_list]
   
-
-
-
 def new_critter (user_input, inventory_list):
     inventory_list.append(user_input)
-
 
 def my_critters (inventory_list):
     for critter in inventory_list:
@@ -73,55 +71,77 @@ user_inventories = {
 
 
 # begin program
-print('Welcome to the Animal Crossing Critter Catching Companion!')
-while True:
-    section = input("What section are you interested in working on today?\nEnter 'fish', 'sea creatures', 'bugs', or 'exit'\n")
-    if section == 'exit':
-        print('Goodbye')
-        break
+# print('Welcome to the Animal Crossing Critter Catching Companion!\n')
+# while True:
+#     section = input("What critter category are you interested in working on today?\nEnter 'fish', 'sea creatures', 'bugs', or 'exit'\n")
+#     if section == 'exit':
+#         print('Goodbye')
+#         break
     
-    elif section in list(critter_encylcopedia.keys()):
-        command = input(f"""
-What would you like to do?
-    'list' = see all {section} available
-    'new' = enter new {section} into your inventory
-    'inventory' = see your {section} inventory
-    'uncaught' = see what {section} you have left to catch
-    'chart' = see caught vs uncaught {section} chart
-        """)
-        if command == 'list':
-            for critter in all_critters(critter_encylcopedia[section]):
-                print(critter)
+    # elif section in list(critter_encylcopedia.keys()):
+    #     while True:
+    #         command = input(f"""
+    # What would you like to do?
+    #     'list' = see all {section} available
+    #     'new' = enter new {section} into your inventory
+    #     'inventory' = see your {section} inventory
+    #     'uncaught' = see what {section} you have left to catch
+    #     'chart' = see caught vs uncaught {section} chart
+    #     'other' = change critter category
+    #         """)
+    #         if command == 'list':
+    #             for critter in all_critters(critter_encylcopedia[section]):
+    #                 print(critter)
 
-        if command == 'new':
-            while True:
-                user_critter = input(f"Enter what you caught:\n").lower()
-                if user_critter in all_critters(critter_encylcopedia[section]):
+    #         elif command == 'new':
+    #             while True:
+    #                 user_critter = input(f"Enter what you caught:\n").lower()
+    #                 if user_critter in all_critters(critter_encylcopedia[section]):
+    #                     new_critter (user_critter, user_inventories[section])
+    #                     print(user_inventories[section])
+    #                     another = input("Would you like to make another entry? 'yes' or 'no'\n")
+    #                     if another != 'yes':
+    #                         break
+    #                 else:
+    #                     print(f'That entry is not in the {section} list')
 
-                    new_critter (user_critter, user_inventories[section])
-                    print(user_inventories[section])
-                    another = input("Would you like to make another entry? 'yes' or 'no'\n")
-                    if another != 'yes':
-                        break
-                else:
-                    print(f'That entry is not in the {section} list')
-        if command == 'inventory':
-            if user_inventories[section] == []:
-                print("Your inventory is empty")
-            else:
-                for critter in user_inventories[section]:
-                    print(critter)
-        if command == 'uncaught':
-            for critter in remaining_critters (user_inventories[section], all_critters(critter_encylcopedia[section])):
-                print(critter)
-        if command == 'chart':
-            pie_chart(user_inventories[section], all_critters(critter_encylcopedia[section]), section)
-        elif command != ['list', 'new', 'inventory', 'uncaught', 'chart']:
-            print('Entry not recognized')
-    else:
-        print('Entry not recognized')
+    #         elif command == 'inventory':
+    #             if user_inventories[section] == []:
+    #                 print("Your inventory is empty")
+    #             else:
+    #                 for critter in user_inventories[section]:
+    #                     print(critter)
+
+    #         elif command == 'uncaught':
+    #             for critter in remaining_critters (user_inventories[section], all_critters(critter_encylcopedia[section])):
+    #                 print(critter)
+
+    #         elif command == 'chart':
+    #             pie_chart(user_inventories[section], all_critters(critter_encylcopedia[section]), section)
+
+    #         elif command == 'other':
+    #             break
+
+    #         else:
+    #             print('Entry not recognized')
+    # else:
+    #     print('Entry not recognized')
 
 
 
 # add while true on line 84? change if statements to elif and else
 # work on datetime? use data to see if anything is avaiable to catch
+current_datetime = datetime.datetime.now()
+month = current_datetime.month
+hour = current_datetime.hour
+
+# print(month, hour)
+
+# for fish in fish_list:
+#     if month in fish['month-array-northern']:
+#         print(fish, '\n')
+
+
+
+
+
