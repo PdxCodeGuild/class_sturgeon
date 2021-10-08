@@ -3,7 +3,6 @@ import datetime
 from statistics import mean
 import time
 
-
 def slowprint(text): # print txt slow
     for character in text:
         print(character, end='', flush = True)
@@ -32,10 +31,11 @@ def lat_log():#Uses address_url_converted to connect with GoogleMaps API, and re
             slowprint("\n\n>>>>>>> GOT IT!!!!  Please wait a little while I search the area... (° ͟ʖ °)\n ")
             break
         except IndexError:
-            slowprint("\n >>>>>>> (° ͟ʖ °) Duuuudddeeee!!!!!")
-            print(f'''\n\n          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n          ████▌▄▌▄▐▐▌█████\n          ████▌▄▌▄▐▐▌▀████\n          ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n\n ''')
-            slowprint(f'''>>>>>>> Unfortunately GoogleMaps was not able to find the address in the format you entered... (╯ ͠° ͟ʖ ͡°)╯┻━┻\n\n         Let's try entering the address again or try a different address in the same area\n"''')
-
+            slowprint("\n             (╯° ͟ʖ °)╯┻━┻ ups")
+            print(f'''\n\n               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\n               ████▌▄▌▄▐▐▌█████\n               ████▌▄▌▄▐▐▌▀████\n               ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n\n ''')
+            time.sleep(3)
+            slowprint(f'''\n >>>>>>> Unfortunately GoogleMaps was not able to find the address in the format you entered...\n\n         Let's try entering the address again or try a different address in the same area\n"''')
+            time.sleep(3)
     return url_lat_lon
 
 def get_reward(HotSpot_address): #Takes HotSpot Address in HNT format and returns a list with past rewards
@@ -131,19 +131,26 @@ def average(data):# Takes data print average and returns answer if user wants to
             The estimated average rewards 
 
             ₿    {round(mean(ave_24h), 2)} HNT ₿ in the past 24hs
-            ₿₿₿   {round(mean(ave_week), 2)} HNT ₿ in the past 7 days
-            ₿₿₿₿₿  {round(mean(ave_month), 2)} HNT ₿ in the past 30 days
+            ₿₿   {round(mean(ave_week), 2)} HNT ₿ in the past 7 days
+            ₿₿₿  {round(mean(ave_month), 2)} HNT ₿ in the past 30 days
 
-            Here are more details:  ↓            
+    
+            
+            Press enter to continue...
+
+
             ''')
-
+        
+        pressentertocontinue = input()   
+        slowprint('         Here are more details:  ↓ \n\n\n')
+        time.sleep(1.5)
         cc = 0
         for each in data:
             cc += 1
             if each['Status'] == 'OFFLINE':
                 slowprint(f"\n    {cc} - {each['Name']} is currently OFFLINE\n\n")
             else:
-                print(f"\n    {cc} - {each['Name']} is currently ONLINE with a Reward Scale of {each['Reward Scale']}\n            {round(each['24h'], 2)} HNTs in the past 24h,\n            {round(each['Week'], 2)} HNTs in the past week,\n            {round(each['Month'], 2)} HNTs in the past month.\n\n")
+                print(f"\n    {cc} - {each['Name']} is currently ONLINE with a Reward Scale of {round(each['Reward Scale'], 2)}\n            {round(each['24h'], 2)} HNTs in the past 24h,\n            {round(each['Week'], 2)} HNTs in the past week,\n            {round(each['Month'], 2)} HNTs in the past month.\n\n")
                 time.sleep(0.3)
 
         slowprint(' >>>>>>> Would you like to download these data in an Excel file?\n      Yes or No (●__●) >>>> ')
@@ -165,14 +172,14 @@ print('''
                                                                     ██╔══██║░██║██║██║░░░░██║░░░
                                                                     ██║░░██║░██║█████║░░░░██║░░░
 
-                                                                    Welcome to Leo Helium App!!!
+                                                                    Welcome to HNT Finders App!!!
                                                                             
 
                                                                             (▀̿Ĺ̯▀̿) ₿₿₿₿₿₿
 ''')
 slowprint('''
                                     This application will help you locate and measure the rewards of all HNT HotSpots in the desired location.
-                                     By simply entering an address and distance; You now have access to a list of HNTs gains in the past days. 
+                                By simply entering an address and distance; You now have access to a completed list of HNTs gains in the past days. 
                                                      No more spending hours comparing hexagons on Helium Explorer!!!
                                                                                                                             
                                                     Find out the best locations for your next ₿₿ HELIUM investment ₿₿ 
@@ -181,7 +188,7 @@ while True:
     run = average(HotSpots_Data_Finder())
     if run == 'zero':
         time.sleep(2)
-        slowprint("\n >>>>>>> (╯° ͟ʖ °)╯┻━┻ ups!!!! There are no HNT Hotspots currently registered in this area. Try again with a farther distance...\n")
+        slowprint("\n             (╯° ͟ʖ °)╯┻━┻ ups\n\n >>>>>>> !!!! There are no HNT Hotspots currently registered in this area. Try again with a farther distance...\n")
     
     time.sleep(2)
     loop = str(input('\n >>>>>>> Would you like another search?\n >>>>>>>  '))
@@ -190,7 +197,7 @@ while True:
         break
 
 slowprint('''
->>>>>>>            Thanks for using the Leo Helium App !!!!
+>>>>>>>            Thanks for using the HNT Finder App !!!!
 
 
                         ░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ 
@@ -207,7 +214,41 @@ slowprint('''
 
                                  TO THE MOON
 
-
 ''')
 
-#using last  address once put a crazy wrong address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exit = input()
