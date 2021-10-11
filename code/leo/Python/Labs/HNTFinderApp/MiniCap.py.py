@@ -184,6 +184,9 @@ slowprint('''
                                                                                                                             
                                                     Find out the best locations for your next ₿₿ HELIUM investment ₿₿ 
 ''')
+
+
+
 while True:
     run = average(HotSpots_Data_Finder())
     if run == 'zero':
@@ -195,6 +198,10 @@ while True:
     loop = loop.lower()
     if loop == 'no' or loop == 'n':
         break
+
+
+
+
 
 slowprint('''
 >>>>>>>            Thanks for using the HNT Finder App !!!!
