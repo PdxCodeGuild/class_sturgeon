@@ -40,7 +40,6 @@ def available_now (inventory_list, critter_list):
             if month in critter[item]['month-array-northern'] and hour in critter[item]['time-array']:
                 catch_of_the_day.append(critter)
     temp_critter_inventory = remaining_critters(inventory_list, all_critters(critter_list))
-    # print(temp_critter_inventory)
     return [critter for critter in catch_of_the_day if ''.join(critter.keys()) in temp_critter_inventory]
 
 # -------------------------------------------------------------------------------------------------- #
