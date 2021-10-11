@@ -1,9 +1,10 @@
 import requests
 import yfinance as yf
 import yahoo_fin.stock_info as si
+from yahoo_fin.stock_info import get_data
+import plotly.graph_objects as go
 
-
-#------------------------------------------------------API----------------------------------------------------------#
+#---------------------------------------------API----------------------------------------------------------#
 
 
 def rec(ticker):
@@ -15,7 +16,18 @@ def news(ticker, limit):
     poly_api_key = "2d5b7LFFuTGUowh3lmLW8M_pFQbDNmx3"
     url = f"https://api.polygon.io/v2/reference/news?limit={limit}&order=descending&sort=published_utc&ticker={ticker}&apiKey={poly_api_key}"
     news = requests.get(url).json()
-    print(news)
+    title = news['results'][0]['title']
+    author = news['results'][0]['author']
+    news_url = news['results'][0]['article_url']
+    print(f"""
+    Title: {title}
+    
+    Author: {author}
+
+    Url: {news_url}
+    
+
+    """)
 
 
 def finacials(ticker):
@@ -35,7 +47,8 @@ def analysis(ticker):
     fifty_two_weekHigh = analysis['summaryDetail']['fiftyTwoWeekHigh']['fmt']
     debt_to_equity = analysis['financialData']['debtToEquity']['fmt']
     previous_price = analysis['price']['regularMarketPreviousClose']['fmt']
-
+    returnOnEquity = analysis["financialData"]["returnOnEquity"]['fmt']
+    targetMeanPrice = analysis['financialData']["targetMeanPrice"]['fmt']
     print(f"""
     These are our reccomendations based on the fundamental analysis: 
     --------------------------------------------------------------------
@@ -46,21 +59,24 @@ def analysis(ticker):
     Important metics:
     Cash flow (+/-): {cash_flow} 
     Debt to equity: {debt_to_equity}
-
+    Return on equity(ROE): {returnOnEquity}
+    Target price: ${targetMeanPrice}
     --------------------------------------------------------------------
      > """)
 #-------------------------------------------------------API---------------------------------------------------------------#
 
 
 #----------------------------------------------------user promps----------------------------------------------------------#
+
+
 def promp():
     choice = input("""
-    Enter one of the options below or 'All' for full fundamental report.
+    Enter one of the options below:
     --------------------------------------------------------------------
       1. News
       2. Analysis [...]
       3. Reccomendations
-      4. All
+      4. Chart
       5. Exit
     --------------------------------------------------------------------
      > """).lower()
@@ -86,11 +102,53 @@ def promp3():
     2. Exit
      > """).lower()
     return choice3
+
+
+def chart(ticker):
+    start_date = input("START DATE: (M/D/YYYY) ")
+    end_date = input('END DATE: (M/D/YYYY) ')
+
+    stock_weekly = get_data(ticker, start_date=start_date,
+                            end_date=end_date, index_as_date=True, interval="1wk")
+
+    stock_weekly['MA9'] = stock_weekly.close.rolling(9).mean()
+    stock_weekly['MA20'] = stock_weekly.close.rolling(20).mean()
+    '''
+    candlestick = go.Candlestick(
+        x=stock_weekly.index,
+        open=stock_weekly['open'],
+        high=stock_weekly['high'],
+        low=stock_weekly['low'],
+        close=stock_weekly['close']
+    )
+    '''
+
+    fig = go.Figure(data=[go.Candlestick(
+        x=stock_weekly.index,
+        open=stock_weekly['open'],
+        high=stock_weekly['high'],
+        low=stock_weekly['low'],
+        close=stock_weekly['close']),
+        go.Scatter(x=stock_weekly.index, y=stock_weekly.MA9,
+                   line=dict(color='purple', width=1)),
+        go.Scatter(x=stock_weekly.index, y=stock_weekly.MA20, line=dict(color='blue', width=1))])
+
+    fig.update_layout(
+        width=1200, height=700,
+        title=f'{start_date} to {end_date}',
+        yaxis_title=f"{ticker}'s Price action",
+        xaxis_title="Date",
+        xaxis_rangeslider_visible=False,
+        template="plotly_dark"
+    )
+
+    print(fig.show())
+
 #----------------------------------------------------user promps----------------------------------------------------------#
 
 
 ticker = input("Input ticker symbol: ").upper()
-# choice = promp()
+
 while True:
     choice = promp()
     if choice == "1":
@@ -114,9 +172,8 @@ while True:
             elif choice3 == "2":
                 quit()
     elif choice == "4":
-        rec(ticker),
-        analysis(ticker)
-        news(ticker, '5')
+        chart(ticker)
+
     elif choice == "5":
         break
     else:
