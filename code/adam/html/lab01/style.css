@@ -1,0 +1,88 @@
+body{
+/* Part 2a: Center the content of the body: */
+   text-align: center;
+   font-size: larger;
+   height:100%;
+/* Part 3a: Pick a color scheme and modify the background, text and link texted color  */
+   background-color: rgb(4, 136, 54);
+   background-image: url("https://akibamarket.com/wp-content/uploads/2021/09/85368-naofumi-iwatani-protagoniza-un-nuevo-comercial-de-tate-no-yuusha-no-nariagari.jpg");
+   background-position:  left 5px top 15px;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+body, p{
+/* Make the picture stretch to the bottom  */
+    padding-top: 30px;
+/* Part 2c: Use a custom font and make it red from the font family */
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+    font-size: larger;
+}
+
+li{
+    text-align: left;
+    list-style-position: inside;
+    /* list-style-type: square; */
+    list-style-image: url("shield.png");
+    padding-top: 5px;
+    color: rgb(221, 25, 25);
+    font-size: larger;
+    font-weight: bolder;
+    box-sizing: border-box;
+    float: center;
+}
+
+/* Part 2b: Modify the padding and margins of paragraphs to look better */
+p{
+    padding: 5px 250px;
+}
+
+ul img{
+    padding-right: 25px;
+    /* float: left; */
+/* Part 3c: Add arounded border to the picture */
+    border-radius: 40%;
+}
+
+blockquote{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, rgb(38, 38, 212);
+    padding-top: 100px;
+    text-align: left;
+    font-size: larger;
+    font-weight: 200;
+    width: 700px;
+} 
+
+  /* Style the header */
+.header{
+    background-color: #02220f;
+    padding: 20px;
+    text-align: center;
+}
+  
+  /* Style the top navigation bar */
+.topnav{
+    overflow: hidden;
+    background-color: rgb(7, 61, 32);
+}
+  
+  /* Style the topnav links */
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+  /* Change color on hover */
+.topnav a:hover{
+    background-color: rgb(58, 236, 13);
+    color: black;
+}
+
+p a{
+    /* part 3a: Custom link text color  */
+    color: rgb(25, 0, 248);
+}
