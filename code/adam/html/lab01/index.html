@@ -9,53 +9,110 @@
     <!-- page title, the text that appears on a browser -->
     <title>Naofumi Iwatani Bio</title>
     <!-- import external css -->
-    <link rel="stylesheet" href = "style.css"/>
+    <link rel="stylesheet" href = "main.css"/>
   </head>
   <!-- the body contains the actual document that will be shown to the user -->
   <!-- <h1 style="color:greenyellow">Naofumi Iwatani</h1> -->
   <body>
     <div class="header">
-      <h1 style="color:rgb(20, 3, 247)">Naofumi Iwatani</h1>
+      <h1><span style="font-size: 4.3rem">Naofumi Iwatani</span></h1>
+      <hr>
+      <h1 style="text-decoration: underline">The Rising of the Shield Hero</h1>
     </div>
-    
+
     <div class="topnav">
       <a href="https://en.wikipedia.org/wiki/Naofumi_Iwatani">Wikipedia</a>
       <a href="https://www.crunchyroll.com/the-rising-of-the-shield-hero/episode-1-the-shield-hero-781967">Watch First Episode</a>
-      <a href="https://www.youtube.com/embed/xpGExmUuBo8">AMV Music Video</a>
+      <!-- <a href="https://www.youtube.com/watch?v=6qVZMFO9GW8">Abridged Season 1</a> -->
+      <a href="https://www.youtube.com/embed/xpGExmUuBo8">AMV Naofumi x Raphtalia Lonely</a>
+      <a href="https://www.youtube.com/watch?v=xDwvtHghBBI">AMV This house of mine</a>
+      <a href="https://www.youtube.com/watch?v=-pYEaIGHJLc">AMV Rise</a>
+      <a href="https://youtu.be/wdvWBuFF8os">AMV Forgotten</a>
+      <a href="https://youtu.be/kIKXo81WBt0">AMV Broken (Naof Rap)</a>
+      <a href="https://youtu.be/tUR5PLAGT5o">AMV Legends Never Die</a>
+      <a href="https://www.youtube.com/watch?v=7H1-_SXBf2E">1 hour loop of anime intro music</a>
     </div>
     <!-- page element -->
     <!-- Part 1a: Write an introduction -->
-    <p style="color:rgb(216, 17, 17)">20 y/o summoned to a parallel world along with 3x others to become global heroes and fight of moster waves. Equipped with a Legendary Shield, Naofumi earns the title of "Shield Hero" (盾の勇者, Tate no Yuusha) and goes on a journey with hatred towards society after being falsely accused of sexually assaulting a princess.</p>
-    <!-- Part 1b: Link a wikipedia article  -->
-    <div style="border: 1px solid red">
-      <ul>
-          <!-- Part 1c: A picture of them  -->
-          <li><img src="https://i.pinimg.com/originals/68/16/e3/6816e3921958c64615bc6de8f27f5d1f.gif" alt="naofumi gif saying the a world like this can die for all i care" width="600px" height = "400px"></li>
-          <!-- Part 1d: A list of places they lived -->
-          <li>Born and raised: Tokyo, Japan</li>
-          <li>Currently Resides: Melromarc, Rock Valley</li>
-          <li>Status: Legendary Hero</li>
-          <li>Vocation: Merchant</li>
-          <li>Title: Archduke of Melromarc</li>
-      </ul>
+    <p>20 y/o summoned to a parallel world along with 3x others to become global heroes and fight of moster waves. Equipped with a Legendary Shield, Naofumi earns the title of "Shield Hero" (盾の勇者, Tate no Yuusha) and goes on a journey with hatred towards society after being falsely accused of sexually assaulting a princess.</p>
+    <p>Anime Series produced by <span><a href="http://en.wikipedia.org/wiki/Kinema_Citrus" class="extiw" title="wikipedia:Kinema Citrus">Kinema Citrus</a></span></p>
+    <p>Shield Hero is an adaptation of Aneko Yusagi's <span><a href="https://shield-hero.fandom.com/wiki/List_of_Light_Novel_Volumes" title="List of Light Novel Volumes">Light Novel Series</a></span> consisting of 22 volumes</p>
+      <!-- Part 1b: Link a wikipedia article  -->
+      <div class="flex-container">
+      <div class="one">
+        <img src="https://i.pinimg.com/originals/68/16/e3/6816e3921958c64615bc6de8f27f5d1f.gif" alt="naofumi gif saying the a world like this can die for all i care" width="600px" height = "400px">
+        <ul>
+            <!-- Part 1c: A picture of them  -->
+            <!-- Part 1d: A list of places they lived -->
+            <li>Born and raised: Tokyo, Japan</li>
+            <li class="special">Currently Resides: Melromarc, Rock Valley</li>
+            <li>Status: Legendary Hero</li>
+            <li>Vocation: Merchant</li>
+            <li class="special">Title: Archduke of Melromarc</li>
+        </ul>
+      </div>
+      
+      <div class="two">
+        <!-- <iframe src="https://www.youtube.com/embed/xpGExmUuBo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <iframe src="https://www.youtube.com/embed/6qVZMFO9GW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <!-- <p><iframe width="560" height="315" src="https://www.youtube.com/embed/xpGExmUuBo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p> -->
-    <!-- Part 1e: A quote from them -->
+      <!-- Part 1e: A quote from them -->
     <p><blockquote style="color:rgb(196, 230, 9)"><strong><i>“I see. Joining me was just a ruse to destroy me right here. It was all a lie! The smiles she showed me, and her acts of kindness, were all fake!” </i><strong>– Naofumi Iwatani</strong></blockquote>
     </strong></p>
-    <audio controls autoplay loop>
-      <source src="bensound-straight.mp3" type="audio/mpeg"/>
-    </audio>
-    <!-- <embed src="bensound-straight.mp3" loop="true" autostart="true" width="2" height="0"> --> -->
+    <div class="gallery-container">
+      <div class="gallery">
+        <a target="_blank" href="https://media.comicbook.com/2020/09/the-rising-of-the-shiled-hero-season-2-update-1236231.jpeg?auto=webp">
+          <img src="https://media.comicbook.com/2020/09/the-rising-of-the-shiled-hero-season-2-update-1236231.jpeg?auto=webp" alt="Shield hero with two friends">
+        </a>
+        <div class="desc">Peacful horizons ahead</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="https://i2.wp.com/anitrendz.net/news/wp-content/uploads/2021/03/Shield-Hero-2.jpg?resize=696%2C364&ssl=1">
+          <img src="https://i2.wp.com/anitrendz.net/news/wp-content/uploads/2021/03/Shield-Hero-2.jpg?resize=696%2C364&ssl=1" alt="Shield hero with daughter on battlefield">
+        </a>
+        <div class="desc">On the battlefield</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/blog-images/shieldhero.jpg">
+          <img src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/blog-images/shieldhero.jpg" alt="Raphtalia fights for the first time">
+        </a>
+        <div class="desc">The first time Raphtalia fights</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="https://nefariousreviews.files.wordpress.com/2019/08/rising-of-the-shield-hero-featured.jpg">
+          <img src="https://nefariousreviews.files.wordpress.com/2019/08/rising-of-the-shield-hero-featured.jpg" alt="Naofumi stands beside Raphtalia">
+        </a>
+        <div class="desc">The first time Naofumi fights</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="https://i2.wp.com/www.monstersandcritics.com/wp-content/uploads/2019/03/The-Rising-Of-The-Shield-Hero-Season-2-release-date-Tate-no-Yuusha-no-Nariagari-manga-light-novels-compared-to-the-anime-Sequel-definitely-possible-says-Kadokawa-producer-Spoilers.jpg?resize=773.5%2C435&ssl=1">
+          <img src="https://i2.wp.com/www.monstersandcritics.com/wp-content/uploads/2019/03/The-Rising-Of-The-Shield-Hero-Season-2-release-date-Tate-no-Yuusha-no-Nariagari-manga-light-novels-compared-to-the-anime-Sequel-definitely-possible-says-Kadokawa-producer-Spoilers.jpg?resize=773.5%2C435&ssl=1" alt="Naofumi defends Raphtalia and daughter">
+        </a>
+        <div class="desc">Naofumi defends Raphtalia and daughter</div>
+      </div>
+
+      <div class="gallery">
+        <a target="_blank" href="https://animeshelter.com/wp-content/uploads/2019/01/The-Rising-of-the-Shield-Hero-Naofumi-Iwatani-cool-2.jpg">
+          <img src="https://animeshelter.com/wp-content/uploads/2019/01/The-Rising-of-the-Shield-Hero-Naofumi-Iwatani-cool-2.jpg" alt="Naofumi in anguish in the rain">
+        </a>
+        <div class="desc">Naofumi in anguish</div>
+      </div>
+    </div>
+
+    <footer>
       <div>
-        <embed src="bensound-straight.mp3" autostart=true loop=false width="1px" height="1px">
-     </div>
-    <br>
-    <br>
-    <br>
-    <a href="https://bensound.com" target="_blank">Audio credit: Bensound.com</a>
+      <audio controls loop>
+        <source src="bensound-straight.mp3" type="audio/mpeg"/>
+      </audio>
+      </div>
+      
+      <a class="special" href="https://bensound.com" target="_blank">Audio credit: Bensound.com</a>
+      <p>Created by: Adam Berman</p>
+    </footer>
   </body>
 </html>
