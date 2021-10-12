@@ -1,0 +1,19 @@
+img {
+  width: 450px;
+  height: 365px;
+  border-radius: 200px;
+  object-fit: cover;
+}
+body {
+  background-color: grey;
+}
+ul {
+  width: 300px;
+}
+
+#header-background {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  background-image: url("https://wallpapers.com/images/high/alternate-logo-seattle-seahawks-alternate-logo-a4ohaanbuxam6tb9.jpg");
+}
