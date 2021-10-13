@@ -1,0 +1,196 @@
+hr{
+    border-color: lawngreen;
+    border-width: thick;
+    width: 60%;
+}
+
+body{
+/* Part 2a: Center the content of the body: */
+   text-align: center;
+   font-size: larger;
+   height:100%;
+/* Part 3a: Pick a color scheme and modify the background, text and link texted color  */
+   background-color: rgb(4, 136, 54);
+   background-image: url("https://akibamarket.com/wp-content/uploads/2021/09/85368-naofumi-iwatani-protagoniza-un-nuevo-comercial-de-tate-no-yuusha-no-nariagari.jpg");
+   background-position:  left 5px top 15px;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+body, p{
+/* Make the picture stretch to the bottom  */
+    padding-top: 30px;
+/* Part 2c: Use a custom font and make it red from the font family */
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+    font-size: larger;
+    text-align: justify;
+    color: #A83D11
+}
+
+.flex-container{
+    display: flex;
+}
+
+.one{
+    flex: 1;
+    border-style: ridge;
+    border-width: 100px;
+    width: auto;
+    color: #57F500;
+}
+
+.one img{
+    width: 100%;
+    padding-right: 25px;
+    /* float: left; */
+/* Part 3c: Add arounded border to the picture */
+    border-radius: 40%;
+}
+
+.two{
+    flex: 1;
+    align-items: stretch;
+    border-style: ridge;
+    border-width: 100px;
+    padding-top: 10;
+    align-content: stretch;
+}
+
+.two iframe{
+    width: 100%;
+    height: 100%;
+}
+
+li{
+    text-align: left;
+    list-style-position: inside;
+    /* list-style-type: square; */
+    list-style-image: url("shield.png");
+    padding-top: 5px;
+    /* color: #2234F2; */
+    font-size: large;
+    font-weight: bolder;
+    /* width: 12.333%; */
+    /* border-style: 1px solid red; */
+    /* box-sizing: border-box; */
+    /* float: center; */
+}
+
+.special{
+    font-weight: 800;
+    font-size: larger;
+}
+
+/* Part 2b: Modify the padding and margins of paragraphs to look better */
+p{
+    padding: 5px 250px;
+}
+
+blockquote{
+    border: 1px dashed rgb(38, 223, 21);
+    border-width: medium;
+    background: rgb(0, 8, 17);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    /* justify is like a newspaper with a little extra spaces making it easier to read  */
+    text-align: justify; 
+    font-size: larger;
+    font-weight: 200;
+    width: 700px;
+} 
+
+  /* Style the header */
+.header{
+    background-color: #02220f;
+    padding: 20px;
+    color: rgb(20, 3, 247);
+    text-align: center;
+}
+  
+  /* Style the top navigation bar */
+.topnav{
+    display: flex;
+    overflow: hidden;
+    background-color: #57F500;
+    align-items: center;
+    justify-content: center;
+}
+  
+  /* Style the topnav links */
+.topnav a{
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+  
+  /* Change color on hover */
+.topnav a:hover{
+    background-color: rgb(218, 197, 12);
+    color: black;
+}
+
+p a{
+    /* part 3a: Custom link text color  */
+    color: rgb(25, 0, 248);
+}
+
+/* Style the footer */
+footer {
+    border: 1px solid red;
+    background-color: rgb(7, 49, 13);
+    padding: 10px;
+    text-align: center;
+    /* color: white; */
+  }
+
+footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+footer p{
+    text-align: center;
+  }
+
+footer audio{
+    border: 1px solid blue;
+    margin-bottom: 55px;
+}
+  
+.gallery-container{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+.gallery {
+    flex-direction: row;
+    margin: 5px;
+    border: 1px solid rgb(248, 14, 25);
+    /* float: left; */
+    width: 15%;
+    padding-bottom: 10px;
+  }
+  
+.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+
+.desc {
+    padding: 15px;
+    text-align: center;
+    color:lawngreen
+  }
