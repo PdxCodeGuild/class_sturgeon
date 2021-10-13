@@ -38,5 +38,5 @@ elif answer >= 17 and answer < 21:
 elif answer == 21:
     print(f'{answer} "Blackjack!"')
 
-elif answer > 21:
+elif answer < 21:
     print(f'{answer} "Already Busted"')
