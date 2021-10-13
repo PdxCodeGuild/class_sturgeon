@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+header {
+    background-color: lightcoral;
+    text-align: center;
+}
+
+main p {
+    text-align: justify;
+}
+
+@media (min-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .gallery-item {
+        width: 50%;
+        padding: 1em;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav p {
+        padding: 0 1em;
+    }
+}
+
+@media (min-width: 1100px) {
+    header {
+        display: flex;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .gallery-item {
+        width: 33.333%;
+    }
+}
