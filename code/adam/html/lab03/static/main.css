@@ -1,0 +1,72 @@
+body {
+    color: aquamarine;
+    background-color: black;
+    padding: 5px;
+}
+
+header a{
+    position: fixed;
+    color:rgb(255, 255, 255, .6);
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+h2 {
+    color: #fff;
+}
+
+ul li {
+    list-style: none;
+}
+
+li p {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.topnav{
+    display: flex;
+    overflow: hidden;
+    background-color: rgb(45, 0, 248, .2);
+    align-items: center;
+    justify-content: center;
+}
+
+  /* Style the topnav links */
+.topnav a{
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+  /* Change color on hover */
+.topnav a:hover{
+    background-color: rgb(218, 197, 12);
+    color: black;
+}
+
+@media (max-width: 650px) {
+    img{
+        display: none;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 650px) {
+    h1 {
+        color:blueviolet;
+    }
+}
