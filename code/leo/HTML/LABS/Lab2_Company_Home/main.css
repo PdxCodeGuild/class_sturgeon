@@ -27,10 +27,16 @@ footer {
   color: #215892;
 }
 
+.allstores {
+  display: flex ;
+  flex-direction: column;
+}
+
 .store {
   margin-bottom: 20px;
   margin-top: 5px;
   padding: 1em;
+  width: 100%;
 }
 
 .logo { 
@@ -73,32 +79,60 @@ footer {
 
 .social-media {
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
+
 .fa-instagram, .fa-facebook, .fa-twitter {
   color: black;
   padding: 10px;
 }
+
 .fa-instagram:hover, .fa-facebook:hover, .fa-twitter:hover {
   color: rgb(33, 15, 153);
 }
 
+
+
+
 @media (min-width: 600px) {
+  body {
+    margin: 2em;
+  }
+
   .allstores {
-      display: flex ;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-around;
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .store {
-    width: 33%;
+    width: 50%;
   }
+  .words-under-logo {
+    font-size: auto;
+  }
+ 
+}
 
-  .social-media{
-    display: flex;
+@media (min-width: 1100px) {
+  body {
+    margin: 3em;
+  }
+  .allstores {
+    display: flex ;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: space-around;
+  }
+  .words-under-logo {
+    font-size: auto;
+  }
+  .store {
+    width: 50%;
   }
 
 }
