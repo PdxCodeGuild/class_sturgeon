@@ -1,0 +1,19 @@
+/* lab 2 company home page */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    width: 200px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
