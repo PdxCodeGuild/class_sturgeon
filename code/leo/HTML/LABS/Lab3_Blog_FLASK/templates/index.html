@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+ 
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/7b6e1a72b7.js" crossorigin="anonymous"></script>
+        <title>LENEHRT LLC</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    </head>
+    
+    <body>
+        <header>
+            
+            <h1>Presidential's Jokes Blog</h1>
+            <p>get ready for the funiest jokes</p>
+          
+        </header>
+        
+        <main>
+          <div class="allstores">
+            <div class="store">
+              <div class="logo">
+                <p>{{body}}</p>
+                <h2>- President {{author}}</h2>
+              </div>
+            </div>
+           </div>
+          </div>    
+        </main>
+        
+        <footer>
+          <h3>Follow us</h3>
+            <div class="social-media">
+                <a href="https://www.instagram.com"> <i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.facebook.com"> <i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.twitter.com"> <i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

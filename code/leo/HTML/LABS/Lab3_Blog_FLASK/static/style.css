@@ -1,0 +1,100 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1em;
+}
+
+header {
+    padding: 50px;
+    text-align: center;
+    background-color: #215892;
+    color: white;
+    border-radius: 10px;
+}
+
+main {
+  padding: 1em;
+}
+
+footer {
+  margin: 1em;
+  color: #215892;
+}
+
+h2 {
+  font-size: small;
+}
+
+.allstores {
+  display: flex ;
+}
+
+.store {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  padding: 1em;
+  width: 100%;
+}
+
+.logo { 
+  text-align: justify;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ebf4fd;
+  font-size: medium ;
+
+}
+
+.social-media {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.fa-instagram, .fa-facebook, .fa-twitter {
+  color: black;
+  padding: 10px;
+}
+
+.fa-instagram:hover, .fa-facebook:hover, .fa-twitter:hover {
+  color: rgb(33, 15, 153);
+}
+
+
+@media (min-width: 600px) {
+  
+  body {
+    margin: 2em;
+  }
+  h2 {
+    font-size: medium ;
+  }
+  .allstores {
+    display: flex ;
+    justify-content: center;
+  }
+  .logo {
+    font-size: x-large ;
+  }
+
+}
+
+@media (min-width: 1100px) {
+  body {
+    margin: 3em;
+  }
+  .allstores {
+    display: flex ;
+    justify-content: center;
+  }
+
+}
