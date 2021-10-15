@@ -2,6 +2,7 @@
 <html lang = 'en'>
  
     <head>
+
         <meta charset = "UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/7b6e1a72b7.js" crossorigin="anonymous"></script>
@@ -14,9 +15,11 @@
 
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    
     </head>
     
     <body>
+
         <header>
             
             <h1>Presidential's Jokes Blog</h1>
@@ -26,65 +29,17 @@
         </header>
         
         <main>
-
           <div class="allstores">
-            <div class="store">
-              <div class="logo">
-                <p>{{body1}}</p>
-                <h2>- President {{author1}}</h2>
+            {%for joke in jokes%}
+              <div class="store">
+                <div class="logo">
+                  <p>{{joke['joke']}}</p>
+                  <h2>- President   {{joke['author']}}</h2>
+                </div>
               </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body2}}</p>
-                <h2>- President {{author2}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body3}}</p>
-                <h2>- President {{author3}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body4}}</p>
-                <h2>- President {{author4}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body5}}</p>
-                <h2>- President {{author5}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body6}}</p>
-                <h2>- President {{author6}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body7}}</p>
-                <h2>- President {{author7}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body8}}</p>
-                <h2>- President {{author8}}</h2>
-              </div>
-            </div>
-            <div class="store">
-              <div class="logo">
-                <p>{{body9}}</p>
-                <h2>- President {{author9}}</h2>
-              </div>
-            </div>
+            {%endfor%}
           </div>
-   
-      </main>
+        </main>
         
         <footer>
           <h3>Follow us</h3>
