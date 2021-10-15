@@ -1,3 +1,9 @@
+/* #BF9BA2 light red/purple
+#111C26 purplish black
+#8195A6 steel blue
+#C2E0F2 baby blue
+#2E4021 dark forest green */
+
 html {
     box-sizing: border-box;
 }
@@ -11,7 +17,14 @@ img {
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #C2E0F2;
+    color: #111C26;
+    line-height: 1.25;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
 }
 
 header, main, footer {
@@ -19,8 +32,27 @@ header, main, footer {
 }
 
 header {
-    background-color: lightcoral;
+    background-color: #BF9BA2;
     text-align: center;
+}
+
+a {
+    color: #2E4021;
+    transition: .1s ease-in-out all;
+}
+
+a:hover {
+    color: #111C26;
+    transition: .1s ease-in-out all;
+}
+
+header h1 {
+    margin-bottom: 0;
+}
+
+header h3 {
+    margin-top: 0;
+    line-height: 1;
 }
 
 main p {
