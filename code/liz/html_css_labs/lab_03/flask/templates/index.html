@@ -6,18 +6,37 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
+        <title>Cheese Bloggers</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chango&family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
-        
-        {% for item in posts %}
-        <div>{{item['title']}}</div>
-        <br/>
-        {{item['author']}}
-        {% endfor %}
-    
-
+        <header>
+            <h1>Cheese Bloggers</h1>
+            <img src="https://t4.ftcdn.net/jpg/02/63/96/13/360_F_263961397_ANeu4WTg6haEcQ8EkaYQysQjFnMvYrcY.jpg" alt="Yellow heart that looks like swiss cheese with the words cheese love under it"/>
+            <nav>
+                <p><a href="#">Home</a></p>
+                <p><a href="#">About Us</a></p>
+                <p><a href="#">Archive</a></p>
+                <p><a href="#">Contact Us</a></p>
+            </nav>
+        </header>
+        <main>
+            {% for item in posts %}
+            <div class="post-container">
+                <h2>{{item['title']}}</h2>
+                <p class="author-date">Posted by: {{item['author']}} on {{item['date']}}</p>
+                <p class="post-body">{{item['body']}}</p>
+            </div>
+            <hr/>
+            {% endfor %}
+        </main>
+        <footer>
+            <p>Copyright © 2021 Cheese Bloggers Inc.</p>
+        </footer>
     </body>
 </html>
