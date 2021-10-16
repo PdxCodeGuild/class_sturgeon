@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.11.0/build/cssnormalize/cssnormalize-min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'lab3.css')}}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+        
+        <title>Building Blog</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="sidebar">
+                <header>
+                    <img src="{{ url_for('static', filename='images/grimlogo3.png')}}" alt="logo"/>
+                    <h1>Just Keep Building</h1>
+                </header>
+                <nav>
+                    <a href="#home">Home</a>
+                    <a href="#News">News</a>
+                    <a href="#Archive">Archive</a>
+                    <a href="#About">About</a>
+                    <a href="#Search">Search</a>
+                </nav>
+            </div>
+        
+        
+            <div class="main">
+                <div class="container">
+                    {% for item in posts %}
+                    <div class="post">
+                        <img src="{{ url_for('static', filename= item['img_url'])}}">
+                        <h2>{{item['title']}}</h2>
+                            <div class="art">
+                                <p>{{item['body']}}</p>
+                                <p>By: {{item['author']}}</p>
+                                <p>Date: {{item['date']}}</p>
+                            </div>
+                        <hr>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+           
+        </div>
+        
+        <footer>
+            <a href="#Contact Us">Contact Us</a>
+            <a href="#Careers">Careers</a>
+            <a href="#Facebook">Facebook</a>
+            <a href="#Twitter">Twitter</a>
+            <a href="#Instagram">Instagram</a>
+        </footer>
+
+        
+    </body>
+</html>
+
