@@ -1,4 +1,4 @@
-@import "normalize.css";
+
 
 
 html {
@@ -57,7 +57,7 @@ nav {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-content: space-evenly;
+    
     background-color: #f5f0e1;
     color: #1e3d59
 }
@@ -80,6 +80,7 @@ main{
 
 main img{
     border-radius: 15px;
+    
 }
 
 main h2 {
@@ -91,7 +92,11 @@ main div {
     background-color: #1e3d59;
     border-radius: 15px;
     text-align: justify;
-    color:#f5f0e1
+    color:#f5f0e1;
+    border: 1px solid #1e3d59;
+    
+    
+    
 }
 
 main p {
@@ -121,19 +126,23 @@ footer div {
     main{ 
         display:flex;
         flex-wrap: wrap;
-        flex-direction: row-reverse;
-        justify-content: center
+        flex-direction: row;
+        justify-content: space-evenly;
     }
     main img {
         width: 40%;
         margin: 10px;
         object-fit: cover;
+        height: 400px;
+        
     }
     
     
     main div {
         width: 40%;
-        margin: 10px
+        margin: 10px;
+        height: 400px;
+        min-width: 300px
         
     }
 
@@ -145,16 +154,18 @@ footer div {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-evenly
    
     }
     
     main img {
-        width:25%;
-        height: 400px
+        width:30%;
+        height: 400px;
+        margin: 10px;
     }
 
     main div {
-        width:25%;
+        width:30%;
         height: 400px
     }
 
