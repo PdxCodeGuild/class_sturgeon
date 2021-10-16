@@ -1,11 +1,5 @@
 @import "normalize.css";
-/*
-#97A0A6
-#D0D7D9
-#593A28
-#731702
-#262626
-*/
+
 html {
     box-sizing: border-box;
 }
@@ -33,7 +27,6 @@ header{
     
     display: flex;
     flex-direction: column;
-
 }
 
 header img{
@@ -56,31 +49,25 @@ nav {
     align-items: center;
     justify-content: space-around;
     background: white
-    
-    
-
-
 }
 
 body img {
-    border-radius: 15px;
-    
-    
+    border-radius: 15px;   
 }
+
 .post{ 
     margin: 1em;
-    
-
 }
+
 .art {
     margin: 1em;
     
 }
+
 body h2 {
     text-align: center;
     color:#D99152;
-    font-family: 'Raleway', sans-serif;
-    
+    font-family: 'Raleway', sans-serif;  
 }
 
 p {
@@ -125,10 +112,9 @@ footer a {
         background: white;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-
-        
+        justify-content: center;   
     }
+
     .container {
         padding: 1em;
     }
@@ -137,7 +123,14 @@ footer a {
 @media (min-width: 1100px) {
     .container {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 200px;  
+    }
+    
+    
+    .post{
+        margin-left: 0;
+        max-width: 33%
     }
 }
