@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last of Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h5><a href="#top">Back to Top</a></h5>
+    </header>
+    <div id="top" class="topnav">
+        <a href="https://en.wikipedia.org/wiki/The_Last_of_Us">Wikipedia</a>
+        <a href="https://www.bbc.com/news/uk-england-leicestershire-58899024">Live Action Movie News</a>
+        <a href="https://www.denofgeek.com/games/the-last-of-us-hbo-series-set-photo-joel/">HBO Photo Set</a>
+    </div>
+    <div class="flex-container">
+        <div class="joel">
+            <h1>Hello World! I'm Joel</h1>
+            <h1>Sit & listen to a story</h1>
+            <h1>about a girl named Ellie</h1>
+            <hr>
+            <img src="{{ url_for('static', filename='joel.jpg') }}">
+            <div id="mySidenav" class="sidenav">
+                <h4><a href="https://www.youtube.com/watch?v=35SCjZNbPSk">Ellie & Joel Lovely AMV</a></h4>
+                <h4><a href="https://www.youtube.com/watch?v=a7cRzvcxAJU">Ellie Scared of ending up alone</a></h4>
+                <h4><a href="https://youtu.be/opFRegOeS_U">Joel Miller Can't escape the past</a></h4>
+                <h4><a href="https://youtu.be/zDq6tuPcyn4">Ellie's Song: True Faith-Extended</a></h4>
+                <iframe src="https://www.youtube.com/embed/5nvwDNqa3I4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <a target="_blank" href="https://www.gamespot.com/a/uploads/original/1179/11799911/2524526-tlouellie.jpg"><img src="https://www.gamespot.com/a/uploads/original/1179/11799911/2524526-tlouellie.jpg"></a>
+                <a target="_blank" href="https://i.redd.it/v17wnfw16br01.jpg"><img src="https://i.redd.it/v17wnfw16br01.jpg"></a>
+                <a target="_blank" href="https://pbs.twimg.com/media/EfUiZK4WAAAf3BN.jpg"><img src="https://pbs.twimg.com/media/EfUiZK4WAAAf3BN.jpg"></a>
+                <a target="_blank" href="https://www.gamingbible.co.uk/cdn-cgi/image/width=648,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.gamingbible.co.uk%2Fs3%2Fcontent%2F915620c85d8cc05697a206129a908f75.jpg"><img src="https://www.gamingbible.co.uk/cdn-cgi/image/width=648,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.gamingbible.co.uk%2Fs3%2Fcontent%2F915620c85d8cc05697a206129a908f75.jpg"></a>
+                <a target="_blank" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-NlzqyVgD-vIT5JihreGgdmNyU5IZn2GTeXmDANUYIJV_MPOsQyPL2Y6WFDjmzFMidg&usqp=CAU"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-NlzqyVgD-vIT5JihreGgdmNyU5IZn2GTeXmDANUYIJV_MPOsQyPL2Y6WFDjmzFMidg&usqp=CAU"></a>
+                <a target="_blank" href="https://i.pinimg.com/originals/18/ef/18/18ef18ed95fe62be15a110247a79e172.jpg"><img src="https://i.pinimg.com/originals/18/ef/18/18ef18ed95fe62be15a110247a79e172.jpg"></a>
+            </div>
+        </div>
+        <div class="blog">
+            <ul>
+                {% for post in posts %}
+                <li>
+                <h2>{{post['title']}}</h2>
+                <p>{{post['author']}}, {{post['date']}}</p>
+                <p>{{post['body']}}</p>
+                </li>
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="small">
+        <h4><a href="https://www.youtube.com/watch?v=35SCjZNbPSk">Ellie & Joel Lovely AMV</a></h4>
+        <h4><a href="https://www.youtube.com/watch?v=a7cRzvcxAJU">Ellie Scared of ending up alone</a></h4>
+        <h4><a href="https://youtu.be/opFRegOeS_U">Joel Miller Can't escape the past</a></h4>
+        <h4><a href="https://youtu.be/zDq6tuPcyn4">Ellie's Song: True Faith-Extended</a></h4>
+        <iframe src="https://www.youtube.com/embed/5nvwDNqa3I4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <a target="_blank" href="https://www.gamespot.com/a/uploads/original/1179/11799911/2524526-tlouellie.jpg"><img src="https://www.gamespot.com/a/uploads/original/1179/11799911/2524526-tlouellie.jpg"></a>
+        <a target="_blank" href="https://i.redd.it/v17wnfw16br01.jpg"><img src="https://i.redd.it/v17wnfw16br01.jpg"></a>
+        <a target="_blank" href="https://pbs.twimg.com/media/EfUiZK4WAAAf3BN.jpg"><img src="https://pbs.twimg.com/media/EfUiZK4WAAAf3BN.jpg"></a>
+        <a target="_blank" href="https://www.gamingbible.co.uk/cdn-cgi/image/width=648,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.gamingbible.co.uk%2Fs3%2Fcontent%2F915620c85d8cc05697a206129a908f75.jpg"><img src="https://www.gamingbible.co.uk/cdn-cgi/image/width=648,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.gamingbible.co.uk%2Fs3%2Fcontent%2F915620c85d8cc05697a206129a908f75.jpg"></a>
+        <a target="_blank" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-NlzqyVgD-vIT5JihreGgdmNyU5IZn2GTeXmDANUYIJV_MPOsQyPL2Y6WFDjmzFMidg&usqp=CAU"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-NlzqyVgD-vIT5JihreGgdmNyU5IZn2GTeXmDANUYIJV_MPOsQyPL2Y6WFDjmzFMidg&usqp=CAU"></a>
+        <a target="_blank" href="https://i.pinimg.com/originals/18/ef/18/18ef18ed95fe62be15a110247a79e172.jpg"><img src="https://i.pinimg.com/originals/18/ef/18/18ef18ed95fe62be15a110247a79e172.jpg"></a>
+    </div>
+    <footer>
+        <p>Contact for exclusive poster prices: <a href="mailto: uhicfii@gmail.com">uhicfii@gmail.com</a></p>
+        <p id="foot" class="foot">Copyright 2021</p>
+    </footer>
+</body>
+</html>
