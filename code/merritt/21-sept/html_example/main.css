@@ -59,6 +59,74 @@ main p {
     text-align: justify;
 }
 
+form {
+    border: 1px solid #2E4021;
+    padding: 1em;
+    width: 500px;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 368px;
+}
+
+#first, #last {
+    width: 137.5px;
+}
+
+#city {
+    width: 150px;
+}
+
+#zip {
+    width: 75px;
+}
+
+/* input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    color: blue;
+    background-color: hotpink;
+    width: 500px;
+    height: 500px;
+    transition: .125s ease-in-out all;
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="email"]:hover {
+    color: red;
+    background-color: black;
+    width: 250px;
+    height: 150px;
+    transition: .125s ease-in-out all;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+    color: white;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    transition: .125s ease-in-out all;
+} */
+
+/* #submit {
+    background-color: #111C26;
+    color: #8195A6;
+    border-radius: 20px;
+    border: 4px solid #BF9BA2;
+    transition: .1s ease-in-out all;
+}
+
+#submit:active {
+    box-shadow: 0 0 black 100px;
+    transition: .1s ease-in-out all;
+} */
+
 @media (min-width: 600px) {
     .flex-gallery {
         display: flex;
