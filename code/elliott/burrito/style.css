@@ -1,0 +1,148 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+nav {
+  background-color: rgb(212, 197, 110);
+  height: 10vh;
+  color: #ffffff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: beige;
+}
+
+.logo {
+  font-family: "Flamenco", cursive;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+.form {
+  height: 500px;
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 40px;
+  font-family: "Flamenco", cursive;
+  color: rgb(105, 75, 34);
+}
+
+.form h3 {
+  text-align: center;
+  margin: 8px;
+  color: rgb(105, 75, 34);
+  font-size: 25px;
+}
+
+.meat {
+  display: flex;
+  text-align: center;
+  padding: 15px;
+  justify-content: center;
+}
+
+.beans {
+  text-align: center;
+  padding: 15px;
+}
+
+.rice {
+  text-align: center;
+  padding: 15px;
+}
+
+.add-items {
+  text-align: center;
+  padding: 15px;
+}
+
+.form2 h2 {
+  text-align: center;
+}
+
+.form2 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 95%;
+  height: 300px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 10px;
+}
+.form2 * {
+  margin-right: 100px;
+}
+
+.form2 h2,
+select,
+button {
+  align-self: center;
+  margin: 0px;
+}
+
+.contact-gallery {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.food-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  margin: 10px;
+  border: 2px solid rgb(105, 75, 34);
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(212, 197, 110);
+  height: 60px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+  font-size: 25px;
+  font-family: "Flamenco", cursive;
+  color: #ffffff;
+}
