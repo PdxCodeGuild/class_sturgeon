@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+ 
+    <head>
+
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/7b6e1a72b7.js" crossorigin="anonymous"></script>
+        <title>LENEHRT LLC</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=IM+Fell+English+SC&family=Londrina+Solid:wght@300&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    
+    </head>
+    
+    <body>
+
+        <header>
+            
+            <h1>Presidential Jokes Blog</h1>
+            <p>get ready for the funiest jokes</p>
+            <img src = "https://www.pngitem.com/pimgs/m/33-339943_president-george-washington-cartoon-hd-png-download.png" alt = "President BF">
+          
+        </header>
+        
+        <main>
+          <div class="allstores">
+            {%for joke in jokes%}
+              <div class="store">
+                <div class="logo">
+                  <p>{{joke['joke']}}</p>
+                  <h2>- President   {{joke['author']}}</h2>
+                </div>
+              </div>
+            {%endfor%}
+          </div>
+        </main>
+        
+        <footer>
+          <h3>Follow us</h3>
+            <div class="social-media">
+                <a href="https://www.instagram.com"> <i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.facebook.com"> <i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://www.twitter.com"> <i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
