@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Georama:wght@300&family=Montserrat:wght@500&family=Playfair+Display&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>My blog</title>
+</head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>My Blog</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About me</a></li>
+            <li><a href="#">Gallery</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        {%for post in posts%}
+        <div>
+          <h2>Post</h2>
+          <p class="author">Author: {{post['author']}}</p>
+          <p class="body">{{post['body']}}</p>
+          <p class="date">Date: {{post['date']}}</p>
+        </div>
+        {%endfor%}
+
+      </main>
+        <div id="sidebar">
+          <img src="{{url_for('static', filename='tree.jpeg')}}" alt="">
+          <p>Elliott Smith</p>
+          <p>I hope you have enjoyed my blog!</p>
+            <div class ="social-links">
+            <ion-icon class="icon" name="logo-twitter"></ion-icon>
+            <ion-icon class="icon" name="logo-facebook"></ion-icon>
+            <ion-icon class="icon" name="logo-instagram"></ion-icon>
+            </div>
+        </div>
+
+      <footer>
+        <p id="footer-txt">Elliott Smith &copy 2021</p>
+
+      </footer>
+    </div>  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+
+
+<!--
+<div class='button'>
+  <button>Post</button>
+  <p id="rules">Rules:</p>
+    <ol>
+      <li>No bad language</li>
+      <li>Be curtious</li>
+    </ol>
+</div>-->
