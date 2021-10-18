@@ -1,0 +1,91 @@
+/* blog */
+
+
+
+/* ------------mobile------------- */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    padding: 1em;
+    background-image: linear-gradient(rgb(83, 103, 104), rgb(121, 150, 151));
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Chango', 'Roboto', sans-serif;
+}
+
+header img {
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+   text-align: center;
+}
+
+a {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: rgb(83, 103, 104);
+    color: white;
+}
+
+main {
+    padding: 10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    font-size: small;
+}
+
+.post-container {
+    padding-bottom: 2em;
+}
+
+.author-date {
+    font-size: small;
+}
+
+.post-body {
+    padding-top: 1em;
+}
+
+
+/* ------------tablet------------- */
+@media (min-width: 640px) {
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+/* 
+    header {
+        
+    } */
+    
+    footer {
+        align-self: flex-end;
+        position: absolute;
+        padding-left: 8px;
+    }
+}
