@@ -1,0 +1,46 @@
+/* burrito order form */
+
+html {
+    box-sizing: border-box;
+    font-size: min(16px);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1 {
+    background-color: rgb(230, 240, 215);
+    font-family: 'Londrina Shadow', sans-serif;
+    font-size: 70px;
+    text-align: center;
+    padding: 1.5em;
+}
+
+img {
+    height: 20%;
+    width: 20%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(249, 250, 244);
+}
+
+form {
+    display: inline-grid;
+
+}
+
+div {
+    display: inline-grid;
+    line-height: 2.5;
+    background-color: rgb(172, 167, 167, 0.7);
+    border-radius: 10px;
+    margin: 3em;
+    padding: 1em;
+}
+
+label {
+    font-weight: bold;
+}
