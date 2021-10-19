@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    font-size: 20px;
+    background-image: url("dpfade2.jpg");
+    background-size: cover;
+}
+ul {
+    list-style: inside
+}
+div:not(#quote) {
+    font-size: 25px;
+    border: 2px solid rgb(97, 18, 18);
+    background:#ffffff73;
+    padding: 20px
+    
+}
+img {
+    border: 5px solid rgb(97, 18, 18);
+    border-radius: 25px;
+    padding: 10px
+}
+#quote {
+    font-family: "Montserrat", sans-serif;
+    font: bold;
+    background: #ffffff73;
+    color:rgb(97, 18, 18);
+}
+ul {
+    color:rgb(97, 18, 18);
+    list-style-image: url("bullet8.png")
+}
+a {
+    color:rgb(97, 18, 18)
+}

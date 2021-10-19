@@ -1,0 +1,68 @@
+/* bio css */
+
+body {
+    text-align: center;
+    background: url("https://www.jeopardy.com/sites/default/files/social_meta/clue_board.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+}
+
+div {
+    background-color: rgba(255,255,255,0.9);
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10%;
+}
+
+@font-face {
+    font-family: Gyparody;
+    src: url("gyparody/gyparody.ttf");
+  }
+
+h1 {
+    font-family: 'Gyparody', 'Helvetica', sans-serif;
+    font-size: 64px;
+    /* font-weight: bold; */
+    color: rgb(240, 240, 243);
+    -webkit-text-stroke: .5px rgb(33, 10, 238);
+    text-shadow: 4px 2px #5c5b5f;
+}
+
+p {
+    font-family: 'Helvetica Inserat LT', 'Helvetica', sans-serif;
+    font-size: large;
+    color: rgb(11, 5, 104);
+    padding: 5%;
+}
+
+a {
+    font-family: monospace;
+    color: rgb(138, 96, 138);
+    font-weight: bold;
+    font-size: large;
+
+}
+
+img {
+    border-radius: 5px;
+}
+
+h2 {
+    font-family: 'Helvetica Inserat LT', 'Helvetica', sans-serif;
+}
+
+ul {
+    font-family: 'Helvetica Inserat LT', 'Helvetica', sans-serif;
+    text-align: left;
+    margin: 5%;
+    list-style-type: circle;
+}
+
+.quotes {
+    font-family: 'Helvetica Inserat LT', 'Helvetica', sans-serif;
+    padding: 25px;
+}

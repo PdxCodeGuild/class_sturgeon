@@ -51,23 +51,22 @@ Lab 06 Mini-Capstone
 
 ## Python Labs Assigned:
 
+01 Unit Converter  
+02 Average Numbers  
+03 Number To Phrase  
+04 Blackjack Advice  
+05 Pick 6  
+06 Credit Card Validation  
+07 ROT13  
+08 Peaks And Valleys  
+09 ARI  
+10 Contact List  
+12 ATM  
+13 Tic-Tac-Toe  
 <!--
-01 Unit Converter
-02 Average Numbers
-03 Number To Phrase
-04 Blackjack Advice
-05 Pick 6
-06 Credit Card Validation
-07 ROT13
-08 Peaks And Valleys
-09 ARI
-10 Contact List
-11 Searching And Sorting
-12 ATM
-13 Tic-Tac-Toe
-14 Dad Joke API
-15 Quotes API
-16 Mini-Capstone
+14 Dad Joke API  
+15 Quotes API  
+16 Mini-Capstone  
 -->
 
 ## Student Presentations
@@ -96,6 +95,18 @@ In all three presentations, you should first explain the development process and
 - There's no such thing as too many `print()`s
 
 ## Odds and Ends
+
+A Friendly Guide to Promise.all  
+https://levelup.gitconnected.com/a-friendly-guide-to-promise-all-68e7cd57b65d
+
+SQL Island  
+https://sql-island.informatik.uni-kl.de/
+
+Select Star SQL  
+https://selectstarsql.com/
+
+SQL Murder Mystery  
+https://mystery.knightlab.com/walkthrough.html
 
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
 https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/
