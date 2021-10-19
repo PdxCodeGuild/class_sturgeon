@@ -18,23 +18,28 @@ db = JsonDB('db.json')
 
 # print(todos[1]['priority'])
 
-@app.route('/', methods=['GET'])
 
+@app.route('/', methods=['GET'])
 def index():
 
     db.load()
     todos = db.get('todos')
 
-    return render_template('index.html', todos = todos)
+    return render_template('index.html', todos=todos)
 
 # [{'priority': 'high', 'text': 'walk the dog'}, {'priority': 'medium', 'text': 'butter the cat'}, {'priority': 'low', 'text': 'wash dishes'}]
 
-# @app.route('/receive_form/', methods=['POST'])
-#     def temperature():
-#         print(request.form) # {'person_name': 'Jane', 'person_age': 34}
-#         person_name = request.form['person_name'] # Jane
-#         person_age = request.form['person_age'] # 34
-#         return redirect('/')
+
+@app.route('/receive_form/', methods=['POST'])
+def temperature():
+    global todos
+    text = request.form['text']  # Jane
+    priority = request.form['priority']
+
+    x = db.set('priority', priority)
+    y = db.set('text', text)
+
+    return redirect('/')
 
 
 app.run(debug=True)

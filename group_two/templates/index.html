@@ -1,60 +1,48 @@
 <!DOCTYPE html>
-<html lang = 'en'>
- 
-    <head>
+<html lang="en">
 
-        <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/7b6e1a72b7.js" crossorigin="anonymous"></script>
-        <title>LENEHRT LLC</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=IM+Fell+English+SC&family=Londrina+Solid:wght@300&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<body>
+    <div class="container">
+        <nav>
+            <h1>My To Do List</h1>
+        </nav>
 
 
-        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
-    
-    </head>
-    
-    <body>
-
-        <header>
-            
-            <h1>To do list</h1>
-          
-        </header>
-        
-        <main>
-
+        <div class="list">
+            <h2>List</h2>
             {%for x in todos%}
+            <div class="task">
+                <h3>Task</h3>
+                <p class="text">Text: {{x["text"]}}</p>
+                <p class="priority">Priority: {{x["priority"]}}</p>
 
-                  <p>{{x["text"]}}</p>
-                  <p>{{x["priority"]}}</p>
-
-            {%endfor%}
-
-        </main>
-        
-
-        <form action="/receive_form/" method="post">
-            <input type="text" name="person_name" value="Jane"/>
-            <input type="text" name="person_age" value="34"/>
-            <button type="submit">submit</button>
-        </form>
-
-
-
-        <footer>
-          <h3>Follow us</h3>
-            <div class="social-media">
-                <a href="https://www.instagram.com"> <i class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://www.facebook.com"> <i class="fab fa-facebook fa-2x"></i></a>
-                <a href="https://www.twitter.com"> <i class="fab fa-twitter fa-2x"></i></a>
             </div>
-        </footer>
+            {%endfor%}
+        </div>
 
-    </body>
+        <div class="form">
+            <h2>Add to list:</h2>
+            <form action="/receive_form/" method="post">
+                <label for="text">Text</label>
+                <input type="text" name="text" value="">
+
+                <label for="priority">Priority</label>
+                <input type="text" name="priority" value="">
+
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+
+    </div>
+</body>
 
 </html>
