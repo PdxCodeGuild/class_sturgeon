@@ -15,17 +15,8 @@
 def is_even(num):
     return num%2 == 0
 
-
-
 def even_even(nums):
-    counter = 0
-    for num in nums:
-        if is_even(num):
-            counter += 1
-    if is_even(counter):
-        return True
-    else:
-        return False
+    ...
 
 def test_even_even():
     assert even_even([5, 6, 2]) == True
@@ -51,6 +42,8 @@ def common_elements(nums1, nums2):
   ...
 print(common_elements([1, 2, 3], [2, 3, 4])) # [2, 3]
 
+def test_common_elements():
+    assert common_elements([1, 2, 3], [2, 3, 4]) == [2, 3]
 
 # Combine
 # Write a function to combine two lists of equal length into one, alternating elements.

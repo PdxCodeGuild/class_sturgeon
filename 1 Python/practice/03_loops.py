@@ -12,7 +12,7 @@ def double_numbers(nums):
     ...
 
 def test_double_numbers():
-    assert double_numbers([1, 2, 3]) == [4, 5, 6]
+    assert double_numbers([1, 2, 3]) == [2, 4, 6]
 
 
 # Stars
@@ -34,7 +34,7 @@ def test_stars():
 def extract_less_than_ten(nums):
     ...
 
-def test_extract_less_than_ten(nums):
+def test_extract_less_than_ten():
     extract_less_than_ten([2, 8, 12, 18]) == [2, 8]
 
 

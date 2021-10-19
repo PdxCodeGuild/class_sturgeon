@@ -1,4 +1,5 @@
 # 2021-09-13 Full-Stack Python/JavaScript Day Class
+
 Repo for the PDX Code Guild Python Full Stack day course starting 9/13/2021
 
 Class is held from **September 13th, 2021 to December 27th, 2021**
@@ -7,49 +8,49 @@ M-F 9:30 am – 4:30 pm
 ### Holidays
 
 Veterans Day  
-Thanksgiving -- November 25th and 26th   
-Christmas  
+Thanksgiving -- November 25th and 26th  
+Christmas
 
 ### Staff
 
 - Merritt Lawrenson, Instructor
-    - merritt@pdxcodeguild.com
+
+  - merritt@pdxcodeguild.com
 
 - Calen Ray, TA
-    - calen.w.ray@gmail.com
+  - calen.w.ray@gmail.com
 
 ## Capstone Dates:
 
 Capstone proposal due: TBD  
-Presentation Day: TBD  
-
+Presentation Day: TBD
 
 <!-- ## Django Labs Assigned:
 
-Lab 01 Todo List  
-Lab 02 URL Shortener  
-Lab 03 Chirp  
-Lab 06 Students API  
-Lab 07 Pokedex  
+Lab 01 Todo List
+Lab 02 URL Shortener
+Lab 03 Chirp
+Lab 06 Students API
+Lab 07 Pokedex
 
 ## JavaScript Labs Assigned:
 
-Lab 01-03 Pick 3  
-Lab 04 Vue Todos  
-Lab 05 Quotes in Vue  
-Lab 06 Mini-Capstone  
+Lab 01-03 Pick 3
+Lab 04 Vue Todos
+Lab 05 Quotes in Vue
+Lab 06 Mini-Capstone
 
 ## HTML/CSS Labs Assigned:
 
-01 Bio  
-02 Blog  
-03 Company  
-04 Burrito Order Form  
-05 Flask Redo  
+01 Bio
+02 Blog
+03 Company
+04 Burrito Order Form
+05 Flask Redo
 06 Personal Portfolio  -->
 
 ## Python Labs Assigned:
-<!--
+
 01 Unit Converter  
 02 Average Numbers  
 03 Number To Phrase  
@@ -60,12 +61,12 @@ Lab 06 Mini-Capstone
 08 Peaks And Valleys  
 09 ARI  
 10 Contact List  
-11 Searching And Sorting  
 12 ATM  
-13 Tic-Tac-Toe
+13 Tic-Tac-Toe  
+<!--
 14 Dad Joke API  
 15 Quotes API  
-16 Mini-Capstone
+16 Mini-Capstone  
 -->
 
 ## Student Presentations
@@ -94,17 +95,27 @@ In all three presentations, you should first explain the development process and
 - There's no such thing as too many `print()`s
 
 ## Odds and Ends
+
+SQL Island  
+https://sql-island.informatik.uni-kl.de/
+
+Select Star SQL  
+https://selectstarsql.com/
+
+SQL Murder Mystery  
+https://mystery.knightlab.com/walkthrough.html
+
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
-https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
+https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/
 
 Custom User Model  
-https://learndjango.com/tutorials/django-custom-user-model  
+https://learndjango.com/tutorials/django-custom-user-model
 
 Tips for using many-to-many fields  
-https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/  
+https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/
 
 Willam Vincent's tutorials and articles  
-https://wsvincent.com/  
+https://wsvincent.com/
 
 Django by example  
 https://www.youtube.com/playlist?list=PLAF3anQEEkzS-mjdX7s-D63bjLWRdhuFM
@@ -125,19 +136,20 @@ Oh Shit Git
 http://ohshitgit.com/
 
 Atlassian Git Tutorials  
-https://www.atlassian.com/git  
+https://www.atlassian.com/git
 
 Vue Video Tutorial and Solution Repo  
 https://www.youtube.com/watch?v=5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa  
-https://github.com/iamshaunjp/vuejs-playlist/tree/lesson-1  
+https://github.com/iamshaunjp/vuejs-playlist/tree/lesson-1
 
 Vue Introduction Documentaion  
-https://vuejs.org/v2/guide/  
+https://vuejs.org/v2/guide/
 
 jQuery vs Vanilla vs Vue/React/Angular  
 https://www.academind.com/learn/javascript/jquery-future-angular-react-vue/
 
 Start an HTTP server on your local machine:
+
 ```bash
 cd project/file/path
 python -m http.server
@@ -164,7 +176,7 @@ https://webhook.site
 MDN: How To Style Forms  
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Styling_HTML_forms  
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms  
-https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_build_custom_form_widgets  
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_build_custom_form_widgets
 
 Bootstrap Documentation  
 http://getbootstrap.com/docs/4.1/getting-started/introduction/
@@ -184,7 +196,7 @@ https://flukeout.github.io/
 CSS-Tricks  
 https://css-tricks.com  
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/  
-https://css-tricks.com/snippets/css/complete-guide-grid/  
+https://css-tricks.com/snippets/css/complete-guide-grid/
 
 Adobe Color  
 https://color.adobe.com/create
@@ -217,10 +229,10 @@ RexExr
 https://regexr.com/
 
 Regex Crossword  
-https://regexcrossword.com/  
+https://regexcrossword.com/
 
 Lena, the first JPEG  
-https://www.wired.com/story/finding-lena-the-patron-saint-of-jpegs/  
+https://www.wired.com/story/finding-lena-the-patron-saint-of-jpegs/
 
 All Algorithms implemented in Python  
 https://github.com/TheAlgorithms/Python
@@ -252,27 +264,25 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 Adding a new SSH key to your GitHub account:  
 https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
-
 ## Outside Resources
-- Python: 
-    - Practice:
-        - https://www.hackerrank.com/domains/tutorials/30-days-of-code 
-        - http://codingbat.com/python
-        - https://codefights.com/
-    - Textbooks:
-        - https://automatetheboringstuff.com/
-    - Cheat Sheets:
-        - https://ehmatthes.github.io/pcc/cheatsheets/README.html
-        - https://learnxinyminutes.com/docs/python3/
-        
+
+- Python:
+  - Practice:
+    - https://www.hackerrank.com/domains/tutorials/30-days-of-code
+    - http://codingbat.com/python
+    - https://codefights.com/
+  - Textbooks:
+    - https://automatetheboringstuff.com/
+  - Cheat Sheets:
+    - https://ehmatthes.github.io/pcc/cheatsheets/README.html
+    - https://learnxinyminutes.com/docs/python3/
 - Frontend (HTML/CSS/JS):
-    - https://www.freecodecamp.org/ (Practice, projects, (almost) textbook all-in-one!)
-    - https://sayazamurai.github.io/python-vs-javascript/#control-flow (Python3 and ES6 JS side by side comparisons)
-    - https://sass-lang.com/guide (SASS: CSS preprocessor tutorial)
-    - https://vuejs.org/v2/guide/ (Vue.js official guide)
-    - https://www.youtube.com/watch?v=5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa (Vue.js video tutorial)
-      REPO: https://github.com/iamshaunjp/vuejs-playlist/tree/master
-    
+  - https://www.freecodecamp.org/ (Practice, projects, (almost) textbook all-in-one!)
+  - https://sayazamurai.github.io/python-vs-javascript/#control-flow (Python3 and ES6 JS side by side comparisons)
+  - https://sass-lang.com/guide (SASS: CSS preprocessor tutorial)
+  - https://vuejs.org/v2/guide/ (Vue.js official guide)
+  - https://www.youtube.com/watch?v=5LYrN_cAJoA&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa (Vue.js video tutorial)
+    REPO: https://github.com/iamshaunjp/vuejs-playlist/tree/master
 - Django:
-    - https://tutorial.djangogirls.org/
-    - https://docs.djangoproject.com/en/3.2/intro/tutorial01/ (Official tutorial)
+  - https://tutorial.djangogirls.org/
+  - https://docs.djangoproject.com/en/3.2/intro/tutorial01/ (Official tutorial)

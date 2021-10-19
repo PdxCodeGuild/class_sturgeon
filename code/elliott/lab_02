@@ -1,0 +1,16 @@
+
+num = input('Enter a number or "done": ')
+total = 0
+count = 0
+
+
+while True:
+    i = input(num)
+    if i == "done":
+        break
+    else:
+        total += float(i)
+        count += 1
+        average = total / count
+
+print('Your average: ', average)
