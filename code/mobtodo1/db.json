@@ -15,6 +15,14 @@
         {
             "priority": "ultimate",
             "text": "eat"
+        },
+        {
+            "priority": "ultimate",
+            "text": "add items to list"
+        },
+        {
+            "priority": "ultimate",
+            "text": "finish project"
         }
     ],
     "x": 8
