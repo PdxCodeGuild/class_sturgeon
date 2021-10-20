@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Mob Lab To Do List </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
+    </head>
+    <body>
+        <div class="todo">
+            <h1>My To Do List</h1>
+            <ul>
+                {% for item in to_do_list %}
+                <li>
+                <h2>{{item['priority']}}</h2>
+                <p>{{item['text']}}</p>
+                </li>
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+        <form action="/receive_form/" method="post">
+            <h2>Add item to the to do list</h2>
+            <div>
+                <label for="priority">Select priority level:</label>
+                <label for="high"><input type="radio" id="high" name="priority" value="high">  High</label>
+                <label for="medium"><input type="radio" id="medium" name="priority" value="medium">  Medium</label>
+                <label for="low"><input type="radio" id="low" name="priority" value="low">  Low</label>
+            </div>
+            <textarea id="textarea" name="text" rows="2" cols="50" placeholder="Enter to do item:"></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+    </body>
+</html>
+
