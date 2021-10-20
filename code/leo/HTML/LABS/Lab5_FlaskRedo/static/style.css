@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 1em;
+}
+
+header {
+  padding: 50px;
+  text-align: center;
+  background-color: #215892;
+  color: white;
+  border-radius: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.distance, .inputunit, .output, .submit {
+  padding: 5px;
+}
+
+footer {
+  
+  padding: 25px;
+  text-align: center;
+  background-color: #215892;
+  color: white;
+  border-radius: 10px;
+}

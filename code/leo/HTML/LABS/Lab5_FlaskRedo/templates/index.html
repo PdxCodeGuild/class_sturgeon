@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+ 
+    <head>
+
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>-_-</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    
+    </head>
+
+    <body>
+        
+        <header>
+            <h1>Unit Converter</h1>
+        </header>
+        
+        <main>
+            <form action="/" method="POST">
+
+                    <div class="distance">
+                        <label for="distance"> What is the distance? </label>                
+                        <input type="number" name="distance" id="distance"/>
+                    </div>
+                    
+                    <div class="inputunit">
+                        <label for="input_unit"> What is the input unit? </label>    
+                        <select name="input_unit" id="input_unit">
+                            <option value="ft">Feet</option>
+                            <option value="mi">Mile</option>
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="yard">Yard</option>
+                            <option value="inch">Inch</option>
+                        </select>
+                    </div>
+                    
+                    <div class="output">
+
+                        <label for="output_unit"> What is the output unit? </label>           
+                        <select name="output_unit" id="output_unit">
+                            <option value="ft">Feet</option>
+                            <option value="mi">Mile</option>
+                            <option value="m">Meter</option>
+                            <option value="km">Kilometer</option>
+                            <option value="yard">Yard</option>
+                            <option value="inch">Inch</option>
+                        </select>
+                    </div>
+                
+                <div class="submit">
+                    <input type="submit" value="submit">
+                </div>
+
+            </form>
+        </main>
+        
+        <footer>
+            {%if result%}
+            <label for="result"></label>
+            <p> ---> {{result}} </p>
+            {%endif%}
+        </footer>
+    
+    </body>
+
+</html>
