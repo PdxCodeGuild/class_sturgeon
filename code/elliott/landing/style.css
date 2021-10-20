@@ -1,0 +1,98 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+a {
+  color: white;
+}
+
+header,
+main,
+footer {
+  padding: 2em;
+}
+
+header {
+  background-color: rgb(82, 76, 76);
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
+
+main {
+  background-image: linear-gradient(white, rgb(82, 76, 76));
+}
+
+main p {
+  text-align: justify;
+}
+
+footer {
+  background-color: rgb(82, 76, 76);
+  color: white;
+  text-decoration: underline;
+  text-align: center;
+}
+
+@media (min-width: 660px) {
+  .flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery-item {
+    width: 50%;
+    padding: 1em;
+  }
+  h2 {
+    text-align: center;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav p {
+    padding: 0 1em;
+  }
+}
+
+@media (min-width: 1000px) {
+  header {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .flex-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main h2 {
+    text-align: center;
+  }
+
+  .gallery-item {
+    width: 60%;
+  }
+  .gallery-item1 {
+    width: 60%;
+  }
+}

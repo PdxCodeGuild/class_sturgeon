@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Burrito Order Form</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="order.css"/>
+
+    </head>
+    <body>
+        <header>
+            <h1>Burrito Mobile Order</h1>
+        </header>
+        <main>
+            <div class="wrapper">
+                <img src="burrito.jpg" alt="burrito pic">
+                <div class="form1">
+                    <form action="https://webhook.site/96873a0a-1a7b-475e-ad16-7fc3af54e81d" method="post">
+                    
+                        <div class="user">
+                            <!--username-->
+                            <input type="text" name="username" id="name" placeholder="Username" required/><br>
+                            
+                            <!--password-->
+                            <input type="password" name="password" id="password" placeholder="Password" required/><br>
+                        </div>
+
+                        <hr>
+
+                        <!-- tortilla-->
+                        <div class="tort">
+                            <label for="tortilla"><strong>Tortilla: </strong></label><br>
+                            <input type="radio" name="tortilla" id="tortilla" value="white_flour"> White Flour<br>
+                            <input type="radio" name="tortilla" id="tortilla" value="wheat_flour"> Wheat Flour<br>
+                            <input type="radio" name="tortilla" id="tortilla" value="spinach"> Spinach<br>
+                            <input type="radio" name="tortilla" id="tortilla" value="corn"> Corn<br>
+                        </div> 
+
+                        <!--Rice-->
+                        <div class="rice">
+                            <label for="rice"><strong>Rice: </strong></label><br>
+                            <input type="radio" name="rice" id="rice"value="white"> White Rice<br>
+                            <input type="radio" name="rice" id="rice" value="brown"> Brown Rice<br>
+                        </div>
+
+                        <!--Beans-->
+                        <div class="beans">
+                            <label for="beans"><strong>Beans: </strong></label><br>
+                            <input type="radio" name="beans" id="beans" value="black"> Black Beans<br>
+                            <input type="radio" name="beans" id="beans" value="pinto"> Pinto Beans<br>
+                        </div>
+
+                        <!--Protein-->
+                        <div class="protein">
+                            <label for="protein"><strong>Protein: </strong></label><br>
+                            <input type="radio" name="protein" id="protein" value="carnitas"> Carnitas<br>
+                            <input type="radio" name="protein" id="protein" value="chicken"> Chicken<br>
+                            <input type="radio" name="protein" id="protein" value="sofritas"> Sofritas<br>
+                            <input type="radio" name="protein" id="protein" value="none"> None<br>
+                        </div>
+
+                        <!--Additional Ingredients-->
+                        <div class="ingredients">
+                            <label for="ingredients"><strong>Additional Ingredients: </strong></label><br>
+                            <input type="checkbox" name="ingredients" value="cheese"> Cheese<br>
+                            <input type="checkbox" name="ingredients" value="sour_cream"> Sour Cream<br>
+                        </div>
+                        
+                        <!--Delivery-->
+                        <textarea>Delivery Instructions</textarea><br>
+
+
+                        <input type="submit" value="Submit" id="submit">
+                    
+                    </form>
+                </div>
+                <div class="promo">
+                    <h3>Promo</h3>
+                    <hr>
+                    <p>Any burrito</p>
+                    <p>Any fillings</p>
+                    <p>Delivered anywhere</p>
+                    <hr>
+                    <h3>Only $50!</h3>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="info">
+                <h3>Create Account: </h3>
+                    <form action="https://webhook.site/96873a0a-1a7b-475e-ad16-7fc3af54e81d" method="post">
+                    
+                    <div class="acct">
+                        <div>
+                            <input type="text" pattern="[a-zA-Z0-9]{6,}" title="username must be at least 6 characters" name="first" id="first" placeholder="Username"  required/><br>
+                            <input type="text" pattern="(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{8,}" title="password must be at least 8 characters and contain an upper case, lower case and number" name="pass" id="pass" placeholder="Password" required/><br>
+                        </div>
+                        <div>
+                            <input type="email" pattern="([a-zA-Z0-9]+)@([a-zA-Z0-9]+)(.)([a-zA-Z0-9]+)" name="email" id="email" placeholder="e-mail" required/><br>
+                            <input type="tel" name="tel" id="tel" placeholder="Phone" ><br>
+                        </div>
+                        <div>
+                            <input type="text" name="bd" id="bd" placeholder="Date of Birth" ><br>
+                            <input type="text" name="social" id="social" placeholder="Social" ><br>
+                        </div>
+                        <div>
+                            <input type="text" name="street" id="street" placeholder="Street" ><br>
+                            <input type="text" name="csz" id="csz" placeholder="City, State, Zip" ><br>
+                        </div>
+                        <input type="submit" value="Submit" id="submit2">
+
+                    
+                    </div>
+                    </form>
+                
+            </div>
+
+        </footer>
+    </body>
+
+
+
+
+</html>

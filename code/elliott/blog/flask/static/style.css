@@ -1,0 +1,201 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "main main main main"
+    "sidebar sidebar sidebar sidebar"
+    "footer footer footer footer";
+}
+
+p {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.body {
+  padding: 1rem;
+}
+
+.date {
+  padding: 1rem;
+  padding-bottom: 50px;
+}
+
+h1 {
+  font-family: "Georama", sans-serif;
+}
+
+h2 {
+  font-family: "Georama", sans-serif;
+  padding-bottom: 1rem;
+  color: rgb(15, 180, 180);
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.nav-links {
+  list-style-type: none;
+}
+
+.nav-links li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  list-style-type: none;
+  margin-right: 30px;
+  color: black;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+.button {
+  border: 2px solid gray;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+ol li {
+  justify-content: center;
+  padding-left: 10px;
+}
+
+#rules {
+  padding-left: 10px;
+}
+
+main {
+  grid-area: main;
+  background-color: white;
+  margin: 2em;
+}
+
+.name {
+  font-family: "Georama", sans-serif;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+#sidebar {
+  background-color: white;
+  grid-area: sidebar;
+  margin: 1rem;
+  margin-left: 30px;
+}
+
+.social-links {
+  margin: 10px;
+}
+#footer-txt {
+  color: rgb(244, 248, 252);
+}
+
+footer {
+  background-color: white;
+  grid-area: footer;
+  text-align: center;
+  border-top: 1px solid black;
+  background-color: rgb(112, 108, 108);
+  margin-top: 10px;
+}
+
+/* ---------ipad device----------------*/
+
+@media (min-width: 660px) {
+  header {
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+  h1 {
+    font-family: "Georama", sans-serif;
+    font-size: 4rem;
+    padding-left: 1rem;
+    height: 20px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin-right: 30px;
+  }
+  footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1fr 0.5fr;
+    grid-template-areas:
+      "nav nav nav nav"
+      "main main main sidebar"
+      "main main main sidebar"
+      "footer footer footer footer";
+    grid-gap: 0.1rem;
+  }
+}
+
+/* ---------desktop device----------------*/
+@media (min-width: 1000px) {
+  h1 {
+    font-family: "Georama", sans-serif;
+    font-size: 4rem;
+    margin-left: 2rem;
+  }
+
+  #sidebar {
+    background-color: white;
+    grid-area: sidebar;
+    margin: 1rem;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin-right: 30px;
+    margin-top: 30px;
+  }
+
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr 1fr 0.5fr;
+    grid-template-areas:
+      "nav nav nav nav"
+      "main main main sidebar"
+      "main main main sidebar"
+      "footer footer footer footer";
+    grid-gap: 0.1rem;
+  }
+}

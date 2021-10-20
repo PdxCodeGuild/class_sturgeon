@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img { 
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+header {
+    background-color: lightcoral;
+    text-align: center;
+}
+
+main p {
+    text-align: justify;
+}
+
+@media (min-width: 600px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items:stretch;
+    }
+
+    .gallery-item {
+        width: 30%;
+        padding: 1em;
+    }
+}
