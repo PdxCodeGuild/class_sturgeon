@@ -7,6 +7,30 @@ app = Flask(__name__)
 
 db = JsonDB('db.json')
 
+
+@app.route('/', methods=['GET'])
+def index():
+    db.load()
+    todos = db.get('todos')
+    return render_template('index.html', todos=todos)
+
+
+@app.route('/receive_form/', methods=['POST'])
+def temperature():
+
+    db.load()
+    todos = db.get('todos')
+
+    db.data["todos"].append(request.form)
+
+    db.save()
+
+    return redirect('/')
+
+
+app.run(debug=True)
+
+
 # db.load()
 # x = db.get('priority', 0)
 # y = db.get('text', 0)
@@ -18,28 +42,4 @@ db = JsonDB('db.json')
 
 # print(todos[1]['priority'])
 
-
-@app.route('/', methods=['GET'])
-def index():
-
-    db.load()
-    todos = db.get('todos')
-
-    return render_template('index.html', todos=todos)
-
 # [{'priority': 'high', 'text': 'walk the dog'}, {'priority': 'medium', 'text': 'butter the cat'}, {'priority': 'low', 'text': 'wash dishes'}]
-
-
-@app.route('/receive_form/', methods=['POST'])
-def temperature():
-    global todos
-    text = request.form['text']  # Jane
-    priority = request.form['priority']
-
-    x = db.set('priority', priority)
-    y = db.set('text', text)
-
-    return redirect('/')
-
-
-app.run(debug=True)

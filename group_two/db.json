@@ -1,5 +1,4 @@
 {
-
     "todos": [
         {
             "priority": "high",
@@ -12,6 +11,18 @@
         {
             "priority": "low",
             "text": "wash dishes"
+        },
+        {
+            "priority": "dd",
+            "text": "dd"
+        },
+        {
+            "priority": "high",
+            "text": "ff"
+        },
+        {
+            "priority": "medium",
+            "text": "ff"
         }
     ]
 }

@@ -22,7 +22,7 @@
             <div class="task">
                 <h3>Task</h3>
                 <p class="text">Text: {{x["text"]}}</p>
-                <p class="priority">Priority: {{x["priority"]}}</p>
+                <p class="priority {{x['priority']}}">Priority: {{x["priority"]}}</p>
 
             </div>
             {%endfor%}
@@ -35,9 +35,11 @@
                 <input type="text" name="text" value="">
 
                 <label for="priority">Priority</label>
-                <input type="text" name="priority" value="">
-
-                <button type="submit">Submit</button>
+                <select name="priority" id="priority">
+                    <option value="high">High</option>
+                    <option label="medium" value="medium">Medium</option>
+                    <option label="low" value="low">Low</option>
+                </select>
 
             </form>
         </div>
