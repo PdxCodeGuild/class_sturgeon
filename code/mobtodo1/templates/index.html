@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Mob Lab To Do List </title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+    </head>
+    <body>
+        <!-- <div class="todo">
+            <h1>My To Do List</h1>
+            <ol>
+                {% for item in to_do_list %}
+                <li>
+                <h2 class = "{{item['priority']}}">{{item['priority']}}</h2>
+                <p >{{item['text']}}</p>
+                </li>
+                <hr>
+                {% endfor %}
+            </ol>
+        </div> -->
+        <div class="todo">
+            <table>
+                <div class="wrapper">
+                    
+                    <tr>
+                        <th class="first">Priority</th>
+                        <th>To Do List</th>
+                    </tr>
+                    {% for item in to_do_list %}
+                    
+                        <tr class="pizza">
+                            <td class = "{{item['priority']}}">{{item['priority']}}</td>
+                            <td >{{item['text']}}</td>
+                        </tr>
+                        
+                    {% endfor %}
+                </div>
+            </table>
+            
+            
+        </div>
+        <form action="/receive_form/" method="post">
+            <h2>Add item to the to do list</h2>
+            <div>
+                <label for="priority">Select priority level:</label>
+                <select name="priority" id="priority">
+                    <option value="ultimate">Ultimate</option>
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                
+                <!-- <label for="priority">Select priority level:</label>
+                <label for="high"><input type="radio" id="high" name="priority" value="high">  High</label>
+                <label for="medium"><input type="radio" id="medium" name="priority" value="medium">  Medium</label>
+                <label for="low"><input type="radio" id="low" name="priority" value="low">  Low</label> -->
+            </div>
+            <label for="textarea">Enter to do item: </label><br>
+            <textarea id="textarea" name="text" rows="2" cols="50" placeholder="Required" required></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+    </body>
+</html>
+

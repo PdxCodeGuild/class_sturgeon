@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.11.0/build/cssnormalize/cssnormalize-min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='unit.css') }}"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Source+Serif+Pro&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='num2.png') }}"/>
+        
+        <title>Unit Converter</title>
+
+    </head>
+    <body>
+        <header>
+            <h1>Unit Converter</h1>
+        </header>
+        <main>
+            <form action="/receive_form/" method="post">
+                <input type="number" name="distance_in" id="distance_in" placeholder="Distance"/><br>
+
+                <br>
+                <label for="units_in" id="units_in">Units In: </label><br>
+                <select name="units_in">
+                    <option value="ft">Feet</option>
+                    <option value="mi">Miles</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="yard">Yards</option>
+                    <option value="in">Inches</option>
+                </select><br>
+                <br>
+                <label for="units_out">Units Out: </label><br>
+                <select name="units_out">
+                    <option value="ft">Feet</option>
+                    <option value="mi">Miles</option>
+                    <option value="m" selected>Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="yard">Yards</option>
+                    <option value="in">Inches</option>
+                </select><br>
+                
+                <br>
+                <button type="submit">Submit</button><br>
+            
+            </form>
+            <br>
+
+                <div class="output">
+                    <div class="wrapper">
+                        <div class="border2">
+                            <h1>Output:</h1> 
+                            <h2>{{distance_in}} {{units_in}}</h2>
+                            <h2>=</h2>
+                            <h1>{{new_distance_out}} {{units_out}}</h1>
+                        </div>
+                    </div>
+                </div>
+
+
+            
+        </main>
+    </body>
+</html>

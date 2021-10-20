@@ -1,0 +1,61 @@
+html {
+    box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+body {
+    background: #262626;
+    color: #BFBDB8;
+    text-align: center;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 25px;
+}
+
+
+::placeholder {
+    font-family: 'Source Serif Pro', serif;
+    color: #262626;
+}
+input {
+    border-radius: 10px;
+    background-color: #BFBDB8;
+    border: 3px solid #BFBDB8;
+}
+select {
+    font-family: 'Source Serif Pro', serif;
+    background-color: #BFBDB8;
+    border: 3px solid #BFBDB8;
+    border-radius: 10px;
+}
+button {
+    font-family: 'IM Fell English SC', serif;
+    border: 3px solid #BFBDB8;
+    background-color: #735C40;
+    border-radius: 10px;
+}
+
+.output {
+    display: flex;
+    justify-content: center
+    
+}
+.wrapper {
+    width: 25%;
+    border: 5px solid #BFBDB8;
+    border-radius: 15px;
+    background-color: #BFBDB8;
+    color: #0D0D0D;
+}
+.border2 {
+    border: 5px solid #0D0D0D;
+    border-radius: 15px;
+    background-color: #735C40;
+}
