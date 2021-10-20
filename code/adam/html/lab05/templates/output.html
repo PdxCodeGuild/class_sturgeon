@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Converter Output </title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output.css') }}"/>
+    </head>
+        {% if answer %}
+        <body class="unit-converter">
+            <div class="answer"><h1>{{ answer }}</h1></div>
+            <a href="/"><button>Start over</button></a>
+        </body>
+        {% endif %}
+        <br>
+        <br>
+        {% if password %}
+        <body class="pgenerator">
+            <div class="pgen"><h2>Random Password:  {{ password }}</h2></div>
+            <a href="/"><button>Start over</button></a>
+        </body>
+        {% endif %}
+        {% if route_password %}
+        <body class="rotational">
+            <div class="pgen"><h2>Rotation Cipher:  {{ route_password }}</h2></div>
+            <a href="/"><button>Start over</button></a>
+        </body>
+        {% endif %}
+</html>
