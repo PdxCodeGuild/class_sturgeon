@@ -4,23 +4,31 @@ app = Flask(__name__)
 import json
 from jsondb import JsonDB
 db = JsonDB('db.json')
-# db.load()
-# x = db.get('x', 0)
-# x += 1
-# db.set('x', x)
-# db.save()
 
 
 
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
-    if request.method == 'POST':
-        text = request.form['textarea']
-        print(text)
     db.load()
     to_do_list = db.get('todos')
-    db.save()
+
+
     return render_template('index.html', to_do_list = to_do_list)
 
+@app.route('/receive_form/', methods=['POST'])
+def entry():
+    db.load()
+    text = request.form['text']
+    priority = request.form['priority']
+    
+    new_stuff = db.get('todos')
+    
+    new_stuff.append({'priority' : priority, 'text': text})
+
+    print(new_stuff)
+    
+    db.save()
+    return redirect('/')
+
 app.run(debug=True)
+
