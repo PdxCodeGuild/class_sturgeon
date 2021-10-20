@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <h1>My To Do List</h1>
+        </nav>
+
+
+        <div class="list">
+            <h2>List</h2>
+            {%for x in todos%}
+            <div class="task">
+                <h3>Task</h3>
+                <p class="text">Text: {{x["text"]}}</p>
+                <p class="priority {{x['priority']}}">Priority: {{x["priority"]}}</p>
+
+            </div>
+            {%endfor%}
+        </div>
+
+        <div class="form">
+            <h2>Add to list:</h2>
+            <form action="/receive_form/" method="post">
+                <label for="text">Text</label>
+                <input type="text" name="text" value="">
+
+                <label for="priority">Priority</label>
+                <select name="priority" id="priority">
+                    <option value="high">High</option>
+                    <option label="medium" value="medium">Medium</option>
+                    <option label="low" value="low">Low</option>
+                </select>
+
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

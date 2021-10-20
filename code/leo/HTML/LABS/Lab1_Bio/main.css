@@ -17,9 +17,9 @@ body {
     background-size: cover;
 }
 img {
-    display: block;
-    max-width: 100%;
-    border-radius: 100px;
+    float:right;
+    padding : 10px;
+    border-radius: 200px;
 }
 h1 {
     font-family: Monospace;
@@ -28,7 +28,6 @@ h1 {
     color: whitesmoke;
     border-radius: 50px;
     margin: 20px 250px 0px 250px;
-    padding-left: 50px;
 }
 h2 {
     font-size: 25px;
@@ -38,8 +37,9 @@ h2 {
     margin: 0px 300px 10px 300px;
 }
 
+
 h3, ul {
     text-align: justify;
-    padding-left : 75px;
+    padding-right : 25px;
 
 }
