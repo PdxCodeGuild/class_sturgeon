@@ -2,10 +2,6 @@ html {
     box-sizing: border-box;
 }
 
-body, main, footer {
-    padding: 1em;
-}
-
 header {
     background-color: red;
     text-align: center;
@@ -14,11 +10,10 @@ header {
 
 body{
     background-color: #d2b48c;
-    padding: 1em;
     border: black;
 }
 
-.grid {
-    display: grid;
-    
+p {
+    border: 1px solid black
+    ;
 }
