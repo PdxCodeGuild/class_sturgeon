@@ -1,0 +1,139 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1em;
+}
+
+header {
+    padding: 50px;
+    text-align: center;
+    background-color: #215892;
+    color: white;
+    border-radius: 10px;
+}
+
+main {
+  padding: 1em;
+}
+
+footer {
+  margin: 1em;
+  color: #215892;
+}
+
+.allstores {
+  display: flex ;
+  flex-direction: column;
+}
+
+.store {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  padding: 1em;
+  width: 100%;
+}
+
+.logo { 
+  text-align: center;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ebf4fd;
+  margin-top: 5px;
+}
+
+.fa-amazon, .fa-ebay, .fa-etsy {
+  color: black;
+  cursor: pointer;
+}
+
+.fa-amazon:hover, .fa-ebay:hover, .fa-etsy:hover  {
+  color: rgb(33, 15, 153);
+}
+
+.words-under-logo {
+  padding: 0 16px;
+  color: #356eaa;
+  cursor: default;
+}
+
+.button {
+  border-radius: 100px;
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  background-color: #215892;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  color: rgb(33, 15, 153);
+}
+
+.social-media {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.fa-instagram, .fa-facebook, .fa-twitter {
+  color: black;
+  padding: 10px;
+}
+
+.fa-instagram:hover, .fa-facebook:hover, .fa-twitter:hover {
+  color: rgb(33, 15, 153);
+}
+
+
+
+
+@media (min-width: 600px) {
+  body {
+    margin: 2em;
+  }
+
+  .allstores {
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .store {
+    width: 50%;
+  }
+  .words-under-logo {
+    font-size: auto;
+  }
+ 
+}
+
+@media (min-width: 1100px) {
+  body {
+    margin: 3em;
+  }
+  .allstores {
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+  .words-under-logo {
+    font-size: auto;
+  }
+  .store {
+    width: 50%;
+  }
+
+}

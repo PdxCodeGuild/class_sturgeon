@@ -7,9 +7,9 @@ M-F 9:30 am – 4:30 pm
 
 ### Holidays
 
-Veterans Day  
+Veterans Day -- November 12th  
 Thanksgiving -- November 25th and 26th  
-Christmas
+Christmas -- December 22nd - 24th  
 
 ### Staff
 
@@ -39,14 +39,14 @@ Lab 01-03 Pick 3
 Lab 04 Vue Todos
 Lab 05 Quotes in Vue
 Lab 06 Mini-Capstone
-
+-->
 ## HTML/CSS Labs Assigned:
 
-01 Bio
-02 Blog
-03 Company
-04 Burrito Order Form
-05 Flask Redo
+01 Bio  
+02 Blog  
+03 Company  
+04 Burrito Order Form  
+<!-- 05 Flask Redo
 06 Personal Portfolio  -->
 
 ## Python Labs Assigned:
@@ -63,11 +63,9 @@ Lab 06 Mini-Capstone
 10 Contact List  
 12 ATM  
 13 Tic-Tac-Toe  
-<!--
 14 Dad Joke API  
 15 Quotes API  
 16 Mini-Capstone  
--->
 
 ## Student Presentations
 
@@ -95,6 +93,9 @@ In all three presentations, you should first explain the development process and
 - There's no such thing as too many `print()`s
 
 ## Odds and Ends
+
+A Friendly Guide to Promise.all  
+https://levelup.gitconnected.com/a-friendly-guide-to-promise-all-68e7cd57b65d
 
 SQL Island  
 https://sql-island.informatik.uni-kl.de/
