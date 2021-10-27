@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Password Converter</h1>
+    </header>
+
+    <form class="form" action="/" method="post">
+        <label for="password">Enter the amount of characters in password: </label>
+        <input type="text" name="password" value="">
+        <button type="submit" class="button">Submit</button>
+    </form>
+    <br>
+    <br>
+    {%if password%}
+    <div class="task">
+        <p class="password">Password: {{password}}</p>
+        {%endif%}
+    </div>
+
+
+
+
+
+</body>
+
+</html>
