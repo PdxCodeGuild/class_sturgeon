@@ -1,0 +1,19 @@
+body {
+    background-image: url("images/wanda.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+ul li {
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -7,12 +7,12 @@
     <body>
         <h1> Time to Rock the Vote! </h1>
         <h2>{{ question.question_text }}</h2>
-
         <ul>
         {% for choice in question.choice_set.all %}
             <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
         {% endfor %}
         </ul>
-        <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+        <a href="{% url 'polls:detail' question.id %}">Vote same poll again?</a> <br>
+        <a href="{% url 'polls:index' %}">Back to main</a>
     </body>
 </html>
