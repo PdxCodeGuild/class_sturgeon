@@ -1,0 +1,44 @@
+<html>
+<head>
+    {% load static %}
+    <Link rel="stylesheet" type="text/css" href="{% static 'shopping_list/main.css' %}">
+    <meta charset="UTF-8">
+    <title>Shopping List</title>
+</head>
+
+<body>
+    <h1>Shopping List</h1>
+    <h3>*Click item to change completetion status*</h3>
+    {% if error %}
+    <h4> No blank items allowed </h4>
+    {% endif %}
+    <ul>
+        {% for item in items %}
+            <li>
+            {% comment %} If completed, it will cross it out. If not, the item becomes a hyperlink that will complete it when touched {% endcomment %}
+            {% if item.complete %}
+            <a href="{% url 'uncomplete' item.id %}">
+                <p class="completed">
+                    {{ item.content }}
+                </p>
+            </a>
+            {% else %} 
+            <a href="{% url 'complete' item.id %}">
+                <p>{{ item.content }}
+                </p>
+            </a>
+            {% endif %}
+                <form action="/delete_item/{{item.id}}/" method="post">{% csrf_token %}
+                    <input type="submit" value="Delete Item" />
+                </form>
+            </li>
+        {% endfor %}
+        
+    </ul>
+    <form class="addition" action="/add_item/" method="post">{% csrf_token %}
+        <input type="text" name="content">
+        <input type="submit" value="Add Grocery Item">
+    </form>
+
+</body>
+</html>
