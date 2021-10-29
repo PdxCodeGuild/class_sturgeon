@@ -1,0 +1,27 @@
+<html>
+<head>
+    {% load static %}
+    <Link rel="stylesheet" type="text/css" href="{% static 'short/main.css' %}">
+    <meta charset="UTF-8">
+    <title> The resultant urls </title>
+</head>
+<body>
+    <a href="/" style="font-size: 25px; ">Go back to enter more URLs</a>
+    <table border="5px rigid #000">
+        <thead>
+            <tr>
+                <th>Your old url</th>
+                <th>The improved url</th>
+            </tr>
+        </thead>
+        {% for i in url %}
+            <tbody>
+                <tr>
+                    <td>{{i.user_url}}</td>
+                    <td>{{i.new_url}}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>

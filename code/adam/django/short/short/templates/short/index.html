@@ -1,0 +1,33 @@
+<html>
+<head>
+    {% load static %}
+    <Link rel="stylesheet" type="text/css" href="{% static 'short/main.css' %}">
+    <meta charset="UTF-8">
+    <title> Little URL Maker </title>
+</head>
+
+<body>
+    <h1>The Little URL Maker</h1>
+    <h2>Input a website and get back a smaller url</h2>
+    {% if error %}
+    <h4> No blank items allowed </h4>
+    {% endif %}
+    
+    <form action="createshorturl" method="POST">
+        {% csrf_token %}
+        <p><label>Enter your long URL:</label></p>
+        <p><input type="text" name="url" placeholder="http://www."></p>
+        <button>Shorten my URL!</button>
+    </form>
+        <a href="list" style="font-size: 25px; ">View Page with list of your URLs</a>
+
+    {% comment %} Neat little popup that tells you when you click the submit button that the new url is available on the hyperlink {% endcomment %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+    <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>
