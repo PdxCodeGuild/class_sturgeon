@@ -1,6 +1,88 @@
 
+{% load static %}
 <!DOCTYPE html>
-<head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grocery List</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" href="{% static 'grocery_list/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Make Your Own Grocery List</h1>
+        </header>
+        <main>
+            
+            {% if latest_grocery_list %}
+                <div class="incomplete-items">
+                    <h2>You need to buy these</h2>
+                    <hr>
+                    <ul>
+                        {% if incomplete_items %}
+                            {% for GroceryItem in incomplete_items %}
+                                
+                                <li>{{ GroceryItem.item_text }}</li>
+                                <a href="{% url 'grocery_list:mark_complete' GroceryItem.id %}">
+                                    <button>Mark complete</button>
+                                </a>
+                                <a href="{% url 'grocery_list:delete' GroceryItem.id %}">
+                                    <button>Delete item</button>
+                                </a>
+                                <hr>
+                            
 
-</head>
-<h1>Hey</h1>
+                            {% endfor %}
+                        {% else %}
+                            <p>You have nothing to buy</p>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="complete-items">
+                    <h2>You already bought these!</h2>
+                    <hr>
+                    <ul>
+                    {% if completed_items %}
+                        {% for GroceryItem in completed_items %}
+                            <li>{{ GroceryItem.item_text }}</li>
+                            <a href="{% url 'grocery_list:mark_complete' GroceryItem.id %}">
+                                <button>Mark incomplete</button>
+                            </a>
+                            <a href="{% url 'grocery_list:delete' GroceryItem.id %}">
+                                <button>Delete item</button>
+                            </a>
+                        {% endfor %}
+                    {% else %}
+                        <p>You haven't bought anything</p>
+                    {% endif %}
+
+                    </ul>
+
+                </div>
+
+            {% else %}
+                <p>You have no items on your grocery list</p>
+            {% endif %}
+
+            {% comment %} create item {% endcomment %}
+            <form action="{% url 'grocery_list:create' %}" method="post">
+            {% csrf_token %}
+                <fieldset>
+                    <legend><h2>Add an item to your grocery list</h1></legend>
+                    
+                    <textarea name="item-info" rows="4" cols="50" placeholder="required" required></textarea><br>
+                    
+                </fieldset>
+                <div class="submit">
+                    <input type="submit" value="Add">
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
