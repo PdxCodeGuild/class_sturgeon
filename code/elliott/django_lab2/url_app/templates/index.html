@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="{% static 'style.css'%}">
+</head>
+
+<body>
+    <div id='container'>
+        <header>
+            <h2>Url Shortener</h2>
+        </header>
+        <form id='myform'>
+            {% csrf_token %}
+            <input type='text' id='url' , name='link' placeholder="Enter the URL">
+            <input type='submit' id='submitBtn' value='Shorten URL'>
+        </form>
+        <div id='shortened_link'></div>
+    </div>
+
+    <script>
+        let form = document.getElementById('myform')
+        let shortened_link = document.getElementById('shortened_link')
+        form.addEventListener('submit', shortenUrl)
+        function shortenUrl(e) {
+            e.preventDefault()
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'create' %}",
+                data: $('#myform').serialize(),
+                datatype: "json",
+                success: function (data) {
+                    shortened_link.innerText = data
+
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
