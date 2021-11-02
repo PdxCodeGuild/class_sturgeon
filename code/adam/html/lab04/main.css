@@ -1,0 +1,140 @@
+/* Put the HTML and *, *:before things in at the top of every CSS file to keep flex from wrapping */
+html {
+    box-sizing: border-box;
+}
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.header span{
+    background-image: linear-gradient(red, yellow);
+    width: 100%;
+    font-size: 4.3rem;
+}
+
+hr{
+    border-color: lawngreen;
+    border-width: thick;
+    width: 60%;
+}
+
+body{
+  /* Part 2a: Center the content of the body: */
+    text-align: left;
+    font-size: larger;
+    font-family: 'Cinzel', serif;
+    height:100%;
+    padding-left: 20px;
+  /* Part 3a: Pick a color scheme and modify the background, text and link texted color  */
+    background-color: rgb(4, 136, 54);
+    background-image: url("https://live.staticflickr.com/5251/5407608590_3a59564477_b.jpg");
+    background-position:  left 5px top 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3 {
+    margin: .5em .5em .5em;
+    text-decoration: underline;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="tel"] {
+    background-image: linear-gradient(orange, yellow);
+    width: 200px;
+    height: 30px;
+    display: flex;
+}
+
+input[type="text"] {
+    width: 350px;
+}
+
+.little-guy hr{
+    margin: 0px;
+    width: 70%;
+    padding: 0px;
+    border-width: medium;
+}
+
+#submit {
+    background-image: linear-gradient(red, yellow);
+    border-radius: 20px;
+    border: 4px solid #BF9BA2;
+    transition: .1s ease-in-out all;
+}
+
+.cost {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    height: 30%;
+    margin: 10px 30px 1px 1px;
+}
+
+.cost h3 {
+    margin-left: 0px;
+}
+
+.cost hr {
+    border-width: thin;
+    width:100%;
+    border-color: black;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.cost h3, p{
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .header span {
+        padding-top: -10px;
+        font-size: 100%;
+    }
+
+    main {
+        grid-template-columns: 50% 50%;
+    }
+
+    input[type="text"],
+    input[type="tel"] {
+        width: 130px;
+        height: 20px;
+    }
+
+    body {
+        font-size: 60%;
+    }
+
+    .cost {
+        /* border: 0px; */
+        width: 70%;
+        padding-right: 50px;
+        margin-right: 50px;
+    }
+
+    .cost hr {
+        width: 100%;
+        border-radius: 75%;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}

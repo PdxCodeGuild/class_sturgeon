@@ -1,0 +1,71 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    background-color: rgb(102, 102, 226);
+  }
+  
+  body {
+    background-color: rgb(211, 206, 206);
+  }
+  
+  nav h1 {
+    color: aliceblue;
+    margin-left: 8px;
+  }
+  
+  .list {
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: rgb(243, 241, 241);
+    width: 430px;
+    text-align: center;
+  }
+  
+  .list h2 {
+    font-size: 35px;
+    padding-left: 10px;
+  }
+  
+  .list h3 {
+    font-size: 20px;
+  }
+  
+  .task {
+    margin: 10px;
+    padding-top: 10px;
+  }
+  
+  .priority {
+    padding-top: 10px;
+  }
+  
+  .text {
+    padding-top: 10px;
+  }
+  
+  .form {
+    margin-top: 40px;
+    padding-left: 25px;
+  }
+  
+  .form h2 {
+    padding-bottom: 15px;
+    padding-left: 150px;
+  }
+  .high {
+    color: brown;
+  }
+  .medium {
+    color: rgb(172, 172, 23);
+  }
+  .low {
+    color: green;
+  }

@@ -2,7 +2,7 @@
 
 # Lab 2: Company Home
 
-Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. Use CSS grid and/or flexbox, and make sure it's responsive. Browse the internet for existing company pages and imitate as much as you can.
+Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. Use media queries and CSS flexbox to create a responsive design that offers different, legible layouts for phone, tablet, and desktop screen sizes. You can test this in the broswer devtools. Don't forget to use cascading min-width media queries for a mobile first design, and remember to include the responsive meta tag in your HTML. Browse the internet for existing company pages and imitate as much as you can.
 
 ## Suggested Steps:
 

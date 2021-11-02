@@ -1,0 +1,36 @@
+body {
+    background-image: url("https://wallpaperaccess.com/full/2721437.jpg");
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 24px;
+}
+h1 {
+    text-align: center;
+    font-size: 64px;
+}
+
+form {
+    margin: 2em;
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(238, 235, 235, 0.7);
+}
+
+textarea {
+    margin: 2em;
+}
+
+.submit {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 32px;
+}
+
+.complete-items, .incomplete-items {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2em;
+    padding: 2em;
+    background-color: rgb(238, 235, 235, 0.7);
+}

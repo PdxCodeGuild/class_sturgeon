@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+  margin: 1em;
+}
+
+header {
+  padding: 50px;
+  text-align: center;
+  background-color: #215892;
+  color: white;
+  border-radius: 10px;
+}
+
+main {
+padding: 1em;
+}
+
+footer {
+margin: 1em;
+color: #215892;
+}
+
+.allboxes {
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: left;
+}
+
+.box2 {
+margin-bottom: 20px;
+margin-top: 5px;
+padding: 1em;
+width: 100%;
+}
+

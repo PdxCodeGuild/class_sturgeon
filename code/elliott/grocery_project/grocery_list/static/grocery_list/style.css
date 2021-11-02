@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital@1&family=Zen+Old+Mincho:wght@900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-color: rgba(0, 214, 170, 0.85);
+}
+
+body {
+  display: grid;
+  grid-template:
+    "header header header header" 5em
+    "form1 form1 form1 form1" 15em
+    ". main sidebar ." auto
+    "footer footer footer footer" 5em /
+    1fr 5fr 2fr 1fr;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  font-family: "Zen Old Mincho", serif;
+}
+
+.section-title {
+  padding-top: 3em;
+  padding-left: 0.5em;
+}
+
+header {
+  grid-area: header;
+  background: black;
+  color: rgb(248, 248, 247);
+}
+
+.logo {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+nav {
+  padding-top: 1em;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+}
+
+.links a:hover {
+  color: var(--header-color);
+}
+
+.form_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: form1;
+  padding: 2em;
+  background-image: url("/static/img/health-foods.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.form-box {
+  border: 1px solid rgb(82, 79, 79);
+  padding: 1em;
+  background: rgba(159, 161, 161, 0.92);
+}
+
+.form-box h2 {
+  text-align: center;
+  color: black;
+  padding-bottom: 1rem;
+}
+
+main {
+  grid-area: main;
+}
+
+.list_of_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+  padding: 0.5em;
+  margin: 1em;
+  min-width: 220px;
+  max-width: 380px;
+}
+
+.list {
+  padding-top: 1em;
+}
+
+button:hover {
+  background-color: var(--header-color);
+}
+
+aside {
+  grid-area: sidebar;
+  background: lightgray;
+  margin-top: 5em;
+  padding: 2em;
+  margin-bottom: 2em;
+  font-family: "Zen Old Mincho", serif;
+}
+
+aside p {
+  padding-top: 2em;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 2em;
+  height: 27em;
+}
+
+.fa {
+  width: 4em;
+  height: 4em;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: rgb(239, 239, 243);
+  font-size: 30px;
+  transform: translate3d(0px 50px 0px);
+}
+
+.fa:hover {
+  opacity: 65%;
+}
+
+.fa-facebook {
+  background: #3b5998;
+}
+
+.fa-twitter {
+  background: #55acee;
+}
+
+.fa-instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.fa-google {
+  background: red;
+}
+
+.social-icons li {
+  list-style: none;
+}
+
+footer {
+  text-align: center;
+  background: black;
+  color: rgb(241, 241, 236);
+  grid-area: footer;
+}

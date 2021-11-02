@@ -11,7 +11,6 @@ db = JsonDB('db.json')
 def index():
     db.load()
     to_do_list = db.get('todos')
-    
     return render_template('index.html', to_do_list = to_do_list)
 
 @app.route('/receive_form/', methods=['POST'])
