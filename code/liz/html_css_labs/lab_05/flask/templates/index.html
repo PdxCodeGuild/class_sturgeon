@@ -1,0 +1,49 @@
+<!-- flask redo--- unit converter -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unit Converter</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Unit Converter</h1>
+
+        <form action="/" method="post">
+            <div class="input-container">
+                <label for="distance">Distance: <input type="number" name="distance" step="0.01"></label>
+
+                <label for="unit-from-select">from</label>
+                <select name="units-from" id="unit-from-select">
+                    <option value="ft">Feet</option>
+                    <option value="mi">Miles</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="yd">Yards</option>
+                    <option value="in">Inches</option>
+                    </select>
+
+                <label for="unit-to-select">to</label>
+                <select name="units-to" id="unit-to-select">
+                    <option value="ft">Feet</option>
+                    <option value="mi">Miles</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                    <option value="yd">Yards</option>
+                    <option value="in">Inches</option>
+                </select>
+                
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <p>Your result:  <span>{{start_distance}} {{units_from}}  is  approximately  {{result_distance}} {{units_to}}</span></p>
+    </body>
+</html>

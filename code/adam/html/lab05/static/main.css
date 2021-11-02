@@ -1,0 +1,84 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: .8em;
+    text-align: center;
+    padding: 2px;
+    background-color: #41DB65;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: grid;
+    grid-template-rows: 50% 25% 25%;
+    background-image: url('https://www.antiquetrader.com/.image/t_share/MTc4MTgxMDM4NDc0Nzk4NzAx/enigma3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1, h2, h3, h4 {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+hr {
+    border-width: 6px;
+    width:80%;
+}
+
+.potatoes {
+    padding: 5px;
+}
+
+button {
+    margin: 15px;
+}
+
+input {
+    width: 25em;
+    height: 2em;
+    background-color: blue;
+    color: white;
+}
+
+select {
+    width: 25em;
+    padding: 8px;
+    background-color: #610DDB;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    background-color: rgb(88, 88, 88);
+    padding: 9px;
+}
+
+input:focus {
+    background-color: #DB8A23;
+}
+
+label {
+    color: #000000;
+    background-color: white;
+    padding: 8px;
+}
+
+div {
+    margin: 3px;
+    padding: 5px;
+}
+
+@media (min-width: 600px) {
+    body {
+        font-size: 1.3em;
+        grid-template-columns: 50% 25% 25%;
+    }
+
+    input {
+        width: 15em;
+    }
+}

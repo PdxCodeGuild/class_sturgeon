@@ -1,0 +1,41 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: rgb(199, 199, 25);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+
+
+}
+.ultimate {
+    color: purple;
+}
+.high {
+    color: red;
+}
+.medium {
+    color: blue;
+}
+.low {
+    color: green;
+}
+table {
+    border: 2px solid red;
+    padding: 2em;
+    text-align: center;
+    
+}
+
+td {
+    border: 2px solid purple;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin: 0px;
+    padding: 1em;
+}
