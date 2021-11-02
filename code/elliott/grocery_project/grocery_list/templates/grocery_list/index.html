@@ -1,0 +1,78 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'grocery_list/style.css'%}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>The List</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="logo">The List</h1>
+    <nav>
+      <ul class="links">
+        <li><a href="">Home</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="admin/">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="form_1">
+    <div class="form-box">
+      <h2 class="intro">Add items to your list below</h2>
+      <form class="main-entry" action="{% url 'grocery_list:add-item' %}" method="post">
+        {% csrf_token %}
+        <label for="Items">Grocery</label>
+        <input type="text" name="Items">
+        <label for="Amount">Amount</label>
+        <input type="text" name="Amount">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <main>
+    <h2 class="section-title">Your Custom Grocery List!</h2>
+    {% for item in items %}
+    <div class="list_of_items">
+      <form action="{% url 'grocery_list:del-item' item.id %}" method="post">
+        {% csrf_token %}
+        <ul class="list">
+          <li>{{item.grocery}}</li>
+          <li>{{item.amount}}</li>
+          <li>{{item.date_posted}}</li>
+        </ul>
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+    {% endfor %}
+  </main>
+
+  <aside>
+    <h2>Sidebar</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At, ullam inventore fuga suscipit asperiores
+      voluptates repellat, saepe consequuntur, quas harum exercitationem blanditiis repudiandae omnis nisi
+      perspiciatis sed. Ipsa, ducimus odit!</p>
+
+    <ul class="social-icons">
+      <li><a href="#" class="fa fa-facebook"></a></li>
+      <li><a href="#" class="fa fa-twitter"></a></li>
+      <li><a href="#" class="fa fa-instagram"></a></li>
+      <li><a href="#" class="fa fa-google"></a></li>
+    </ul>
+  </aside>
+
+  <footer>
+    <h2>The List</h2>
+  </footer>
+</body>
+
+</html>

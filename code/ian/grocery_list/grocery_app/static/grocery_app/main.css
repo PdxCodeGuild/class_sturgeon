@@ -1,0 +1,20 @@
+html {
+    box-sizing : border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+h1, h3 {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+}
+.new {
+    text-align: center;
+}

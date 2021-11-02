@@ -1,0 +1,47 @@
+<html>
+<head>
+    {% load static %}
+    <Link rel="stylesheet" type="text/css" href="{% static 'short/main.css' %}">
+    <meta charset="UTF-8">
+    <title> Little URL Maker </title>
+</head>
+
+<body>
+    <h1>The Little URL Maker</h1>
+    <h2>Enter a website and get back a smaller url</h2>
+    {% if error %}
+    <h4> No blank items allowed </h4>
+    {% endif %}
+    <table border="5px rigid #000">
+        <thead>
+            <tr>
+                <th>Enter your website's URL</th>
+                <th>Enter your secure website's URL</th>
+                <th>Click below to activate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="createshorturl" method="POST">
+                    {% csrf_token %}
+                    {% comment %} <p><label>Enter your long URL:</label></p> {% endcomment %}
+                    <td><input type="text" name="url" value="http://www." placeholder="http://www."></td>
+                    {% comment %} <p><label>Enter your long secure URL:</label></p> {% endcomment %}
+                    <td><input type="text" name="secure_url" value="https://www." placeholder="https://www."></td>
+                    <td><button class="deleted">Shorten my URL!</button></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+    <h2><a href="list"><h2><span class="spam">Go to</span> table of URLs</h2></a></h2>
+
+    {% comment %} Neat little popup that tells you when you click the submit button that the new url is available on the hyperlink {% endcomment %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+    <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>

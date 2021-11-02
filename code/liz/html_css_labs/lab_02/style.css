@@ -1,0 +1,104 @@
+/* lab 2 company home page */
+
+
+/* -----------mobile------------------ */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background: url("https://previews.123rf.com/images/taden/taden1008/taden100800014/7519655-wool-sweater-texture-close-up.jpg") center fixed; */
+    /* background: url("https://static.vecteezy.com/system/resources/previews/002/541/964/non_2x/white-wool-handmade-cloth-photo.jpg") center fixed; */
+    background: url("https://st3.depositphotos.com/7335562/14051/i/1600/depositphotos_140518790-stock-photo-white-knitted-fabric-texture.jpg") center fixed;
+}
+
+nav a {
+    color: rgb(97, 101, 119);
+    font-weight: bold;
+}
+
+header img {
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    text-align: center;
+    margin: 2em;
+    padding: 1em;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* border-radius: 50px; */
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: small;
+}
+main p {
+    text-align: center;
+}
+
+.title-logo {
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.card {
+    margin: 2em;
+    padding: 1em;
+    background-color: rgba(255,255,255,0.7);
+
+}
+.card p {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* -----------tablet------------------ */
+@media (min-width: 640px) {
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        padding: 1em;
+    }
+}
+
+
+/* -----------desktop------------------ */
+@media (min-width: 1100px) {
+    .title-logo {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

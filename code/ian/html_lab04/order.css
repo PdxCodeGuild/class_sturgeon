@@ -1,0 +1,114 @@
+@import "normalize.css";
+
+/* 
+#730202
+#BF0404
+#D97904
+#F29F05
+#D9B504
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img { 
+    display: block;
+    max-width: 100%;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    
+}
+header {
+    background: #D9B504;
+    color: #BF0404;
+    padding: 1em;
+    text-align: center;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 35px
+}
+
+main img {
+    width: 33%;
+    max-height: 400px;
+    border:2px solid #730202;
+    margin: 1em;
+    border-radius: 15px;
+
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.user {
+    display: flex;
+    
+}
+#name {
+    width: 50%
+}
+#password {
+    width: 50%
+}
+.form1 {
+    width:33%;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.tort {
+    display: flex;
+}
+
+.rice {
+    display: flex;
+}
+.beans {
+    display: flex;
+}
+
+.protein {
+    display: flex;
+}
+
+.promo {
+    font-size: 25px;
+    width: 33%;
+    border: 2px solid #730202;
+    margin: 1em;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.info {
+     border: 2px solid #730202;
+     border-radius: 15px;
+     display: flex;
+     margin: 1em;
+    
+     
+}
+     
+.info h3 {
+    width: 20%;
+    margin-left: 1em;
+}
+
+.acct {
+    display: flex;
+    align-content: center;
+    margin-top: .5em
+
+}

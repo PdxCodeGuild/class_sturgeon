@@ -64,7 +64,7 @@ def test_count_hi():
 def snake_case(text):
     ...
 
-def test_snake_case(text):
+def test_snake_case():
     assert snake_case('Hello World!') ==  'hello_world'
     assert snake_case('This is another example.') == 'this_is_another_example'
 
@@ -86,4 +86,4 @@ def alternating_case(text):
 
 def test_alternating_case():
     assert alternating_case('Hello World!') ==  'HeLlO WoRlD!'
-    assert alternating_case('This is another example.') == 'ThIs iS AnOtHeR ExAmPle.'
+    assert alternating_case('This is another example.') == 'ThIs iS AnOtHeR ExAmPlE.'

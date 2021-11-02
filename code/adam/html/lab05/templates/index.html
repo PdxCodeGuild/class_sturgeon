@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Lab05 convert or encrypt</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+    </head>
+    <body>
+        <form action="/receive_form/" method="post">
+            <h1>Unit Convertor</h1>
+            <hr>
+            <div class="potatoes">
+                <div>
+                    <label for="from_x">Select unit type to convert from:</label>
+                    <select name="from_x" id="from_x">
+                        <option value="feet">Feet</option>
+                        <option value="inches">Inches</option>
+                        <option value="miles" selected>Miles</option>
+                        <option value="cm">Centimeters</option>
+                    </select>
+                </div>
+                <input name="text" type="number" title="Only Numbers" placeholder="# of unit to convert" required></textarea>
+                <br>
+                <div>
+                    <label for="to">Select unit type to convert to:</label>
+                    <select name="to" id="to">
+                        <option value="feet">Feet</option>
+                        <option value="inches">Inches</option>
+                        <option value="miles" selected>Miles</option>
+                        <option value="cm">Centimeters</option>
+                    </select>
+                    <br>
+                    <button type="submit">Convert Units</button>
+                </div>
+            </div>
+        </form>
+        <form action="/password_form/" method="post">
+            <H1>Password Generator</H1>
+            <hr>
+            <input type="text" name="password" id="password" pattern = "[0-9]+" title="Only Numbers" placeholder="Enter # of characters" required>
+            <br>
+            <button type="submit">Generate Password</button>
+        </form>
+        <form action="/rot_form/" method="post">
+            <H1>Rotation Cipher</H1>
+            <hr>
+            <input type="text" name="user_word" id="user_word" placeholder="Enter word to encrypt" title='only letters' pattern="[a-zA-Z]+" required>
+            <input type="text" name="user_rotation_number" id="user_rotation_number" placeholder="Rotation #, 13 is normal" title='only numbers' pattern="[0-9]+" required>
+            <br>
+            <button type="submit">Rotate Word</button>
+        </form>
+    </body>
+</html>
+
