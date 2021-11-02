@@ -1,0 +1,52 @@
+/* flask redo-- unit converter */
+
+
+html {
+    box-sizing: border-box;
+    font-size: min(16px);
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: gold;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    border: 4px dashed black;
+    margin: 10%;
+    padding: auto;
+}
+
+h1 {
+    font-family: 'Fredericka the Great', sans-serif;
+    font-size: 64px;
+    text-align: center;
+}
+
+/* form {
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 4em;
+} */
+
+/* p {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 4em;
+} */
+
+span {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+p {
+    text-align: center;
+}
+
+.input-container {
+    text-align: center;
+}
