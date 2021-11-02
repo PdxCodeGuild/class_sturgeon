@@ -1,0 +1,26 @@
+{
+    "converter": {
+        "feet_to_cm": 30.48,
+        "feet_to_feet": 1,
+        "feet_to_inches": 12,
+        "feet_to_miles": 0.00018939,
+        "inches_to_cm": 2.54,
+        "inches_to_feet": 0.083333,
+        "inches_to_inches": 1,
+        "inches_to_miles": 1.5783e-05,
+        "miles_to_cm": 160934,
+        "miles_to_feet": 5280,
+        "miles_to_inches": 63360,
+        "miles_to_miles": 1,
+        "cm_to_cm": 1,
+        "cm_to_feet": 0.032808,
+        "cm_to_inches": 0.39370,
+        "cm_to_miles": 6.21371e-6
+    },
+    "passwords": {
+        "symbols" : "~`! @#$%^&*()_-+={[}]|:;'<,>.?/",
+        "numbers" : "0123456789",
+        "letters" : "abcdefghijklmnopqrstuvwxyz"
+    },
+    "x": 6
+}

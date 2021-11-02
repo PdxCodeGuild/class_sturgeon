@@ -1,0 +1,46 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.unit-converter {
+    background-color: #41DB65;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('https://www.redhat.com/architect/sites/architect/files/styles/full/public/2021-08/Everyday-tools-enterprise-architecture_0.jpg?itok=PUYagfn2');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pgenerator {
+    background-color: #41DB65;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('http://www.creativecrafthouse.com/mm5/graphics/00000001/e/n/enigma_slide_rule_cipher_close_up_clipped_rev_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rotational {
+    background-color: #41DB65;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('https://m.media-amazon.com/images/I/71SgSx51bbL._AC_SL1120_.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    background-color: #610DDB;
+    color: white;
+    border-style: ridge;
+    border-width: 30px;
+    width: 700px;
+    margin: 8px;
+    padding: 8px;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+}
