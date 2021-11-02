@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="{% static 'grocery_app/main.css' %}">
+    <title>Index</title>
+
+    </head>
+    <body>
+        <h1>Grocery List</h1>
+        <br>
+    
+        <ul><h3><u>Incomplete</u></h3>
+        {% for item in inc_item_list%}
+
+            <li>{{ item.name }}.........{{item.pub_date}}</li>
+                <div class="buttons">
+                    <form action="{% url 'grocery_app:delete' item.pk %}" method="post">
+                        {% csrf_token %}
+
+                        <button type="submit">del</button>
+                    </form>
+                    <form action="{% url 'grocery_app:complete' item.pk %}" method="post">
+                        {% csrf_token %}
+
+                        <button type="submit">complete</button>
+                    </form>
+                </div>
+                <hr>
+        
+        {% endfor %}    
+        </ul>
+        <br>
+        
+        
+        <ul><h3><u>Completed</u></h3>
+        {% for item in c_item_list%}
+
+            <li>{{ item.name }}.........{{item.pub_date}}...Completed: {{item.comp_date}}</li>
+            <div class="buttons">
+                <form action="{% url 'grocery_app:delete' item.pk %}" method = "post">
+                    {% csrf_token %}
+
+                    <button type="submit">Del</button>
+                </form>
+                <form action="{% url 'grocery_app:complete' item.pk %}" method="post">
+                    {% csrf_token %}
+
+                    <button type="submit">Incomplete</button>
+                </form>
+            </div>
+            <hr>
+        
+        {% endfor %}    
+        </ul>
+        <br>
+
+        <div class="new">
+            <h2>Add Item:</h2>
+            <form action="{% url 'grocery_app:create' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="new_item"/>
+                <button type="submit">save</button>
+            </form>
+        </div>
+
+
+
+    </body>
+</html>
