@@ -1,15 +1,41 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% for item in url_list %}
-        <p>{{item}}</p>
-    {% endfor %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'url_shortener/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    </head>
+    <body>
+        <header>
+            <h1>URL Shortener</h1>
+        </header>
+        <main>
+            <form action="{% url 'url_shortener:index' %}" method="post">
+            {% csrf_token %}
+                <label for="long-url">Enter long URL:  <input type="text" name="long-url"></label>
+                <input type="submit" value="Shorten my URL">
+            </form>
+            <p>Here is your shortened URL: </p>
+            <a target="_blank" href="{% url 'url_shortener:redirect' current_url.short_url %}">localhost:8000/redirect/{{current_url.short_url}}</a>
+            <table class="striped">
+                <tr>
+                    <th>Here are your other shortened URLs: </th>
+                </tr>
+                
+                {% for item in url_list %}
+                    <tr>
+                        <td><a target="_blank" href="{% url 'url_shortener:redirect' item.short_url %}">localhost:8000/redirect/{{item.short_url}}</a></td>
+                    </tr>
+                {% endfor %}
+                
+            </table>
+        </main>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
 </html>
