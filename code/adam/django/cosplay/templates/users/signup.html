@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+    <title>Signup - Cosplay</title>
+{% endblock head_content %}
+
+{% block container %}
+	<form method="POST" action="{% url 'users:signup' %}">
+		{% csrf_token %}
+		{% for input in form %}
+			<div class="form-group">
+				{{input}}
+			</div>
+            <div class="invalid-feedback">
+                {% for error in input.errors %}{{ error }}{% endfor %}
+            </div>
+		{% endfor %}
+		<button type="submit" class="btn btn-outline-success btn-block mt-5"><i class="lead">Register!</i></button>	
+	</form>
+		<div class="mx-auto mt-1" style="width: 300px;">
+		<p>Already registered? <a href="{% url "users:login" %}">Sign In</a></p>
+	</div>
+{% endblock container %}

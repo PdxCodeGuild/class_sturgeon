@@ -1,0 +1,54 @@
+html, body {
+    background: #000000;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#auth-container {
+    background: rgb(221, 221, 221);
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+}
+
+#main-navbar {
+    background: rgb(23, 0, 105);
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+.post-container {
+    background: rgb(21, 255, 0);
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+
+.nav-icon a {
+    color: #ffffff;
+    font-size: 1.7em;
+    display: block;
+    margin-top: .2em;
+    margin-left: 1.2em;
+    font-weight: 400;
+}
+.nav-icon a:hover {
+    color: #1d5e72;;
+}
+#profile-box {
+    background: rgb(209, 209, 209);
+    border: 1px solid rgba(0,0,0,.0975);
+    border-radius: 1px;
+    margin-top: 4em;
+}
+
+#user-posts #post-thumb {
+    background: #fff;
+}
+
+h2, b {
+    color: white;
+}
+
+.text-white {
+    color: white;
+}
