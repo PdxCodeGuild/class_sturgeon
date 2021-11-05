@@ -1,6 +1,7 @@
 from django.contrib.auth import logout
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, FormView, UpdateView
@@ -47,7 +48,7 @@ class UserDetailView(DetailView):
     slug_field = 'username'
     slug_url_kwarg = 'username_slug'
     queryset = User.objects.all()
-    context_object_name = 'user'
+    context_object_name = 'profile_user'
 
     def get_context_data(self, **kwargs):
         """Add user's posts to context"""
@@ -55,3 +56,25 @@ class UserDetailView(DetailView):
         user = self.get_object()
         context['posts'] = Post.objects.filter(profile__user=user).order_by('-created')
         return context
+
+# def profile(request, username):
+#     userProfile = User.objects.get(username=username)
+
+#     data = {
+#         "cosplay": userProfile,
+#     }
+#     return render(request, "users:detail", data)
+
+def make_a_friend(request, user_name):
+    temp = User.objects.get(username=user_name)
+    user1 = Profile.objects.get(user=temp.id)
+    user2 = Profile.objects.get(user=request.user.id)
+    followers = user1.followers.all()
+    if user2 in followers:
+        user2.followers.remove(user1)
+    else:
+        user2.followers.add(user1)
+    user1.save()
+    user2.save()
+    # return redirect(profile)
+    return HttpResponseRedirect(reverse('users:detail', args=[user1.user.username]))

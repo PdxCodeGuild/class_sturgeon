@@ -1,37 +1,52 @@
 {% extends "base.html" %}
 
 {% block head_content %}
-<title>@{{ user.username }} | Profile</title>
+<title>@{{ profile_user.username }} | Profile</title>
 {% endblock %}
 {% block container %}
     <div class="container mb-5" style="margin-top: 8em;">
         <div class="row">
             <div class="col-sm-4 d-flex justify-content-center">
-                <img src="{{ user.profile.picture.url }}" alt="@{{ user.username}}" class="rounded-circle" max-width="175px" height="175px" />
+                <img src="{{ profile_user.profile.picture.url }}" alt="@{{ profile_user.profile_username }}" class="rounded-circle" max-width="175px" height="175px" />
             </div>
             <div class="col-sm-8">
                 <h2 style="font-weight: 100;">
-                    {{ user.username }}
-                    {% if user == request.user %}
+                    {{ profile_user.username }}
+                    {% if profile_user == request.user %}
                         <a href="{% url "users:update_profile" %}" class="ml-5 btn btn-sm btn-outline-info">Edit profile</a>
+
+                {% comment %} Comment out this section part 1 of 2 to make it work without followers {% endcomment %}
                     {% else %}
-                        <button type='submit' class="ml-5 btn btn-sm btn-primary">Follow</a>
+                        {% if profile_user.profile in user.profile.followers.all %}
+                            <a href="{% url 'users:make_a_friend' user_name=profile_user.username %}"
+                                <button type='submit' class="ml-5 btn btn-sm btn-primary">UnFollow</a>
+                        {% else %}
+                            <a href="{% url 'users:make_a_friend' user_name=profile_user.username %}"
+                                <button type='submit' class="ml-5 btn btn-sm btn-primary">Follow</a>
+                        {% endif %}
+
+
                     {% endif %}
                 </h2>
                 <div class="row mt-2 text-white" style="font-size: 1.2em">
                     <div class="col-sm-4">
-                        <b>{{ user.profile.posts_count }}</b> posts
+                        <b>{{ profile_user.profile.posts_count }}</b> posts
                     </div>
-                    {% comment %} <div class="col-sm-4">
-                        <b>{{ user.profile.followers_count }}</b> followers
+
+                {% comment %} Comment out this section 2 of 2 to make it work without followers {% endcomment %}
+                    <div class="col-sm-4">
+                        <b>{{ profile_user.profile.followers_count }}</b> followers
                     </div>
                     <div class="col-sm-4">
-                        <b>{{ user.profile.following_count }}</b> following
-                    </div> {% endcomment %}
+                        <b>{{ profile_user.profile.following_count }}</b> following
+                    </div>
+
+
                 </div>
                 <div class="row mt-4">
                     <div class="col-sm-12">
-                        <p class="text-white">{{ user.profile.biography }}</p>
+                        <p class="text-white">{{ profile_user.profile.biography }}</p>
+                        <a href="{{ profile_user.profile.website }}">{{ profile_user.profile.website }}</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +58,7 @@
             {% for post in posts %}
             <div class="col-sm-4 pt-5 pb-5 pr-5 pl-5 d-flex justify-content-center align-items-center">
                 <a href="{% url "posts:detail" post.id %}" class="border">
-                    <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid"/>
+                    <img src="{{ post.photo.url }}" alt="{{ post.title }}" class="img-fluid"/> <i class="fa fa-camera" aria-hidden="true"></i> {{ post.photographer }}
                 </a>
             </div>
             {% endfor %}

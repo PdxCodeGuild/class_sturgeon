@@ -3,17 +3,12 @@ from django.contrib import admin
 from .models import Post
 # admin.site.register(Post)
 
-
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """Post Admin"""
-    # Lista de los atributos que mostrara en el admin
-    list_display = ('__str__', 'title', 'photo', 'created', 'modified')
-    # Campos de solo lectura
+    list_display = ('__str__', 'title', 'photo', 'photographer', 'created', 'modified')
     readonly_fields = ('created', 'modified')
-    # Lista de editables in situ
-    list_editable = ('title', 'photo')
-    # Campos de busqueda
+    list_editable = ('title', 'photo', 'photographer')
     search_fields = (
         'profile__user__email',
         'profile__user__username',
@@ -21,7 +16,6 @@ class PostAdmin(admin.ModelAdmin):
         'profile__user__last_name',
         'title'
     )
-    # Campos por los que se puede filtrar
     list_filter = (
         'profile__user__is_active',
         'profile__user__is_staff',

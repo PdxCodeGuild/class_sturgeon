@@ -28,8 +28,8 @@ html, body {
     font-size: 1.7em;
     display: block;
     margin-top: .2em;
-    margin-left: 1.2em;
-    font-weight: 400;
+    margin-left: 2.2em;
+    font-weight: 300;
 }
 .nav-icon a:hover {
     color: #1d5e72;;
@@ -45,10 +45,28 @@ html, body {
     background: #fff;
 }
 
-h2, b {
+h2 {
     color: white;
 }
 
 .text-white {
     color: white;
+}
+
+.photographer {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+}
+
+.post_date {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+}
+
+.lead {
+    font-size: 1.7em;
+    margin-left: .2em;
+    font-weight: 300;
 }
