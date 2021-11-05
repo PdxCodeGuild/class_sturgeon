@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.post {
+  border-bottom: 0.5px solid rgb(221, 218, 218);
+  width: 100%;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+}
