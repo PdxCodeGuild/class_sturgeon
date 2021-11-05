@@ -11,26 +11,30 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     </head>
-    <body>
-        <header>
+    <body class="card-panel white">
+        <header class="center-align">
             <h1>URL Shortener</h1>
         </header>
         <main>
-            <form action="{% url 'url_shortener:index' %}" method="post">
+            <form action="{% url 'url_shortener:index' %}" method="post" class="card-panel #eceff1 blue-grey lighten-5">
             {% csrf_token %}
                 <label for="long-url">Enter long URL:  <input type="text" name="long-url"></label>
                 <input type="submit" value="Shorten my URL">
             </form>
-            <p>Here is your shortened URL: </p>
-            <a target="_blank" href="{% url 'url_shortener:redirect' current_url.short_url %}">localhost:8000/redirect/{{current_url.short_url}}</a>
+            <div class="card-panel #eceff1 blue-grey lighten-5">
+                <h3>Here is your shortened URL: </h3>
+                <div class="center-align">
+                    <h4><a target="_blank" href="{% url 'url_shortener:redirect' current_url.short_url %}"><u>localhost:8000/redirect/{{current_url.short_url}}</u></a></h4>
+                </div>
+            </div>
             <table class="striped">
                 <tr>
-                    <th>Here are your other shortened URLs: </th>
+                    <th class="center-align">Here are your other shortened URLs: </th>
                 </tr>
                 
                 {% for item in url_list %}
                     <tr>
-                        <td><a target="_blank" href="{% url 'url_shortener:redirect' item.short_url %}">localhost:8000/redirect/{{item.short_url}}</a></td>
+                        <td class="center-align"><a target="_blank" href="{% url 'url_shortener:redirect' item.short_url %}"><u>localhost:8000/redirect/{{item.short_url}}</u></a></td>
                     </tr>
                 {% endfor %}
                 
