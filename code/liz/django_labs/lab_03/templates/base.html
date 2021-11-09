@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+</head>
+<body>
+    <header>
+        <h1>Chirp</h1>
+        <nav>
+            <p><a href="{% url 'posts:home' %}">Home</a></p>
+            {% comment %} <p><a href="{% url 'users:profile' %}">Profile</a></p> {% endcomment %}
+            <p><a href="{% url 'posts:create' %}">New Chirp</a></p>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer>
+        <p>© 2021 Chirp, Inc.</p>
+    </footer>
+</body>
+</html>
