@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, <a href="{% url 'users:profile' user.username%}">{{user.username}}</a>!</h1>
+        <p class="lead">Welcome to Chirp! The only bird themed blogging site you could need!</p>
+        <hr class="my-4">
+        <p>For more details, check out your profile.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'users:profile' user.username%}" role="button">Profile</a>
+    </div> 
+
+    {% for post in post_list %}
+        <h3><a href="{% url 'posts:details' post.pk %}">{{post.title}}</a></h3>
+        <p class="lead">{{post.body}}</p>
+        <p class="blockquote-footer">{{post.author}}</p>
+        <p><em>{{post.updated}}</em></p>
+        <p>Likes: {{post.likes}}</p>
+        
+
+        <br>
+        <hr>
+    {% endfor %}
+    
+
+{% endblock content %}

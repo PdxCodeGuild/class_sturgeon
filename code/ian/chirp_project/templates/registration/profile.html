@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} {{user.username}}'s Profile {% endblock title %}
+
+{% block content %}
+<div class="alert alert-info" role="alert">
+  <h1>{{user.username}}'s Profile</h1></div>
+
+
+
+
+<p>date joined : {{user.date_joined}}</p>
+<br>
+
+
+{% for post in user.post_set.all %}
+    
+    <p><a href="{% url 'posts:details' post.pk %}">{{post.title}}</a></p>
+    <p>{{post.body}}</p>
+    <p><em>{{post.author}}</em></p>
+    <p><em>{{post.created}}</em></p>
+    <hr>
+    
+{% endfor %}
+
+
+{% endblock content %}
