@@ -30,4 +30,9 @@
         <small>{{ post.created }}</small>
         </span>
     </p>
+    <span class="pizza">There are {{ post.comments.count }} comments on this post:</span>
+    {% for comment in post.comments.all|slice:':5'%}
+        <p class="commentary">{{ comment.author }}: {{ comment.text }} -- {{ comment.created_date | date:'Md'}}</p>
+    {% empty %} <br> No Comments yet... Be the first!
+    {% endfor %}
 </div>

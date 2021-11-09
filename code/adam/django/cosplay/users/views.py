@@ -57,14 +57,6 @@ class UserDetailView(DetailView):
         context['posts'] = Post.objects.filter(profile__user=user).order_by('-created')
         return context
 
-# def profile(request, username):
-#     userProfile = User.objects.get(username=username)
-
-#     data = {
-#         "cosplay": userProfile,
-#     }
-#     return render(request, "users:detail", data)
-
 def make_a_friend(request, user_name):
     temp = User.objects.get(username=user_name)
     user1 = Profile.objects.get(user=temp.id)

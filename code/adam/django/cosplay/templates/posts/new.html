@@ -19,7 +19,7 @@
                             class="form-control {% if form.title.errors %}is-invalid{% endif %}"
                             type="text"
                             name="title"
-                            placeholder="Title">
+                            placeholder="Title" required>
                         <div class="invalid-feedback">
                             {% for error in form.title.errors %}{{ error }}{% endfor %}
                         </div>
@@ -29,7 +29,7 @@
                             class="form-control {% if form.title.errors %}is-invalid{% endif %}"
                             type="text"
                             name="photographer"
-                            placeholder="Photographer">
+                            placeholder="Photographer" required>
                         <div class="invalid-feedback">
                             {% for error in form.title.errors %}{{ error }}{% endfor %}
                         </div>
@@ -41,7 +41,7 @@
                             class="form-control {% if form.photo.errors %}is-invalid{% endif %}"
                             type="file"
                             name="photo"
-                            placeholder="photo">
+                            placeholder="photo" required>
                         <div class="invalid-feedback">
                             {% for error in form.photo.errors %}{{ error }}{% endfor %}
                         </div>

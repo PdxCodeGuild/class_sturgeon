@@ -12,13 +12,13 @@ html, body {
 }
 
 #main-navbar {
-    background: rgb(23, 0, 105);
+    background: rgb(38, 0, 173);
     color: white;
     border-bottom: 1px solid rgba(0,0,0,.0975);
 }
 
 .post-container {
-    background: rgb(21, 255, 0);
+    background: rgb(201, 0, 0);
     border: 1px solid #e6e6e6;
     border-radius: 3px;
 }
@@ -69,4 +69,39 @@ h2 {
     font-size: 1.7em;
     margin-left: .2em;
     font-weight: 300;
+}
+
+.comment.pizza {
+    color: white;
+}
+
+.pizza {
+    color: white;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.commentary {
+    font-style: oblique;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 8px;
+}
+
+.deleting {
+    margin-bottom: 10px;
+    align-self:left;
+    order: 1;
+}
+
+.delete_sucks {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment .date, strong {
+    order: 0;
+}
+
+.comment p {
+    order: 2;
 }
