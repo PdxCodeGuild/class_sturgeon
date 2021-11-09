@@ -4,7 +4,7 @@
 {% block title %} Home {% endblock title %}
 
 {% block content %}
-
+    {% if user.is_authenticated %}
     <div class="jumbotron">
         <h1 class="display-4">Hello, <a href="{% url 'users:profile' user.username%}">{{user.username}}</a>!</h1>
         <p class="lead">Welcome to Chirp! The only bird themed blogging site you could need!</p>
@@ -12,6 +12,18 @@
         <p>For more details, check out your profile.</p>
         <a class="btn btn-primary btn-lg" href="{% url 'users:profile' user.username%}" role="button">Profile</a>
     </div> 
+    {% else %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Chirp!</h1>
+        <p class="lead">The only bird themed blogging site you could need!</p>
+        <hr class="my-4">
+        <p>Start making some noise today.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'users:newuser' %}" role="button">Create Account</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+    </div> 
+
+    {% endif %}
+
 
 
     {% for post in post_list %}
@@ -21,8 +33,9 @@
         <p class="blockquote-footer">{{post.author}}</p>
         <p><em>{{post.updated}}</em></p>
     
-       <form action="{% url 'posts:like' post.pk %}" method="POST">
-        {% csrf_token %}
+      
+        <form action="{% url 'posts:like' post.pk %}" method="POST">
+            {% csrf_token %}
         <button type="submit" name="likes" class="btn btn-primary">
         Likes <span class="badge badge-light">{{post.likes}}</span>
         </button>

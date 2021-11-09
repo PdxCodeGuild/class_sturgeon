@@ -61,7 +61,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
         return self.request.user == post.author
 
 
-@csrf_protect     
+# @csrf_protect     
 def like(request, pk):
     if request.method == 'POST':
         post = get_object_or_404(Post, pk=pk)

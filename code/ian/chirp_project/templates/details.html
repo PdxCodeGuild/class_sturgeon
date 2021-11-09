@@ -6,13 +6,14 @@
      {% for message in messages%}
     {{ message }}
     {% endfor %}
-
+    <div class="shadow p-3 mb-5 bg-white rounded">
     <h3>{{post.title}}</h3>
     <p class="lead">{{post.body}}</p>
     <a class="blockquote-footer" href="{% url 'users:profile' post.author %}">{{post.author}}</a>
     <br>
     <p><em>Posted - {{post.created}}</em></p>
     <p><em>Last Updated - {{post.updated}}</em></p>
+    <?div>
     
     
 
@@ -34,6 +35,7 @@
         <button type="submit" name="likes" class="btn btn-primary">
         Likes <span class="badge badge-light">{{post.likes}}</span>
         </button>
+        </form>
 
         
     {% endif %}

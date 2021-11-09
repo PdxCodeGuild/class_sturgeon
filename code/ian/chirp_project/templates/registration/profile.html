@@ -19,6 +19,19 @@
         <p>{{post.body}}</p>
         <p><em>{{post.author}}</em></p>
         <p><em>{{post.created}}</em></p>
+        {% if user != post.author %}
+        <form action="{% url 'posts:like' post.pk %}" method="POST">
+            {% csrf_token %}
+        <button type="submit" name="likes" class="btn btn-primary">
+        Likes <span class="badge badge-light">{{post.likes}}</span>
+        </button>
+        </form>
+        {% endif %}
+        {% if user == post.author %}
+        <button type="submit" name="likes" class="btn btn-primary">
+        Likes <span class="badge badge-light">{{post.likes}}</span>
+        </button>
+        {% endif %}
     </div>
     
 {% endfor %}
