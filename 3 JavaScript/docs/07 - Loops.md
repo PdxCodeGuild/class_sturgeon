@@ -69,7 +69,7 @@ for (let i=0; i<s.length; i++) {
     console.log(s[i])
 }
 // iterate over the characters of a string using for-of
-for (char of s) {
+for (let char of s) {
     console.log(char)
 }
 ```
@@ -89,7 +89,7 @@ for (let i=0; i<fruits.length; i++) {
     console.log(fruits[i])
 }
 // iterate over the elements using for-of
-for (fruit of fruits) {
+for (let fruit of fruits) {
     console.log(fruit)
 }
 ```
