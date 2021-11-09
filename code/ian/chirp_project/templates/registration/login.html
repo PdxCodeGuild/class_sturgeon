@@ -3,7 +3,7 @@
 {% block title %} Login {% endblock title %}
 
 {% block content %}
-<h1>My login Page</h1>
+<h1>Login</h1>
 <form action="" method="POST">
   {% csrf_token %}
   <div class="form-group">
@@ -15,6 +15,7 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" name="password" id="password" placeholder="Password">
   </div>
+  <p class="text-muted">Password must be 8-16 characters,  contain at least 1 (A-Z), and contain at least 1 (0-9)</p>
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

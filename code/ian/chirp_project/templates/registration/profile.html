@@ -9,17 +9,17 @@
 
 
 
-<p>date joined : {{user.date_joined}}</p>
+<p><em>date joined : {{user.date_joined}}</em></p>
 <br>
 
 
 {% for post in user.post_set.all %}
-    
-    <p><a href="{% url 'posts:details' post.pk %}">{{post.title}}</a></p>
-    <p>{{post.body}}</p>
-    <p><em>{{post.author}}</em></p>
-    <p><em>{{post.created}}</em></p>
-    <hr>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <h3><a href="{% url 'posts:details' post.pk %}">{{post.title}}</a></h3>
+        <p>{{post.body}}</p>
+        <p><em>{{post.author}}</em></p>
+        <p><em>{{post.created}}</em></p>
+    </div>
     
 {% endfor %}
 

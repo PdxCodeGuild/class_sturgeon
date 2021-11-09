@@ -13,7 +13,7 @@
     <br>
     <p><em>Posted - {{post.created}}</em></p>
     <p><em>Last Updated - {{post.updated}}</em></p>
-    <p>Likes: {{post.likes}}</p>
+    
     
 
    {% if user == post.author %}
@@ -31,8 +31,11 @@
     {% if user != post.author %}
     <form action="{% url 'posts:like' post.pk %}" method="POST">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary" name="likes">Like</button>
-    </form>
+        <button type="submit" name="likes" class="btn btn-primary">
+        Likes <span class="badge badge-light">{{post.likes}}</span>
+        </button>
+
+        
     {% endif %}
   
     
