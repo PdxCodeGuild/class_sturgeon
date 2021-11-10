@@ -11,7 +11,7 @@
         <h1>Chirp</h1>
         <nav>
             <p><a href="{% url 'posts:home' %}">Home</a></p>
-            {% comment %} <p><a href="{% url 'users:profile' %}">Profile</a></p> {% endcomment %}
+            <p><a href="{% url 'users:profile' user.username %}">Profile</a></p>
             <p><a href="{% url 'posts:create' %}">New Chirp</a></p>
         </nav>
     </header>
