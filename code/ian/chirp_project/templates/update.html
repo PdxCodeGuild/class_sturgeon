@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Post {% endblock title %}
+
+{% block content %}
+    
+<form action ="{% url 'posts:new' %}" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" name="title" id="exampleFormControlInput1">
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" ></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Update">
+</form>
+
+{% comment %} <form action="" method='POST'>
+    {% csrf_token %}
+  {{ form.as_p}}
+  <input type="submit" value="update">
+</form> {% endcomment %}
+
+{% endblock content %}

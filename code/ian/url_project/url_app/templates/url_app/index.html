@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE>
+<html>
+    <head>
+    <link rel="stylesheet" href="{% static 'url_app/main.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fruktur&family=Josefin+Sans&family=Lobster&family=Noto+Serif+Display&display=swap" rel="stylesheet">
+    <title>Shorty.</title>
+
+    </head>
+    <body>
+        <div class='wrapper'>
+            <h1>Welcome to Shorty.</h1>
+            <p>Enter URL to generate personalized short code</p>
+                <form action="{% url 'url_app:short' %} " method="post">
+                    {% csrf_token %}
+                    <div class='gen'>
+                        <input type="text" name="link"/>
+                        <br>
+                        <button type= "submit"> Generate</button>
+                    </div>
+                </form>
+                {% if code %}
+                <p>Code: </p>{{code}}
+
+                <h3><a href="{% url 'url_app:redirect' code %}">Let's Go.</a> </h3>
+
+                {% endif %}
+        </div>
+    </body>
+</html>
