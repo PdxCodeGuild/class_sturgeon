@@ -30,5 +30,8 @@
             </tbody>
         {% endfor %}
     </table>
+    <form action='{% url "short:delete_all" %}' method="post"> {% csrf_token %}
+        <input class="deleted_all" type="submit" value="Delete All" />
+    </form>
 </body>
 </html>

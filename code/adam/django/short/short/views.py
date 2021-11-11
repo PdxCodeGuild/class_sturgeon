@@ -22,9 +22,9 @@ def createshorturl(request):
         user_url = request.POST["url"]
         secure_user_url = request.POST["secure_url"]
         if len(secure_user_url) > len(user_url):
-            new_url = Short(user_url=secure_user_url, new_url=new_url, user_ip=ip_user)
+            new_url = Short(user_url=secure_user_url, new_url=new_url)
         else:
-            new_url = Short(user_url=user_url, new_url=new_url, user_ip=ip_user)
+            new_url = Short(user_url=user_url, new_url=new_url)
         new_url.save()
 
 #The coolest ever little popup that lets you know your new url is ready
@@ -39,9 +39,15 @@ def url_link(request, for_the_function_in_views_from_urls):
     reference_me_to_find_user_url = Short.objects.get(new_url=for_the_function_in_views_from_urls)
     reference_me_to_find_user_url.times_used += 1
     reference_me_to_find_user_url.save()
+    reference_me_to_find_user_url.click_set.create(user_ip=request.META['REMOTE_ADDR'])
+    reference_me_to_find_user_url.click_set.create(remote_host=request.META['REMOTE_HOST'])
+    reference_me_to_find_user_url.click_set.create(user_agent=request.META['HTTP_USER_AGENT'])
     return HttpResponseRedirect(reference_me_to_find_user_url.user_url)
 
 def delete_url(request, pk):
     Short.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/list')
 
+def delete_all(request):
+    Short.objects.all().delete()
+    return HttpResponseRedirect('/list')
