@@ -1,0 +1,55 @@
+html { 
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    display: block;
+    max-width: 100%
+}
+body {
+    text-align: center;
+    display: flex; 
+    flex-direction: row;
+    background-color: #F2DEDC;
+    justify-content: center;
+    align-items: center;
+    color: #D9411E;
+    Font-family: 'Josefin Sans', sans-serif;
+
+}
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+button {
+    background-color: #D9411E;
+    border:none;
+    padding: .5em;
+    border-radius: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+input {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+a {
+    color: #D9411E;
+    text-decoration: wavy underline;
+
+}
+.wrapper {
+    padding: 2em;
+    padding-bottom: 4em;
+    height: 40%;
+    width: 80%;
+}
+.gen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}

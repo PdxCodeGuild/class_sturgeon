@@ -7,10 +7,12 @@ class Short(models.Model):
     new_url = models.CharField(max_length=15)
     # here I'm trying to expancd the database to include time created
     created = models.DateTimeField(auto_now_add=True)
-    user_ip = models.CharField(max_length=50)
     times_used = models.PositiveIntegerField(default=0)
     class Meta:
         ordering = ["-created"]
 
-# class Click(models.Model):
-#     short_meta = models.ForeignKey(Short, on_delete=models.CASCADE)
+class Click(models.Model):
+    short = models.ForeignKey(Short, on_delete=models.CASCADE)
+    user_ip = models.CharField(max_length=50)
+    remote_host = models.CharField(max_length=50)
+    user_agent = models.CharField(max_length=50)
