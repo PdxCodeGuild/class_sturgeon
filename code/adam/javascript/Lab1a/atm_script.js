@@ -1,4 +1,9 @@
-var amount, atm, atmChoices, balance, depositAmount, extra, interest, log_rows, pin, transactions, withdrawlAmount
+var amount, atm, atmChoices, balance, depositAmount, extra, interest, log_rows, pin, transactions, withdrawlAmount, yesOrNo
+// Dom manipulation
+let atmButton = document.getElementById("ATM")
+atmButton.onclick=function(){
+
+
 pin = prompt("Welcome to the ATM, What is your pin?")
 if (pin == '1234') {
     // setTimeout(() => { alert("Password Accepted"); }, 10)
@@ -13,7 +18,7 @@ if (pin == '1234') {
             alert(`Your current balance is $${this.balance}`)
             extra = (this.balance * this.interest).toFixed(2)
             this.transactions.push(`User checked account interest of $${extra}`)
-            toContinue();
+            atm.toContinue();
         }
         deposit() {
             depositAmount = parseInt(prompt("Enter amount to deposit: "));
@@ -21,10 +26,10 @@ if (pin == '1234') {
                 this.balance += depositAmount;
                 this.transactions.push(`User deposited $${depositAmount}`);
                 alert(`You have successfully deposited $${depositAmount}. You know have $${this.balance}`);
-                toContinue();
+                atm.toContinue();
             } else {
                 alert("Error: please enter a number!");
-                deposit();
+                atm.deposit();
             }
         }
         withdrawl() {
@@ -35,18 +40,18 @@ if (pin == '1234') {
                         this.balance -= withdrawlAmount;
                         alert("Transaction successful!");
                         alert(`Your remaining balance is $${this.balance}`);
-                        toContinue();
+                        atm.toContinue();
                     } else {
                         alert("You do not have sufficient funds!");
-                        withdrawal();
+                        atm.withdrawl();
                     }
                 } else {
                     alert("You must withdraw at least $20");
-                    withdrawal();
+                    atm.withdrawl();
                 }
             } else {
                 alert("Error: please enter a number!");
-                withdrawal();
+                atm.withdrawl();
             }
         }
         print_transactions() {
@@ -56,17 +61,17 @@ if (pin == '1234') {
             print(log_rows)
         }
         toContinue() {
-            var yesOrNo = parseInt(prompt("Do you want to perform another transaction? \n 1. Yes \n 2. No"));
+            yesOrNo = parseInt(prompt("Do you want to perform another transaction? \n 1. Yes \n 2. No"));
             if (yesOrNo !== "" && yesOrNo !== null) {
                 if (yesOrNo === 2){
-                    exit();
+                    atm.exit();
                 }
                 else {
-                    selectAccountType(); 
+                    doSomething(); 
                 }
             } else {
                 alert("Please make a valid selection");
-                toContinue();
+                atm.toContinue();
             }
         }
         exit() {
@@ -104,7 +109,7 @@ if (pin == '1234') {
         }
     }
     
-    document.write("<h1>asynchronous coding")
+    document.write("<h1>asynchronous coding is fun")
 
     doSomething()
 
@@ -113,3 +118,4 @@ if (pin == '1234') {
     temp = document.write("")
 } 
 
+}
