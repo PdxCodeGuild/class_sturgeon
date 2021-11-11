@@ -109,7 +109,7 @@ mydiv.classList.add("class2");
 // <div id="mydiv" class="class1 class2"></div>
 mydiv.classList.remove("class1");
 // <div id="mydiv" class="class2"></div>
-mydiv.classList.replace("class2", "class2");
+mydiv.classList.replace("class2", "class1");
 // <div id="mydiv" class="class1"></div>
 mydiv.classList.toggle("class1");
 // <div id="mydiv" class=""></div>
