@@ -2,4 +2,8 @@
 
 {% block content %}
     <p>this is the profile page</p>
+    <p>{{profile.username}}</p>
+    <p>{{profile.date_joined}}</p>
+    <p>{{profile.post_set.count}}</p>
+    {% comment %} <h2>{% %} {% endcomment %}
 {% endblock %}

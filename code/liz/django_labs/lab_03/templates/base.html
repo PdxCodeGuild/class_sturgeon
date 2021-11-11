@@ -9,11 +9,20 @@
 <body>
     <header>
         <h1>Chirp</h1>
+        
+        
         <nav>
-            <p><a href="{% url 'posts:home' %}">Home</a></p>
-            <p><a href="{% url 'users:profile' user.username %}">Profile</a></p>
-            <p><a href="{% url 'posts:create' %}">New Chirp</a></p>
+            {% if user.is_authenticated %}
+                <p><a href="{% url 'posts:home' %}">Home</a></p>
+                <p><a href="{% url 'users:profile' user.username %}">Profile</a></p>
+                <p><a href="{% url 'posts:create' %}">New Chirp</a></p>
+                <p><a href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+                <p><a href="{% url 'users:signup' %}">Sign up</a></p>
+                <p><a href="{% url 'login' %}">Sign in</a></p>
+            {% endif %}
         </nav>
+    
     </header>
     
     <main>
