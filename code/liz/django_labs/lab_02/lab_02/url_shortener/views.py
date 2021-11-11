@@ -20,6 +20,7 @@ def index (request):
         url_db.save()
         context = {
             'url_list': UrlDb.objects.all(),
+            'current_url': url_db,
         }
         return render(request, 'url_shortener/index.html', context)
         
