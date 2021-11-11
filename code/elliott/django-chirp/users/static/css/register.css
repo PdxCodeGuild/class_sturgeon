@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.content-section {
+  margin: 1em;
+  background-color: red;
+}
+
+.sign-up-form {
+  margin: 1em;
+}
+
+.sign-in {
+  padding-top: 2em;
+}
