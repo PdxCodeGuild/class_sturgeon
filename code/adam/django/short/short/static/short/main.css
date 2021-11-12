@@ -1,5 +1,8 @@
 body {
     background-color: aqua;
+    background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/kindle/merch/ACP/9781477847725_1_large._V342547249_.jpg);
+    background-size: cover;
+    background-position: center;
     font-weight: 500px;
 }
 
@@ -29,6 +32,7 @@ table {
     border-style:"5px rigid #000";
     text-align: center;
     width: 100%;
+    background-color: beige;
 }
 
 table td {
@@ -43,14 +47,24 @@ table td {
 
 input {
     width: 100%;
+    background-color: rgb(184, 255, 184);
 }
 
 table th {
     font-size: 1.3rem;
+    background-color: beige;
 }
 
 .deleted {
     background-color: black;
     color: white;
     width: auto;
+}
+
+.deleted_all {
+    background-color: black;
+    color: white;
+    width: 25%;
+    position: absolute;
+    left: 50%;
 }

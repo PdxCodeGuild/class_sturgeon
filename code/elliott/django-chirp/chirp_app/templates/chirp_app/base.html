@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="https://kit.fontawesome.com/1ed1b34180.js" crossorigin="anonymous"></script>
+    <title>Chirp</title>
+</head>
+
+<body>
+    <header>
+        <div class="login"><a href="/login">Login</a></div>
+        <div class="logo"><a href="/"><img src="{% static 'img/arctic-fox.png' %}"></img></a></div>
+        <div class="register"><a href="/register">Register</a></div>
+    </header>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer>
+        <a href="/"><img src="{% static 'img/home.png' %}" alt=""></a>
+        <a href="#"><img src="{% static 'img/search-icon.png' %}" alt=""></a>
+        <a href="#"><img src="{% static 'img/alerts.png' %}" alt=""></a>
+        <a href="#"><img src="{% static 'img/msg_icon.png' %}" alt=""></a>
+    </footer>
+</body>
+
+</html>

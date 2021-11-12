@@ -1,0 +1,107 @@
+html, body {
+    background: #000000;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#auth-container {
+    background: rgb(221, 221, 221);
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+}
+
+#main-navbar {
+    background: rgb(38, 0, 173);
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+.post-container {
+    background: rgb(201, 0, 0);
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+
+.nav-icon a {
+    color: #ffffff;
+    font-size: 1.7em;
+    display: block;
+    margin-top: .2em;
+    margin-left: 2.2em;
+    font-weight: 300;
+}
+.nav-icon a:hover {
+    color: #1d5e72;;
+}
+#profile-box {
+    background: rgb(209, 209, 209);
+    border: 1px solid rgba(0,0,0,.0975);
+    border-radius: 1px;
+    margin-top: 4em;
+}
+
+#user-posts #post-thumb {
+    background: #fff;
+}
+
+h2 {
+    color: white;
+}
+
+.text-white {
+    color: white;
+}
+
+.photographer {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+}
+
+.post_date {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+}
+
+.lead {
+    font-size: 1.7em;
+    margin-left: .2em;
+    font-weight: 300;
+}
+
+.comment.pizza {
+    color: white;
+}
+
+.pizza {
+    color: white;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.commentary {
+    font-style: oblique;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 8px;
+}
+
+.deleting {
+    margin-bottom: 10px;
+    align-self:left;
+    order: 1;
+}
+
+.delete_sucks {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment .date, strong {
+    order: 0;
+}
+
+.comment p {
+    order: 2;
+}

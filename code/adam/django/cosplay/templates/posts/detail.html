@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<title>{{ post.title }} | Cosplay Profile</title>
+{% endblock %}
+
+{% block container %}
+
+    <div class="container">
+        <div class="row">
+            {% include 'posts/post_card.html' %}
+        </div>
+    </div>
+
+<hr>
+{% for comment in post.comments.all %}
+    <div class="comment pizza delete_sucks">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>From: {{ comment.author }}:</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+
+        {% if comment.author == user.username %}
+            <div class='deleting'>
+                <a href="{% url 'posts:delete_own_comment' comment.id %}">--Delete this comment--</a>
+            </div>
+        {% endif %}
+    </div>
+
+{% empty %}
+    <p class='pizza'>No comments here yet :(</p>
+{% endfor %}
+
+<a class="btn btn-default" href="{% url 'posts:add_comment_to_post' pk=post.pk %}">Add comment</a>
+
+
+
+{% endblock %}

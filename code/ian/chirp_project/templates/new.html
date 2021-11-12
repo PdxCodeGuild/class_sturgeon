@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} New Post {% endblock title %}
+
+{% block content %}
+<h2>Add Post</h2>
+<form action ="{% url 'posts:new' %}" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Enter Title">
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post</label>
+    <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Post"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Chirp!</button>
+</form>
+
+{% comment %} <form action="{% url 'posts:new' %}" method='POST'>
+    {% csrf_token %}
+    
+  {{ form.as_p}}
+  <input type="submit" value="save">
+</form> {% endcomment %}
+
+{% endblock content %}

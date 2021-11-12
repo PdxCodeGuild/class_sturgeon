@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <h1 class="pizza">What say you, {{ user.username}}? </h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Share your words of wisdom and praise</button>
+    </form>
+{% endblock %}
