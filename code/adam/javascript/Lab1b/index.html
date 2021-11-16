@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Lab1 A</title>
+    <link rel="stylesheet" href = "main.css"/>
+</head>
+<body>
+    <div>
+    <h1> Lab1 Shop of Horrors </h1>
+    <h2> Welcome to the Rotation 13 (RO13) Encryption Software!</h2>
+    <h3> Enter a message in the field below for encryption: </h3>
+        <input id="encrypt" placeholder="enter text to encrypt"></input>
+        <p id="output"></p>
+        <button id="rot13" class="button" name="encrypt_button"> Encrypt my message! </button>
+    <hr>
+    <h2> Enter a Rot13 encrypted message here to have it decrypted:</h2>
+        <input id="decrypt" placeholder="enter text to decrypt"></input>
+        <p id="output2"></p>
+        <button id="decryption" class="button"> Reveal (decrypt) my message! </button>
+    <hr>
+        <h2> Welcome to the Blackjack Card Advice for when you have 3 cards </h2>
+        <h3> Fore each card, select which one you have in the dropdown menus below:</h3>
+            <div class="blackjack_cards">
+                <li><input class="cards" type="image" src="cards\2.png" id="2"/></li>
+                <li><input class="cards" type="image" src="cards\3.png" id="3"/></li>
+                <li><input class="cards" type="image" src="cards\4.png" id="4"/></li>
+                <li><input class="cards" type="image" src="cards\5.png" id="5"/></li>
+                <li><input class="cards" type="image" src="cards\6.png" id="6"/></li>
+                <li><input class="cards" type="image" src="cards\7.png" id="7"/></li>
+                <li><input class="cards" type="image" src="cards\8.png" id="8"/></li>
+                <li><input class="cards" type="image" src="cards\9.png" id="9"/></li>
+                <li><input class="cards" type="image" src="cards\10.png" id="10"/></li>
+                <li><input class="cards" type="image" src="cards\j.png" id="J"/></li>
+                <li><input class="cards" type="image" src="cards\q.jpg" id="Q"/></li>
+                <li><input class="cards" type="image" src="cards\k.png" id="K"/></li>
+                <li><input class="cards" type="image" src="cards\a.png" id="A"/></li>
+            </div>
+            <div class="blackjack_cards1" id "card2">
+                <li><input class="cards2" type="image" src="cards\2.png" id="2"/></li>
+                <li><input class="cards2" type="image" src="cards\3.png" id="3"/></li>
+                <li><input class="cards2" type="image" src="cards\4.png" id="4"/></li>
+                <li><input class="cards2" type="image" src="cards\5.png" id="5"/></li>
+                <li><input class="cards2" type="image" src="cards\6.png" id="6"/></li>
+                <li><input class="cards2" type="image" src="cards\7.png" id="7"/></li>
+                <li><input class="cards2" type="image" src="cards\8.png" id="8"/></li>
+                <li><input class="cards2" type="image" src="cards\9.png" id="9"/></li>
+                <li><input class="cards2" type="image" src="cards\10.png" id="10"/></li>
+                <li><input class="cards2" type="image" src="cards\j.png" id="J"/></li>
+                <li><input class="cards2" type="image" src="cards\q.jpg" id="Q"/></li>
+                <li><input class="cards2" type="image" src="cards\k.png" id="K"/></li>
+                <li><input class="cards2" type="image" src="cards\a.png" id="A"/></li>
+            </div>
+            <div class="blackjack_cards" id "card2" >
+                <li><input class="cards3" type="image" src="cards\2.png" id="2"/></li>
+                <li><input class="cards3" type="image" src="cards\3.png" id="3"/></li>
+                <li><input class="cards3" type="image" src="cards\4.png" id="4"/></li>
+                <li><input class="cards3" type="image" src="cards\5.png" id="5"/></li>
+                <li><input class="cards3" type="image" src="cards\6.png" id="6"/></li>
+                <li><input class="cards3" type="image" src="cards\7.png" id="7"/></li>
+                <li><input class="cards3" type="image" src="cards\8.png" id="8"/></li>
+                <li><input class="cards3" type="image" src="cards\9.png" id="9"/></li>
+                <li><input class="cards3" type="image" src="cards\10.png" id="10"/></li>
+                <li><input class="cards3" type="image" src="cards\j.png" id="J"/></li>
+                <li><input class="cards3" type="image" src="cards\q.jpg" id="Q"/></li>
+                <li><input class="cards3" type="image" src="cards\k.png" id="K"/></li>
+                <li><input class="cards3" type="image" src="cards\a.png" id="A"/></li>
+            </div>
+
+                <button type="submit" id="big_button" class="button">Send it!</button>
+        <p id="bjoutput"></p>
+    
+    <hr>
+    <h2>Welcome to the ATM, Please insert your card and enter your pin: </h2>
+
+        <p>Pin:<input type="text" name="pin" id="pin" />
+        <input type="button" name="submit" id="submit" onclick="getaction()" value="go"/></p>
+        <p id="password_success_text_area"></p>
+
+        <div id="radio_options" style="display:none;">
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value='1'/>Check Balance
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value='2'/>Withdraw Money
+            <input type='radio' name='radio' onclick='myfunction(this.value)' value='3'/>Deposit Money
+        </div>
+        <p id="atm_response_area"></p>
+
+        <div id="check_balance" style="display:none;">
+            <input type="submit" name="balance" value="check balance" onclick="atm.check_balance()"/>
+        </div>
+
+
+        <div id="withdraw_option" style="display:none;">
+            <label>Please Enter Your Withdraw Amount</label>
+            <input type="text" name="withdrawl" id="withdrawl" value=""/>
+            <input type="submit" name="submit1" value="submit" onclick="atm.withdrawl()"/>
+        </div>
+
+        <div id="deposit_option" style="display:none;">
+        <label>Select the amount of money you wish to deposit</label>
+        <select id="myselect1">
+            <option value="20">$20</option>
+            <option value ="50">$50</option>
+            <option value ="100">$100</option>
+        </select>
+        <input type="submit" name="submit2" value="submit" onclick="atm.deposit()">
+        </div>
+
+
+
+    </div>
+        <script src="atm_script.js"></script>
+        <script src="rot13.js"></script>
+        <script src="blackjack_script.js"></script>
+</body>
+</html>
