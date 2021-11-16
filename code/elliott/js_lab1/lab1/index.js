@@ -1,4 +1,13 @@
 
+let s = document.getElementsByClassName('section1');
+let btn = document.querySelector('#btn');
+
+btn.addEventListner('click', function(){
+    s.innerText = `Your winnings are, ${winnings}. 
+    Your ticket balance is ${tickBalance}`
+})
+
+
 var winList = []
 while (winList.length != 6) {
     winList.push(Math.floor(Math.random() * 100))
@@ -61,5 +70,4 @@ while (tickets < 100) {
     }
 }
 
-x = `Your winnings are, ${winnings}. Your ticket balance is ${tickBalance}`
-alert(x)
+
