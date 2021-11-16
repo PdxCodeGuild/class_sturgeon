@@ -1,0 +1,31 @@
+/* rot cipher stylesheet */
+
+body {
+    text-align: center;
+    background: url("https://ciphertools.co.uk/Images/CaesarCipher2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+header, main {
+    background-color: rgba(77, 204, 193, 0.9);
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10%;
+}
+
+main {
+    padding: 2em;
+}
+
+button {
+    padding: 25px;
+    border-radius: 15px;
+    font-size: larger;
+}
+
+.container {
+    padding: 1em;
+}

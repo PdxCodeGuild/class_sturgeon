@@ -22,34 +22,39 @@ function blackjackAdvice(cards) {
         cardsSum += card
     }
     if (cardsSum < 17) {
-        return `${cardsSum} Hit`
+        return `Sum: ${cardsSum}\n\nAdvice: Hit`
     } else if (cardsSum >= 17 && cardsSum < 21) {
-        return `${cardsSum} Stay`
+        return `Sum: ${cardsSum}\n\nAdvice: Stay`
     } else if (cardsSum === 21) {
-        return `${cardsSum} Blackjack!`
+        return `Sum: ${cardsSum}\n\nAdvice: Blackjack!`
     } else {
-        return `${cardsSum} Already Busted`
+        return `Sum: ${cardsSum}\n\nAdvice: Already Busted`
     }
 }
 
 
+function addToArray(card1, card2, card3) {
+    let cards = []
+    cards.push(card1.value)
+    cards.push(card2.value)
+    cards.push(card3.value)
+    console.log(cards)
+    return cards
+}
+
 // userInput
+
 let firstCard = document.getElementById('card1')
 let secondCard = document.getElementById('card2')
 let thirdCard = document.getElementById('card3')
 
 
-let cards = []
-cards.push(firstCard.value)
-cards.push(secondCard.value)
-cards.push(thirdCard.value)
-
-let cardValues = faceCardConverter(cards)
-let advice = blackjackAdvice(cardValues)
-
 // advice event
 let button = document.getElementById("get-advice")
 button.addEventListener('click', function() {
+    let cards = addToArray(firstCard, secondCard, thirdCard)
+    let cardValues = faceCardConverter(cards)
+    let advice = blackjackAdvice(cardValues)
     let output = document.getElementById("advice-text")
     output.innerText = `${advice}`
 })
