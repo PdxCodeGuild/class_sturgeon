@@ -213,7 +213,8 @@ We can also create elements and add them to other elements.
 | `document.createTextNode(text)` | create a text node containing the given text (just set innerText instead) |
 | `element.appendChild(child)` | append a child element to a parent element |
 | `element.removeChild(child)` | remove a child element from a parent element |
-| `element.hasChild(child)` | indicates whether the parent has a particular child |
+| `element.remove()` | remove an element from the DOM |
+| `element.contains(child)` | indicates whether the parent has a particular child |
 | `element.replaceChild(child)` | replaces a child |
 
 
