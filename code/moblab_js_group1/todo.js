@@ -17,11 +17,12 @@ todoButton.addEventListener('click', function () {
         todoDiv.remove()
     })
 
+   
     let completebutton = document.createElement("button")
     completebutton.innerText= 'Complete'
     completebutton.addEventListener('click', function(){
-        todoDiv.appendChild(completeList)
         completebutton.remove()
+        completeList.appendChild(todoDiv)
     })
 
 
@@ -30,6 +31,7 @@ todoButton.addEventListener('click', function () {
     todoDiv.appendChild(completebutton)
 
     todoList.appendChild(todoDiv)
+    
 
 
 })
