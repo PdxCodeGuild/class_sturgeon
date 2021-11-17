@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>this is the profile page</p>
-    <p>{{profile.username}}</p>
-    <p>{{profile.date_joined}}</p>
-    <p>{{profile.post_set.count}}</p>
-    {% comment %} <h2>{% %} {% endcomment %}
+    <h2>{{profile.username}}</h2>
+    <p>Joined {{profile.date_joined}}</p>
+    <p>{{profile.post_set.count}} Chirps</p>
+    
+    {% for post in profile.post_set.all %}
+        
+        
+        <h4>{{ post.author.username }}</h4>
+        <p><a href="{% url 'posts:detail' post.pk %}">{{ post.chirp|linebreaksbr }}</a></p>
+    
+    {% endfor %}
+
 {% endblock %}

@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>this is the home page</p>
     {% if user.is_authenticated %}
         {% for post in object_list %}
             <p><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></p>
