@@ -26,13 +26,13 @@
 
             <div class="content">
                 <ul class="flex">
-                <todo-item 
-                    v-for="todo in todos"
-                    :todo="todo"
-                    :key="todo.id"
-                    @edit-todo="editTodo"
-                    @remove-todo="removeTodo"
-                ></todo-item>
+                    <todo-item 
+                        v-for="todo in todos"
+                        :todo="todo"
+                        :key="todo.id"
+                        @edit-todo="editTodo"
+                        @remove-todo="removeTodo"
+                    ></todo-item>
                 </ul>
             </div>
         </div>

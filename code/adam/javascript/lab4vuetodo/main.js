@@ -44,7 +44,6 @@ var app1 = new Vue({
                 isDone: false
             }
         ],
-        selectedTodo: null
     },
 
 // I'm trying something here
@@ -69,6 +68,7 @@ var app1 = new Vue({
             console.log(todo)
             id_value = this.todos.length
             this.todos.push({id:id_value, isDone:false, text:this.todo})
+            this.id_value.id++
             this.todo = ''
         }},
 
