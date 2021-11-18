@@ -1,5 +1,5 @@
 body {
-    background-color: cadetblue;
+    background-color: #009993;
 }
 
 .container {
@@ -9,10 +9,117 @@ body {
 }
 
 h1 {
-    padding-top: 40px;
+    font-size: 3.5rem;
+    font-style: oblique;
+    text-decoration: underline;
+    padding-top: 20px;
     font-family: cursive;
+    text-align: center;
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: cursive;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 400px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+
+input[type=text]:hover {
+    background-color: #dce0ff;
+    color: rgb(0, 0, 0);
+}
+
+input[type=submit]:hover {
+    background-color: #EB5300;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #EB5300;
+    padding: 20px;
+}
+
+ul {
+    background: #3399ff;
+    padding: 20px;
+}
+
+ul li {
+    background: #cce5ff;
+    margin: 5px;
+}
+
+li {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 8px;
+    font-size: 1.4rem;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+li span:hover {
+    background-color: #65e7e7;
+    color: rgb(0, 0, 0);
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.button1 {
+    background-color: #3ec943;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: right;
+    margin-left: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button {
+    background-color: #f85523;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: right;
+    margin-left: auto;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #bb0000;
+    color: white;
+}
+
+
+
+.button1:hover {
+    background-color: #00830b;
+    color: white;
 }
