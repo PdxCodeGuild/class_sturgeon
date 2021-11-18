@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Todo List</title>
+        <!-- Add your styles here! -->
+        <link rel="stylesheet" href="/css/site.css" />
+    </head>
+    <body>
+        <header>
+            <h1>What Do You Need To Do?</h1>
+        </header>
+        <div id="app">
+            <input type="text" v-model="newTodo">
+            <button v-on:click="createTodo">Add Todo</button>
+            <br>
+            <ul>
+                <li v-for="todo in todos" :key="todo.text">
+                    {{ todo.text }}
+                </li>
+            </ul>
+            
+        </div>
+
+        <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+        <script src="https://unpkg.com/vue"></script>
+        <!-- Include your code here... -->
+        <script src="/js/site.js"></script>
+    </body>
+</html>
