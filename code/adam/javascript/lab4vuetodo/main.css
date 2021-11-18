@@ -1,0 +1,18 @@
+body {
+    background-color: cadetblue;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: cursive;
+}
+
+h1 {
+    padding-top: 40px;
+    font-family: cursive;
+}
+
+.done {
+    text-decoration: line-through;
+}

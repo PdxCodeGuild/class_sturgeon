@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Go to language (by the live server button on the bottom) and type html and choose vue html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+        <!-- If we are editing a list item, the button changes to update, otherwise it says add (next 11 lines) -->
+        <div id="app-todolist" class="container">
+            <h1>To-do List</h1>
+            <h3>What needs to be done?</h3>
+            <div v-if="!isEditing">
+                <input type="text" v-model="todo" placeholder="Enter a todo list item...">
+                <input type="submit" value="Add" @click="storeTodo">
+            </div>
+            <div v-else>
+                <input type="text" v-model="todo">
+                <input type="submit" value="Update" @click="updateTodo">
+            </div>
+            <!-- This is a for loop that shows the data on this html page -->
+
+            <!-- Method 1 -->
+            <!-- <ol>
+                <li v-for="(todo, index) in todos">
+                    {{ todo }}
+                    <button @click="editTodo(index, todo)">Edit</button>
+                    <button @click="removeTodo(index)">Delete</button>
+                </li>
+            </ol> -->
+            <!-- Method with template -->
+            <div class="content">
+                <ul class="flex">
+                <todo-item 
+                    v-for="todo in todos"
+                    :todo="todo"
+                    :key="todo.id"
+                    @edit-todo="editTodo"
+                    @remove-todo="removeTodo"
+                ></todo-item>
+                </ul>
+            </div>
+
+        <div id="components-demo">
+            <button-counter></button-counter>
+        </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... Be sure to have my javascript code last -->
+    <script src="main.js"></script>
+</body>
+</html>
