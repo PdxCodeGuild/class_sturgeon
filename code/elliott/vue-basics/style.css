@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(233, 231, 231);
+}
+
+header {
+  background-color: black;
+  color: rgb(230, 225, 225);
+  margin-bottom: 5rem;
+  font-size: 3rem;
+}
+
+h1,
+h3 {
+  font-family: "Crimson Text", serif;
+  text-align: center;
+  padding: 3rem 0rem;
+  font-size: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 200px;
+}
+
+.add-btn {
+  display: block;
+}
+
+.list-container {
+  margin: auto;
+  text-align: center;
+  border: 3px solid gray;
+
+  min-height: 300px;
+  height: auto;
+  width: 15rem;
+}
+
+li {
+  padding: 1rem 1rem;
+  list-style: none;
+}
+
+.done {
+  text-decoration: line-through;
+}
