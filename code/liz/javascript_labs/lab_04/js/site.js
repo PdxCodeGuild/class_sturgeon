@@ -1,16 +1,46 @@
+// vue todos
+
 new Vue({
     el: '#app',
     data: {
         todos: [
-            { text: 'don\'t freak out', id: 0, complete: false },
+            { text: 'finish this lab', id: 0, complete: false },
+            { text: 'have fun', id: 1, complete: true}
         ],
-        message: "hey"
+        newTodo: ''
     },
     methods: {
         createTodo: function() {
-            let addedTodo = this.newTodo
-            let id = this.todos.length
-            this.todos.push({text: addedTodo, complete: false, id: id})
+            this.todos.push({
+                text: this.newTodo,
+                complete: false,
+                id: this.todos.length})
+            this.newTodo = ''
+        },
+        completed: function(todo) {
+            // if (todo.complete === false) {
+            //     todo.complete = true
+            // } else {
+            //     todo.complete = false
+            // }
+            todo.complete = !todo.complete
+        },
+        remove: function(todo) {
+            this.todos.splice(this.todos.indexOf(todo), 1)
+        }
+    },
+    computed: {
+        incomplete: function() {
+            return this.todos.filter(function(item) {
+                return item.complete === false
+                // can also return !item.complete
+            })
+        },
+        complete: function() {
+            return this.todos.filter(function(item) {
+                return item.complete === true
+                // can also return item.complete
+            })
         }
     }
 })

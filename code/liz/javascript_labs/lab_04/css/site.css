@@ -1,0 +1,41 @@
+body {
+    background-color: darkolivegreen;
+    color: rgb(247, 230, 207);
+}
+ h1 {
+     padding-left: 2em;
+     padding-top: 0.5em;
+     padding-bottom: 0.5em;
+ }
+
+li {
+    padding: 0.5em;
+}
+
+.input {
+    padding-left: 4.5em;
+}
+
+.container {
+    margin: 1em;
+    border: 2px solid tan;
+    padding: 2em;
+}
+
+.remove {
+    margin: 0.5em;
+    background-color: rgb(141, 9, 9);
+    color: rgb(247, 230, 207);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(141, 9, 9);
+}
+
+.complete {
+    margin: 0.5em;
+    background-color: rgb(21, 46, 121);
+    color: rgb(247, 230, 207);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(21, 46, 121);
+}

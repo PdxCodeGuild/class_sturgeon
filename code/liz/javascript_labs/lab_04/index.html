@@ -10,18 +10,34 @@
     </head>
     <body>
         <header>
-            <h1>What Do You Need To Do?</h1>
+            <h1>What Do I Need To Do?</h1>
         </header>
         <div id="app">
-            <input type="text" v-model="newTodo">
-            <button v-on:click="createTodo">Add Todo</button>
+            <div class="input">
+                <input type="text" v-model="newTodo" @keyup.enter="createTodo">
+                <button v-on:click="createTodo">Add Todo</button>
+            </div>
             <br>
-            <ul>
-                <li v-for="todo in todos" :key="todo.text">
-                    {{ todo.text }}
-                </li>
-            </ul>
-            
+            <div class="container">
+                <h2>Things to do:</h2>
+                <ul>
+                    <li v-for="todo in incomplete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Complete</button>
+                        <button v-on:click="remove(todo)" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>Things I've done:</h2>
+                <ul>
+                    <li v-for="todo in complete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Incomplete</button>
+                        <button v-on:click="remove" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- Include Vue from a CDN of your choice, I chose unpkg -->
