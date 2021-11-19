@@ -11,10 +11,7 @@
 <body>
     <div id="app">
         <h1>My Todo List</h1>
-        <div>
-            <input type="text" placeholder="stuff to do" v-model="newTodo.text" @keyup.enter="addTodo">
-            <button @click="addTodo">Add To List</button>
-        </div>
+        <add-todo @add="addTodo"></add-todo>
         <ul>
             <todo-item
                 v-for="todo in incompleteTodos"

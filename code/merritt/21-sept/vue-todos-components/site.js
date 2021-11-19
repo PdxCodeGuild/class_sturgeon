@@ -1,3 +1,30 @@
+Vue.component('add-todo', {
+    data: function() {
+        return {
+            id: 4,
+            text: "",
+            completed: false
+        }
+    },
+    template: `
+    <div>
+        <input type="text" placeholder="stuff to do" v-model="text" @keyup.enter="addTodo">
+        <button @click="addTodo">Add To List</button>
+    </div>
+    `,
+    methods: {
+        addTodo: function() {
+            this.$emit('add', {
+                id: this.id,
+                text: this.text,
+                completed: this.completed
+            })
+            this.id++
+            this.text = ""
+        }
+    }
+})
+
 Vue.component('todo-item', {
     data: function() {
         return {
@@ -37,18 +64,11 @@ new Vue({
             {id: 1, text: "Wag the dog", completed: false},
             {id: 2, text: "Butter the cat", completed: true},
             {id: 3, text: "Pet the parrot", completed: false}
-        ],
-        newTodo:  {id: 4, text: "", completed: false}
+        ]
     },
     methods: {
-        addTodo: function() {
-            this.todos.push({
-                id: this.newTodo.id,
-                text: this.newTodo.text,
-                completed: this.newTodo.completed
-            })
-            this.newTodo.id++
-            this.newTodo.text = ""
+        addTodo: function(payload) {
+            this.todos.push(payload)
         },
         removeTodo: function(todo) {
             this.todos.splice(this.todos.indexOf(todo), 1)
