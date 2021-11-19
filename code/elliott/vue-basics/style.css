@@ -35,6 +35,13 @@ form {
 
 .add-btn {
   display: block;
+  padding: 0rem 3.8rem;
+  margin-top: 0.5rem;
+}
+
+label {
+  margin: 0.8rem 0rem;
+  font-size: large;
 }
 
 .list-container {
