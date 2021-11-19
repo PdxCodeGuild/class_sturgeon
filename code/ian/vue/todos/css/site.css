@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    background-color: #0D0B0B;
+    font-family: 'Amarante', cursive;
+    font-size: 30px;
+    color: #F22D1B;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    color: #D9D3C1;
+}
+
+input {
+    font-size: 1em;
+    font-family: 'Amarante', cursive;
+    background-color: #D9D3C1;
+    color:#F22D1B;
+    border: 3px solid #D9D3C1;
+    border-radius: 15px;
+}
+::placeholder {
+    color: #F22D1B;
+    opacity: .5;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49d1c1eed7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">       
+    <link rel="stylesheet" href="/css/site.css"/>
+    <title>Vue Todos</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <input v-on:keyup.enter="add" v-model="new_todo_text" placeholder="I need to...">
+        <a v-on:click="add"><i class="fas fa-thumbtack"></i></a>
+        <br>
+        <br>
+            <h2 v-if="inc_items.length>0">Incomplete: {{inc_items.length}}</h2>
+            <div v-for="item in inc_items" v-bind:key="item.text">
+                <p>
+                    {{item.text}}                   
+                    <a v-on:click="done(item)"><i class="fas fa-check"></i></a>
+                    <a v-on:click="del(item)"><i class="fas fa-dumpster-fire"></i></a>
+                </p>
+            </div>
+
+            <h2 v-if="comp_items.length>0">Complete: {{comp_items.length}}</h2>
+            <div v-for="item in comp_items" :key="item.key">
+                <p>
+                    <del>{{item.text}}</del>
+                    <a v-on:click="done(item)"><i class="fas fa-undo"></i></a>
+                    <a v-on:click="del(item)"><i class="fas fa-dumpster-fire"></i></a>
+                </p>
+            </div>
+        <br>
+
+    </div>
+
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="/js/site.js"></script>
+</body>
+</html>
