@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+    <div id="app">
+        
+        <h1>Quotes</h1>
+        <template v-if="Object.keys(qotd).length">
+            <p>{{ qotd.quote.body }}</p>
+            <p><a :href="qotd.quote.url">{{ qotd.quote.author }}</a></p>
+        </template>
+        
+        
+        <div>
+            <input type="text" placeholder="Type here" v-model="theSearch">
+            
+            <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+            </select>
+            
+            <button @click="loadQuotes">Search</button>
+
+            <ul v-if="Object.keys(results).length">
+
+                <li v-for="quote in results.quotes" :key="quote.id">
+
+                    <p>{{ quote.body }}</p>
+                    <p><a :href="quote.url">{{ quote.author }}</a></p>
+                </li>
+            </ul>
+
+            <input type=number min=1 max=10 v-model="pageNumber">
+            Enter page number
+            <button @click="loadQuotes">Go</button>
+
+ 
+
+            
+        
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>
