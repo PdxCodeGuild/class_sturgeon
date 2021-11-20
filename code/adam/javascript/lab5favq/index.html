@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FavQs Lab Fall 2021</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+
+<div id="app">
+    <h1 class="title">Welcome to Quote Central</h1>
+    
+    <div class="content">
+        <ul class="flex, quote">
+            <qotd-item 
+                @load-qotd="loadQotd"
+                :qotd="qotd"
+            ></todo-item>
+        </ul>
+    </div>
+<br></br>
+    <div>
+        <template>
+        <div class="image_container">
+            <a href="#" @click="isHidden = false, selection='tag'"><img :src="tag" class="images"></a>
+            <a href="#" @click="isHidden = false, selection='author'"><img :src="author" class="images"></a>
+            <a href="#" @click="isHidden = false, selection='keyword'"><img :src="keyword" class="images"></a>
+        </div>
+        <br><br>
+            <div v-if="!isHidden">
+                <input placeholder="Enter Search Term" v-model="filter"></input>
+                <select v-model="selection">
+                    <option disabled value="">Pick one</option>
+                    <option value="author">Author</option>
+                    <option value="tag">Quote Tag</option>
+                    <option value="keyword">Keyword</option>
+                </select>
+                <button @click="loadQuotes">Conduct Search</button>
+            </div>
+        </template>
+    </div>
+    <ul>
+        <li v-for="quote in results.quotes" :key="quote.id" class="quote">
+            <p>{{ quote.body }}</p>
+            <p><i><a :href="quote.url">{{quote.author}}</a></i></p>
+        </li>
+    </ul>
+    <div>
+        <button @click="nextPage">Next Page</button>
+        <button @click="previousPage">Previous Page</button>
+    </div>
+</div>
+
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Include your code here... -->
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
