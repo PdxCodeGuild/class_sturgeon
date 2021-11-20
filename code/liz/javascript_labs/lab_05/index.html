@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FavQs</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <h1>Welcome to Favorite Quotes!</h1>
+            
+            <label for="selectedType">How would you like to search for a quote?</label>
+            <select v-model="selectedType" name="selectedType">
+                <option disabled value="">Please select one</option>
+                <option value="keyword">Keyword</option>
+                <option value="author">Author</option>
+                <option value="tag">Tag</option>
+            </select>
+
+            <input type="text" v-model="userInput" @keyup.enter="createTodo">
+            <button @click="requestedQuotes">Find Quotes</button>
+            <br>
+            <ul v-for="quote in quotes.quotes" :key="quote.id">
+                <li>{{ quote.body }} <br>&emsp;- {{ quote.author }}</li>
+            </ul>
+        </div>
+
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script src="secrets.js"></script>
+        <script src="site.js"></script>
+    </body>
+</html>
