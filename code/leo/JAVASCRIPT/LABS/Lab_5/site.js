@@ -1,3 +1,18 @@
+Vue.component('opt-opt', {
+    data: function() {
+        return {
+            selected: 'author',
+            options: [
+                { text: 'by Author', value: 'author' },
+                { text: 'by Keyword', value: 'keyword' },
+                { text: 'by Tag', value: 'tag' }
+              ]
+        };
+    },
+    template: '<select v-model="selected"><option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option></select>'
+})
+
+
 const vm = new Vue({
     el: '#app',
     data: {
@@ -5,12 +20,7 @@ const vm = new Vue({
         results: {},
         theSearch: "",
         pageNumber: 1,
-        selected: 'author',
-        options: [
-          { text: 'by Author', value: 'author' },
-          { text: 'by Keyword', value: 'keyword' },
-          { text: 'by Tag', value: 'tag' }
-        ],
+
     },
 
 
