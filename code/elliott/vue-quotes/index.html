@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Quote Generator</h1>
+    <div id="app">
+
+
+        <input v-model="filter" type="text">
+        <select v-model="type" name="" id="params">
+            <option value="keyword">Keyword</option>
+            <!--filter para -->
+            <option value="author">Author</option>
+            <!--type para -->
+            <option value="tag">Tag</option>
+            <!--type para -->
+        </select>
+        <button @click="loadQuotes" class="searchBtn" type="submit">Search</button>
+
+
+        <h3>25 Random Quotes</h3>
+        <ul v-if="Object.keys(results).length">
+            <li v-for="quote in results.quotes" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p>By: {{ quote.author }}</p>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
