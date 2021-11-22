@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/site.css"/>
     <title>Vue Quote</title>
 </head>
 <body>
     <div id="app">
         <h1>{{ message }}</h1>
+        <p>Page: {{page}}</p>
         <div>
             <input type="text" v-model="search_text" v-on:keyup.enter="search" placeholder="Search">
             <select v-model="type">
@@ -18,6 +22,8 @@
                 <option value="tag">Tag</option>
             </select>
             <button v-on:click="search">Search</button>
+            <button v-on:click="last_page">Previous</button>
+            <button v-on:click="new_page">Next</button>
             
         </div>
         
@@ -27,9 +33,13 @@
                 :key="quote.id"
                 :quote="quote"
                 ></quote-item>
-            <hr>
         </template>
         
+        <div class="btns">
+            <button v-on:click="last_page">Previous</button>
+            <p>Page: {{page}}</p>
+            <button v-on:click="new_page">Next</button>
+        </div>
                
     </div>
     
