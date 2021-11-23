@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Dangerous Space</title>
+    </head>
+    <body>
+        <center>
+            <div id="app">
+                <header>End of the World From the Sky?</header>
+                <h2>Who told you? What is your source?</h2> 
+                
+                <div class="image_container">
+                    <a href="#" @click="isHidden = false, selection='bruce'"><img :src="bruce" class="images"></a>
+                    <a href="#" @click="isHidden = false, selection='morgan'"><img :src="morgan" class="images"></a>
+                    <a href="#" @click="isHidden = false, selection='mayan'"><img :src="mayan" class="images"></a>
+                    <a href="#" @click="isHidden = false, selection='camping'"><img :src="camping" class="images"></a>
+                </div>
+                <div v-if="!isHidden">
+                    <select v-model="selection">
+                        <option disabled value="">Pick one</option>
+                        <option value="bruce">Bruce Willis from Armageddon</option> 
+                        {% comment %} Armageddon date 30 june 1998 {% endcomment %}
+                        <option value="morgan">Morgan Freeman from Deep Impact</option>
+                        {% comment %} Deep impact date 8 may 1998 {% endcomment %}
+                        <option value="mayan">Mayan Calendar End Date</option>
+                        {% comment %} Mayan calendar 21 december 2012 {% endcomment %}
+                        <option value="camping">Bible Code: Harold Camping</option>
+                        {% comment %} 21 May 2021 - exactly 7000 years after the biblical flood {% endcomment %}
+                    </select>
+                    <button @click="loadNASA">Tell Me!</button>
+                </div>
+                <br><br>
+
+                <div>
+                    <p>No no, I know it's ID:</p>
+                    <input type="text" placeholder="3542519" v-model="asteroid" id='asteroid' v-on:keyup.enter="loadAsteroid"></input>
+                    <input type="submit" v-if="asteroid.length > 3" value="Lookup Id" @click="loadAsteroid(), isHidden = false" class="button1">
+                    <p v-if="!isHidden">
+                        {{ asteroid }} with designation: {{ designation }} is {{ lookUpSize }} meters wide
+                        <br>
+                        and last visited the Earth on {{ lookUpDate }} from a lunar distance of {{ lookUpDistance }} at speed {{ lookUpSpeed }}mph
+                    </p>
+                </div>
+
+                <br><br>
+                <input v-model="inputDate" id="inputDate" type="date"> 
+                <br><br>
+                <button @click="loadNASA(), isHidden = false" id="send">Tell me...</button>
+
+                <p v-if="!isHidden">
+                    According to NASA, a {{ sizeMeters }} meter ({{ sizeMiles }} miles) asteroid traveling at {{ mph }} mph named {{ name }}
+                    <br> 
+                    has a nearest distance of {{lunar}} lunar units from the Earth on {{ date }}
+                    <br>
+                    Aproximate nearest distance: {{ missDistance - 240000 }} miles further away than our moon.
+                </p>
+                <h1>“It is unknown whether we are the only civilization currently alive in the observable universe, but any chance that we are is added impetus for extending life beyond Earth,” - Elon Musk</h1>
+                    <script src="https://unpkg.com/vue"></script>
+                    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                    <script src="secrets.js"></script>
+                    <script src="app.js"></script>
+            </div>
+        </center>
+    </body>
+</html>
