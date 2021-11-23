@@ -1,5 +1,5 @@
 
-Vue.component('quote-item',{
+Vue.component('quote-item',{ 
     data: function() {
         return {
         }

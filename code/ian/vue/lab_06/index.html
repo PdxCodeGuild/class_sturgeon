@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/site.css"/>
+    <title>Lab 06</title>
+</head>
+<body>
+    <div id="app">
+        <h1> {{message}} </h1>
+        <input type="text" v-model="search_text" placeholder="Search">
+        <p>{{search_text}}</p>
+        <button @click="list">List</button>
+        <button @click="categories">Categories</button>
+        <button @click="prev_page">Prev</button>
+        <button @click="next_page">Next</button>
+        
+        <template v-if="Object.keys(results).length">
+            <exercise-item
+              :results="results"
+            ></exercise-item>
+
+        </template>
+        <!-- <div v-for="result in results.results">
+        <p>{{result.name}}</p>
+        </div> -->
+        
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/secrets.js"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>
