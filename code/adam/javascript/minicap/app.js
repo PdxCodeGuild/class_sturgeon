@@ -2,10 +2,26 @@ let app = new Vue({
     el: '#app',
 
     data: {
+        active: false,
+        apophis: "apophis.jpg",
+        asteroid: '',
+        asteroidName: '',
         bruce: "bruce.jpg",
+        bruceActive: false,
+        bruceAsteroid: "bruceAsteroid.jpg",
         camping: "camping.jpg",
+        campingActive: false,
+        campingAsteroid: "campingAsteroid.jpg",
+        deep: "deep.jpg",
         date: '',
         designation: '',
+        eighty: false,
+        ended: false,
+        explanation: '',
+        fifty: false,
+        forty: false,
+        health: 100,
+        hundred: false,
         inputDate: new Date().toISOString().slice(0,10),
         isHidden: true,
         lookUpSize: '',
@@ -15,13 +31,26 @@ let app = new Vue({
         lunar: '',
         mph: '',
         mayan: "mayan.jpg",
+        mayanAsteroid: "mayanAsteroid.jpg",
+        mayanActive: false,
         missDistance: '',
         morgan: "morgan.jpg",
+        morganActive: false,
         name: '',
+        ninety: false,
+        potd: '',
+        selection: '',
+        seventy: false,
+        showImage: false,
+        sixty: false,
         sizeMeters: '',
         sizeMiles: '',
-        asteroid: '',
-        asteroidName: '',
+        ten: false,
+        thirty: false,
+        title: '',
+        twenty: false,
+        tyson: 'tyson.jpg',
+        tysonActive: false,
     },
 
     methods: {
@@ -30,7 +59,7 @@ let app = new Vue({
                 method: 'GET',
                 url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.inputDate}`,
                 params: {
-                    api_key: `x9tOqUPDJm12DiV8OLgtWCHTmUplEo2jisd1IVK0`
+                    api_key: `${apiKey}`
                 }
             }).then(response => {
                 this.inputDate = document.getElementById('inputDate').value.toString()
@@ -49,7 +78,7 @@ let app = new Vue({
                 method: 'GET',
                 url: `https://api.nasa.gov/neo/rest/v1/neo/${this.asteroid}`,
                 params: {
-                    api_key: `x9tOqUPDJm12DiV8OLgtWCHTmUplEo2jisd1IVK0`
+                    api_key: `${apiKey}`
                 }
             }).then(response => {
                 this.asteroid = document.getElementById('asteroid').value.toString()
@@ -59,6 +88,85 @@ let app = new Vue({
                 this.lookUpDistance = Math.round(response.data['close_approach_data'][0]['miss_distance']['lunar'])
                 this.lookUpSpeed = Math.round(response.data['close_approach_data'][0]["relative_velocity"]["miles_per_hour"])
             })
+        },
+        checkDate: function() {
+            if (this.selection === "bruce") {
+                this.inputDate = "1998-06-10"
+            }
+            else if (this.selection === "morgan") {
+                this.inputDate = "1998-05-08"
+            }
+            else if (this.selection === "mayan") {
+                this.inputDate = "2012-12-21"
+            }
+            else if (this.selection === "camping") {
+                this.inputDate = "2021-05-21"
+            }
+            else if (this.selection === "apophis") {
+                this.inputDate = "2029-04-13"
+            }
+        },
+        loadPotd: function() {
+            axios({
+                method: 'GET',
+                url: `https://api.nasa.gov/planetary/apod?`,
+                params: {
+                    api_key: `${apiKey}`
+                }
+            }).then(response => {
+                this.potd = response.data["url"]
+                console.log(this.potd)
+                this.explanation = response.data["explanation"]
+                this.title = response.data["title"]
+            })
+        },
+        toggleImage: function() {
+            this.showImage = !this.showImage
+        },
+        punch: function() {
+            this.health -= 10
+            if ( this.health == 100 ) {
+                this.hundred = true
+            }
+            if ( this.health == 90 ) {
+                this.ninety = true
+            }
+            if ( this.health == 80 ) {
+                this.eighty = true
+            }
+            if ( this.health == 70 ) {
+                this.seventy = true
+            }
+            if ( this.health == 60 ) {
+                this.sixty = true
+            }
+            if ( this.health == 50 ) {
+                this.fifty = true
+            }
+            if ( this.health == 40 ) {
+                this.forty = true
+            }
+            if ( this.health == 30 ) {
+                this.thirty = true
+            }
+            if ( this.health == 20 ) {
+                this.twenty = true
+            }
+            if ( this.health == 10 ) {
+                this.ten = true
+            }
+            if ( this.health <= 0 ) {
+                this.ended = true
+            }
+        },
+        restart: function() {
+            this.health = 100
+            this.ended = false
         }
     }
 })
+
+var tl = gsap.timeline({defaults:{opacity: 0}})
+    .to('.warning', {opacity: 0, duration: 5, delay: 1, y: -1500})
+    .from('main', {duration: 1, delay: 1.1, backgroundPosition: '200px 0px', opacity: 0}, "-=1.5")
+

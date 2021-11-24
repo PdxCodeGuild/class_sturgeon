@@ -53,6 +53,101 @@ button {
   font-size: 25px;
 }
 
+select {
+  font-size: 25px;
+  border: chocolate 5px solid;
+}
+
 img {
-  height: 180px;
+  height: 220px;
+}
+
+img:hover {
+  border: chocolate solid 5px;
+}
+
+.potdimage {
+  height: 300px;
+}
+
+.warning {
+  font-size: 100px;
+}
+
+.elon {
+  border: solid chocolate 5px;
+  width: 25%;
+}
+
+#bag {
+  height: 500px;
+  margin: 0 auto;
+  background: url(asteroidbag.jpg) center no-repeat;
+  background-size: 80%;
+}
+
+#bag.burst1 {
+  background: url(asteroidburst1.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst2 {
+  background: url(asteroidburst2.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst3 {
+  background: url(asteroidburst3.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst4 {
+  background: url(asteroidburst4.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst5 {
+  background: url(asteroidburst5.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst6 {
+  background: url(asteroidburst6.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst7 {
+  background: url(asteroidburst7.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst8 {
+  background: url(asteroidburst8.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst9 {
+  background: url(asteroidburst9.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst {
+  background: url(ended.png) center no-repeat;
+  background-size: 80%;
+}
+
+#bag-health {
+  width: 500px;
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+}
+
+#bag-health div {
+  height: 20px;
+  background: crimson;
+}
+
+#controls {
+  width: 120px;
+  margin: 0 auto;
 }
