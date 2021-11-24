@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Jeopardy!</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <h1>This is Jeopardy!</h1>
+            <p><i>Relive your favorite episodes or play the ones you missed</i></p>
+
+            <label for="game-date">Enter a game date</label>
+            <input type="date" name="game-date" placeholder="MM/DD/YYYY" v-model="gameDate" @keyup.enter="getJeopardy">
+            <button @click="getJeopardy">Find my game!</button>
+
+            <div>
+                <h2>Jeopardy round</h2>
+
+                <ul v-for="category in categories" :key="categories.indexOf(category)">
+                    <h3>{{ category }}</h3>
+                    <div v-for="item in game['jeopardy']" :key="game['jeopardy'].order">
+                        <li v-if="category === item.category">clue: {{ item.clue }}<hr>answer: {{ item.answer }}<hr>{{ item.value }}<hr></li>
+                    </div>
+                </ul>
+            </div>
+
+            <!-- <div>
+                <h2>Double Jeopardy round</h2>
+
+                <ul v-for="category in categories">
+                    <h3>{{ category }}</h3>
+                    <div v-for="item in game['double jeopardy']">
+                        <li v-if="category === item.category">{{ item.clue }}</li>
+                    </div>
+                </ul>
+            </div> -->
+
+
+            <ul v-for="item in game['double jeopardy']">
+                <li>category: {{ item.category}}<hr>clue: {{ item.clue }}<hr>answer: {{ item.answer }}<hr>{{ item.value }}</li>
+            </ul>
+            <h2>Final Jeopardy</h2>
+            <p>{{ finalJeopardy.clue }}</p>
+            
+
+        </div>
+
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script src="site.js"></script>
+    </body>
+</html>
