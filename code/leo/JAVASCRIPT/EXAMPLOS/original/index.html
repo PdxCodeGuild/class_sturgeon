@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+    <div id="app">
+
+        <div id= 'searchName'>
+        <label for="coins"> Coin Name </label>
+        <input list="coins" placeholder="Coin Name" v-model="coinSelected" />
+            <datalist id="coins" >
+                <option v-for="eachCoin in results">
+                {{ eachCoin.name }}
+                </option>
+            </datalist>
+        </div>
+        
+        <div id= 'coinamaount'>
+            <label for="quantity"> Quantity </label>
+            <input list="quantity" placeholder="quantity" v-model="coinQuantity" />
+        </div>
+
+        <button @click="loadPorfolio()">Go</button>
+
+        <div>
+            <h1>Your Porfolio</h1>
+            <ul >
+                <li v-for="each in porfolio">
+                        Name:{{ each.name }}
+                        Symbol: {{ each.symbol }}
+                        Quantity: {{ each.quantity }}
+                        USD Value: {{ each.uservalue }}
+                <button v-on:click="removeCoin(each)">delete</button>
+           </li>
+           </ul>
+        </div>
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="site.js"></script>
+</body>
+</html>
