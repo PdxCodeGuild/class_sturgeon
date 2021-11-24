@@ -35,20 +35,25 @@
                         <button @click="isHidden = false, checkDate(), loadNASA()">Reveal the Truth of their Words!</button>
                     </div>
                     <div v-show="bruceActive">
-                        <h1>"Houston, you have a problem. You see, I promised my little girl that I'd be comin' home. Now I don't know what you people are doing down there, but we've got a hole to dig up here."</h1>
+                        <h1>"Houston, you have a problem. You see, I promised my little girl that I'd be comin' home. Now I 
+                        don't know what you people are doing down there, but we've got a hole to dig up here."</h1>
                         <img :src="bruceAsteroid" class="images">
                     </div>
                     <div v-show="morganActive">
-                        <h1>We watched as the bombs shattered the second comet into a million pieces of ice and rock that burned harmlessly in our atmosphere and lit up the sky for an hour. Still, we were left with the devastation of the first. The waters reached as far inland as the Ohio and Tennessee Valleys. It washed away farms and towns, forests and skyscrapers. But, the water receded. The wave hit Europe and Africa too. Millions were lost, and countless more left homeless. But the waters receded. Cities fall, but they are rebuilt. And heroes die, but they are remembered. We honor them with every brick we lay, with every field we sow, With every child we comfort, and then teach to rejoice in what we have been re-given. Our planet. Our home. So now, let us begin.</h1>
+                        <h1>We watched as the bombs shattered the second comet into a million pieces of ice and rock that 
+                        burned harmlessly in our atmosphere and lit up the sky for an hour. Still, we were left with the devastation of the first. The waters reached as far inland as the Ohio and Tennessee Valleys. It washed away farms and towns, forests and skyscrapers. But, the water receded. The wave hit Europe and Africa too. Millions were lost, and countless more left homeless. But the waters receded. Cities fall, but they are rebuilt. And heroes die, but they are remembered. We honor them with every brick we lay, with every field we sow, With every child we comfort, and then teach to rejoice in what we have been re-given. Our planet. Our home. So now, let us begin.</h1>
                         <img :src="deep" class="images">
                     </div>
                     <div v-show="mayanActive">
-                        <h1>Forecasting Armageddon has become trendy of late, with a great deal of attention being given to an interpretation of the Mayan Calendar suggesting that Mother Earth is destined for doom in December of 2012. - Author: Seth Shostak</h1>
+                        <h1>Forecasting Armageddon has become trendy of late, with a great deal of attention being given to 
+                        an interpretation of the Mayan Calendar suggesting that Mother Earth is destined for doom in 
+                        December of 2012. - Author: Seth Shostak</h1>
                         <img :src="mayanAsteroid" class="images">
                     </div>
                     <div v-show="campingActive">
-                        <h1>“And now, we have no option. We can't say 'maybe' 'it's possible' 'it looks very probable...' No way! We have to say this is what the Bible teaches! This is fact! May 21, 2011 is the day of the Rapture, it is the day that Judgment Day begins...”
-    ― Harold Camping</h1>
+                        <h1>“And now, we have no option. We can't say 'maybe' 'it's possible' 'it looks very probable...' 
+                        No way! We have to say this is what the Bible teaches! This is fact! May 21, 2011 is the day of the 
+                        Rapture, it is the day that Judgment Day begins...” ― Harold Camping</h1>
                         <img :src="campingAsteroid" class="images">
                     </div>
                     <div v-show="tysonActive">
@@ -88,14 +93,15 @@
                     <div>
                         <h1 @mouseover="active = true" @mouseleave="active = false" class='elon'>Elon Musk Says</h1>
                         <div v-show="active">
-                            <h1>“It is unknown whether we are the only civilization currently alive in the observable universe, but any chance that we are is added impetus for extending life beyond Earth,” - Elon Musk</h1>
+                            <h1>“It is unknown whether we are the only civilization currently alive in the observable universe, 
+                            but any chance that we are is added impetus for extending life beyond Earth,” - Elon Musk</h1>
                         </div>
                     </div>
                     <br><br>
                     <div>
                         <p>No, I'm an astronomer and I know the ID of the asteroid I'm looking for:</p>
                             <input type="text" placeholder="3542519" v-model="asteroid" id='asteroid' v-on:keyup.enter="loadAsteroid"></input>
-                            <input type="submit" v-if="asteroid.length > 3" value="Lookup Id" @click="loadAsteroid()" class="button1">
+                            <input type="submit" v-if="asteroid.length > 3" value="Lookup Id" @click="loadAsteroid()" class="button1"></input>
                         <p v-if="asteroid.length > 3">
                             {{ asteroid }} with designation: {{ designation }} is {{ lookUpSize }} meters wide
                             <br>
@@ -103,20 +109,38 @@
                         </p>
                     </div>
                     <br>
-
-                    <div id="bag" :class="{ bag: hundred, burst1: ninety, burst2: eighty, burst3: seventy, burst4: sixty, burst5: fifty, burst6: forty, burst7: thirty, burst8: twenty, burst9: ten, burst: ended }"></div>
+                    <div id="bag" :class="{ bag: hundred, burst1: ninety, burst2: eighty, burst3: seventy, burst4: sixty, burst5: fifty, 
+                    burst6: forty, burst7: thirty, burst8: twenty, burst9: ten, burst: ended }"></div>
                     <div id="bag-health">
                         <div :style="{ width: health + '%' }"></div>
                     </div>
                     <div id="controls">
-                        <button @click="punch" v-show="!ended">Fire Missile</button>
+                        <button  @click.prevent="fire(), playSound(missileaudio)" v-if="resources.missile.count > 0" v-show="!ended">Fire Missile</button>
                     </div>
+                    <section>
+                        <h2> Finance an effort to destroy the incoming asteroid! </h2>
+                        <p>Hint: Click the money bag</p>
+                                <button @click="money++">💰</button>
+                                <div>
+                                    Money: {{ Math.floor(money) }}
+                                    {{ displayMissiles }}
+                                </div>
 
+                                <div v-for="(resources, id) in resources">
+                                    {{ resources.count }}x {{ resources.icon }}: {{ resources.cost }}
+                                    <button @click="buy(id)"
+                                        v-if="money >= resources.cost">
+                                        Finance Lobbyist for {{ id }}: 💰{{ resources.cost }}
+                                    </button>
+                                </div>
+                        </section>
                 </div>
             </main>
-                    <p class="warning">DoomsDay!</p>
-                    <p class="warning">Tinfoil Hats!</p>
-                    <p class="warning">Certian Doom!</p>
+                    <aside id="remove">
+                        <p class="warning">DoomsDay!</p>
+                        <p class="warning">Tinfoil Hats!</p>
+                        <p class="warning">Certian Doom!</p>
+                    </aside>
         </center>
     </body>
                     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>

@@ -81,14 +81,16 @@ img:hover {
 
 #bag {
   height: 500px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 5px;
   background: url(asteroidbag.jpg) center no-repeat;
   background-size: 80%;
 }
 
 #bag.burst1 {
   background: url(asteroidburst1.png) center no-repeat;
-  background-size: 80%
+  background-size: 80%;
+  margin: 5px;
 }
 
 #bag.burst2 {
@@ -140,6 +142,7 @@ img:hover {
   width: 500px;
   border: 2px solid #000;
   margin: 0 auto 20px auto;
+  border: chocolate solid 3px;
 }
 
 #bag-health div {
@@ -148,6 +151,18 @@ img:hover {
 }
 
 #controls {
-  width: 120px;
+  width: 500px;
   margin: 0 auto;
+}
+
+#controls button {
+  font-size: 75px;
+  color: red;
+  background: black;
+}
+
+section {
+  border: ridge chocolate 35px;
+  color: white;
+  font-size: 30px;
 }

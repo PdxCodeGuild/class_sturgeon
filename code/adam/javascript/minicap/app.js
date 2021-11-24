@@ -34,6 +34,7 @@ let app = new Vue({
         mayanAsteroid: "mayanAsteroid.jpg",
         mayanActive: false,
         missDistance: '',
+        missileaudio: "Missile.mp3",
         morgan: "morgan.jpg",
         morganActive: false,
         name: '',
@@ -51,6 +52,33 @@ let app = new Vue({
         twenty: false,
         tyson: 'tyson.jpg',
         tysonActive: false,
+        money: 0,
+        resources: {
+            Crowdsourcing: {
+                icon: "🧑‍🤝‍🧑",
+                cost: 5,
+                rate: 3,
+                count: 0
+            },
+            TaxHike: {
+                icon: "💸",
+                cost: 10,
+                rate: 15,
+                count: 0
+            },
+            Mob: {
+                icon: "🔥",
+                cost: 100,
+                rate: 30,
+                count: 0
+            },
+            missile: {
+                icon: "🚀",
+                cost: 1000,
+                rate: 400.9,
+                count: 0
+            }
+        }
     },
 
     methods: {
@@ -123,8 +151,9 @@ let app = new Vue({
         toggleImage: function() {
             this.showImage = !this.showImage
         },
-        punch: function() {
+        fire: function() {
             this.health -= 10
+            this.resources.missile.count -= 1
             if ( this.health == 100 ) {
                 this.hundred = true
             }
@@ -162,11 +191,47 @@ let app = new Vue({
         restart: function() {
             this.health = 100
             this.ended = false
+        },
+        buy: function(id) {
+            this.resources[id].count++
+            this.money -= this.resources[id].cost
+            let inflation = 1.1
+            this.resources[id].cost = Math.floor(this.resources[id].cost * inflation)
+        },
+        playSound (sound) {
+            if(sound) {
+                var audio = new Audio(sound);
+                audio.play();
+            }
+        }
+    },
+
+    mounted: function() {
+        let loopCount = 0
+        setInterval(() => {
+            loopCount++
+            let keys = Object.keys(this.resources)
+            for (index in keys) {
+                let key = keys[index]
+                this.money += this.resources[key].rate * this.resources[key].count
+            }
+        }, 100)
+    },
+
+    computed: {
+        displayMissiles: function() {
+            let m = ""
+            for (var i = 0; i < this.resources.missile.count; i++) {
+                m += "🚀"
+            }
+            return m
         }
     }
 })
 
 var tl = gsap.timeline({defaults:{opacity: 0}})
-    .to('.warning', {opacity: 0, duration: 5, delay: 1, y: -1500})
+    .to('.warning', {opacity: 15, duration: 4, y: -2500})
+    .to('.warning', {opacity: 0, duration: 1 })
     .from('main', {duration: 1, delay: 1.1, backgroundPosition: '200px 0px', opacity: 0}, "-=1.5")
 
+setTimeout(() => { document.getElementById("remove").remove(); }, 9000)
