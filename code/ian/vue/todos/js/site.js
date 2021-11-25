@@ -37,5 +37,5 @@ new Vue({
                 return !item.complete
             })
         }
-    }
+    } 
 })
