@@ -1,3 +1,52 @@
-input:placeholder-shown {
-    opacity: 1;
+body {
+    background-color: slategray;
+}
+
+header {
+    padding-left: 4em;
+    padding-bottom: 2em;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    text-align: center;
+}
+
+button {
+    text-align: center;
+}
+
+.date-container {
+    padding-left: 6em;
+}
+
+.game-container {
+    border: 2px solid black;
+}
+
+.column-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.category-column {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border: 2px solid black;
+    
+}
+
+.clue-container, .category-container {
+    border: 2px solid black;
+    height: 150px;
+    width: 200px;
+    margin-bottom: 25px;
 }

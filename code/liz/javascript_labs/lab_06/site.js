@@ -1,10 +1,38 @@
+
+Vue.component('clue-object', {
+    data: function () {
+        return {
+          clicks: 0
+        }
+    },
+    props: ['item', 'category'],
+    template: `
+    
+    <div class="clue-container" v-if="category === item.category" @click="clicks += 1">
+    
+        <p class="value" v-if="clicks === 0" >{{ item.value }}</p>
+
+        <p class="clue" v-else-if="clicks === 1">{{ item.clue }}</p>
+
+        <p class="answer" v-else-if="clicks === 2">{{ item.answer }}</p>
+
+        <p class="blank" v-else></p>
+    </div>
+    `
+})
+
+
 const vm = new Vue({
     el: '#app',
     data: {
         game: {},
         gameDate: '',
         finalJeopardy: '',
-        categories: [],
+        jeopardyCategories: [],
+        doubleJeopardyCategories: [],
+        round: 0,
+        count: 0,
+        
     },
     methods: {
         getJeopardy: function() {
@@ -15,26 +43,41 @@ const vm = new Vue({
                 method: 'get',
                 url: `https://jarchive-json.glitch.me/game/${x}`,
             }).then(response => {
-                console.log(response)
+                // console.log(response)
                 this.game = response.data
                 this.finalJeopardy = this.game['final jeopardy']
                 this.categoryMaker()
+                this.round = 1
             })
         },
         categoryMaker: function() {
-            let categories = []
+            let jeopardyCategories = []
+            let doubleJeopardyCategories = []
             for (item of this.game.jeopardy) {
-                if (!categories.includes(item.category)) {
-                    categories.push(item.category)
+                if (!jeopardyCategories.includes(item.category)) {
+                    jeopardyCategories.push(item.category)
                 } 
             }
-            this.categories = categories
-            console.log(categories)
+            this.jeopardyCategories = jeopardyCategories
 
-        }
+            for (item of this.game['double jeopardy']) {
+                if (!doubleJeopardyCategories.includes(item.category)) {
+                    doubleJeopardyCategories.push(item.category)
+                } 
+            }
+            this.doubleJeopardyCategories = doubleJeopardyCategories
+            
+            // console.log(doubleJeopardyCategories)
+
+        },
+        // remove: function(el) {
+        //     let element = el
+        //     element.remove()
+        // },
     },
     created: function() {
         // this.getJeopardy()
+        // this.remove()
     }
    
 })
