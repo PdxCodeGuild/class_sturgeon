@@ -43,7 +43,6 @@ const vm = new Vue({
                 method: 'get',
                 url: `https://jarchive-json.glitch.me/game/${x}`,
             }).then(response => {
-                // console.log(response)
                 this.game = response.data
                 this.finalJeopardy = this.game['final jeopardy']
                 this.categoryMaker()
@@ -67,13 +66,8 @@ const vm = new Vue({
             }
             this.doubleJeopardyCategories = doubleJeopardyCategories
             
-            // console.log(doubleJeopardyCategories)
 
         },
-        // remove: function(el) {
-        //     let element = el
-        //     element.remove()
-        // },
     },
     created: function() {
         // this.getJeopardy()

@@ -11,22 +11,28 @@
     <body>
         <div id="app">
             <header>
-                <h1>This is Jeopardy!</h1>
-                <p><i>Relive your favorite episodes or play the ones you missed</i></p>
+                <div class="title">
+                    <h1>This is Jeopardy!</h1>
+                    <p class="under-text"><i>Relive your favorite episodes or play the ones you missed</i></p>
+                </div>
+
+<!---------------------- user input -------------------------->
+                <div class="date-container">
+                    <label for="game-date">Enter a game date here:</label>
+                    <input type="date" name="game-date" placeholder="MM/DD/YYYY" v-model="gameDate" @keyup.enter="getJeopardy">
+                    <button @click="getJeopardy">Find my game!</button>
+                </div>
             </header>
+            
 
-            <div class="date-container">
-                <label for="game-date">Enter a game date</label>
-                <input type="date" name="game-date" placeholder="MM/DD/YYYY" v-model="gameDate" @keyup.enter="getJeopardy">
-                <button @click="getJeopardy">Find my game!</button>
-            </div>
-
+<!--------------------- error message ----------------------->
             <!-- <div v-if="error"> -->
             <p class="error-message">{{ game.message }}</p>
             <!-- </div> -->
                
 
-            <!-- jeopardy -->
+<!----------------------- jeopardy --------------------------->
+
             <div class="game-container" v-if="round === 1">
 
                 <h2>Jeopardy round</h2>
@@ -46,32 +52,19 @@
                             :category = category
                         ></clue-object>
 
-                        <!-- <div class="clue-container" v-for="item in game['jeopardy']" :key="game['jeopardy'].order">
-
-                            <li class="clue-item" v-if="category === item.category">
-
-                                <p class="value" v-if="clicks === 0" @click="clicks += 1">{{ item.value }}</p>
-
-                                <p class="clue" v-else-if="clicks === 1" @click="clicks += 1">clue: {{ item.clue }}</p>
-
-                                <p class="answer" v-else-if="clicks === 2" @click="clicks += 1">answer: {{ item.answer }}</p>
-
-                                <p v-else></p>
-
-
-                                <p class="value" onclick="this.remove(this)">{{ item.value }}</p>
-                                <p class="clue" onclick="this.remove(this)">clue: {{ item.clue }}</p>
-                                <p class="answer" onclick="this.remove(this)">answer: {{ item.answer }}</p>
-                            </li>
-                        </div> -->
                     </div>
-                </div>
 
-                <button class="next-round" @click="round += 1">Double Jeopardy</button>
+                </div>
+                
+                <div class="btn-container">
+                    <button class="next-round" @click="round += 1">Double Jeopardy</button>
+                </div>
             </div>
 
-            <!-- double jeopardy -->
-            <div v-else-if="round === 2">
+
+<!---------------- double jeopardy --------------------------->
+
+            <div class="game-container" v-else-if="round === 2">
                 <h2>Double Jeopardy round</h2>
 
                 <div class="column-container">
@@ -84,31 +77,23 @@
 
                         <clue-object
                             v-for="item in game['double jeopardy']"
-                            :key = "game['double jeopardy'].order"
+                            :key = "game['double jeopardy'].order + 30"
                             :item = item
                             :category = category
                             ></clue-object>
 
-                        <!-- <div class="clue-container" v-for="item in game['double jeopardy']" :key="game['double jeopardy'].order">
-
-                            
-                            <li class="clue-item" v-if="category === item.category">
-                                <p class="value">{{ item.value }}</p>
-                                <p class="clue">clue: {{ item.clue }}</p>
-                                <p class="answer">answer: {{ item.answer }}</p>
-                            </li>
-
-                        </div> -->
-
                     </div>
                 </div>
-
-                <button class="next-round" @click="round += 1">Final Jeopardy</button>
+                
+                <div class="btn-container">
+                    <button class="next-round" @click="round += 1">Final Jeopardy</button>
+                </div>
 
             </div>
 
-            <!-- final jeopardy -->
-            <div v-else-if="round === 3">
+<!------------------------ final jeopardy --------------------->
+
+            <div class="game-container" v-else-if="round === 3">
                 <h2>Final Jeopardy</h2>
 
                 <div class="category-container">
