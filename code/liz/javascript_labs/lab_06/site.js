@@ -1,3 +1,5 @@
+// this is jeopardy - mini capstone
+
 
 Vue.component('clue-object', {
     data: function () {
