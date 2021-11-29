@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>This is Jeopardy!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Brygada+1918:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
         <link rel="stylesheet" href="style.css" />
     </head>
@@ -95,17 +98,19 @@
 
             <div class="game-container" v-else-if="round === 3">
                 <h2>Final Jeopardy</h2>
-
-                <div class="category-container">
-                    <p class="category">{{ finalJeopardy.category }}</p>
-                </div>
                 
+                <div class="final-container">
+                    <div class="category-container">
+                        <p class="category">{{ finalJeopardy.category }}</p>
+                    </div>
+                    
 
-                <div class="clue-container" @click="count += 1">
-                    <p class="blank" v-if="count === 0"></p>
-                    <p class="clue" v-else-if="count === 1">{{ finalJeopardy.clue }}</p>
-                    <p class="answer" v-else>{{ finalJeopardy.answer }}</p>
+                    <div class="clue-container" @click="count += 1">
+                        <p class="blank" v-if="count === 0"></p>
+                        <p class="clue" v-else-if="count === 1">{{ finalJeopardy.clue }}</p>
+                        <p class="answer" v-else>{{ finalJeopardy.answer }}</p>
 
+                    </div>
                 </div>
 
             </div>

@@ -2,7 +2,7 @@
 Vue.component('clue-object', {
     data: function () {
         return {
-          clicks: 0
+            clicks: 0
         }
     },
     props: ['item', 'category'],
@@ -47,6 +47,8 @@ const vm = new Vue({
                 this.finalJeopardy = this.game['final jeopardy']
                 this.categoryMaker()
                 this.round = 1
+                this.count = 0
+                this.clicks = 0
             })
         },
         categoryMaker: function() {
