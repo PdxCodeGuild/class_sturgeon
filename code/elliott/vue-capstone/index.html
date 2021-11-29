@@ -2,39 +2,159 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
 
 <body>
-    <main>
-        <div id="weatherApp">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search...">
-            </div>
+
+  <div id="weatherApp">
+    <main class="current-weather"
+      :class="typeof weatherReport.main != 'undefined' && weatherReport.main.temp > 55 ? 'warm' : '' ">
+      <div class="city-input">
+        <input class="city-input" type="text" v-model="city" placeholder="Enter your city">
+        <button class="city-btn" @click="getWeather">Submit</button>
+      </div>
+      <div class="weather-wrap" v-if="typeof weatherReport.main != 'undefined'">
+
+        <div class="location">
+          <div class="current-city">
+            {{ weatherReport.name}}, {{weatherReport.sys.country }}
+          </div>
+          <div class="date">{{dateBuilder()}}</div>
         </div>
 
-        <div class="location-box">
-            <div class="location">BattleGround,wa</div>
-            <div class="date">22 Nov 2021</div>
+        <div class="temp-box">{{ Math.round(weatherReport.main.temp) }}&degf</div>
+        <div class="weather-condition">
+          {{ weatherReport.weather[0].description}}
         </div>
-        <div class="weather-box">
-            <div class="temp-box">32f</div>
-            <div class="weather">Rain</div>
-        </div>
-
     </main>
 
 
+    <div class="forecast-header">
+      <h2>6 Day Forecast </h2>
+    </div>
+    <section class="forecast-grid" v-if="typeof weatherReport.main != 'undefined'">
+
+      <div id="box1" v-bind:class="forecastReport.daily[0].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[0].temp.day) }}&degf
+          <h3>Night Low</h3>{{
+          Math.round(forecastReport.daily[0].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[0].weather[0].description}}
+        </div>
+
+        <div class="overlay1">
+          <div class="text"><a href="info.html">More Info</a></div>
+        </div>
+      </div>
+
+      <div id="box2" v-bind:class="forecastReport.daily[1].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[1].temp.day) }}&degf
+          <h3>Night Low</h3>{{
+          Math.round(forecastReport.daily[1].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[1].weather[0].description}}
+        </div>
+
+        <div class="overlay2">
+          <div class="text"><a href="#">More Info</a></div>
+        </div>
+      </div>
+
+      <div id="box3" v-bind:class="forecastReport.daily[2].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[2].temp.day) }}&degf
+          <h3>Night Low</h3> {{
+          Math.round(forecastReport.daily[2].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[2].weather[0].description}}
+        </div>
+        <div class="overlay3">
+          <div class="text"><a href="#">More Info</a></div>
+        </div>
+
+      </div>
+
+      <div id="box4" v-bind:class="forecastReport.daily[3].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[3].temp.day) }}&degf
+          <h3>Night Low</h3>{{
+          Math.round(forecastReport.daily[3].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[3].weather[0].description}}
+        </div>
+        <div class="overlay4">
+          <div class="text"><a href="#">More Info</a></div>
+        </div>
+
+      </div>
+
+      <div id="box5" v-bind:class="forecastReport.daily[4].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[4].temp.day) }}&degf
+
+          <h3>Night Low</h3>{{
+          Math.round(forecastReport.daily[4].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[4].weather[0].description}}
+        </div>
+
+        <div class="overlay5">
+          <div class="text"><a href="#">More Info</a></div>
+        </div>
+      </div>
+
+      <div id="box6" v-bind:class="forecastReport.daily[5].weather[0].description">
+        <div class="morning-night-temp">
+          <h3>Day High</h3>{{ Math.round(forecastReport.daily[5].temp.day) }}&degf
+
+          <h3>Night Low</h3> {{
+          Math.round(forecastReport.daily[5].temp.night) }}&degf
+        </div>
+
+        <div class="future-conditions">
+          <h3>Weather Conditions</h3>{{ forecastReport.daily[5].weather[0].description}}
+        </div>
+        <div class="overlay6">
+          <div class="text"><a href="#">More Info</a></div>
+        </div>
+      </div>
+
+    </section>
 
 
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
+    <section class="weather-alert" v-if="typeof forecastReport.alerts != 'undefined'">
+      <div class="alert-info">
+        <h3 id="weather-alert-header">Weather Alert</h3>
+        {{ forecastReport.alerts[0].description}}
+        {{ forecastReport.alerts[0].event}}
+        {{ forecastReport.alerts[0].sender_name}}
+      </div>
+    </section>
+  </div>
+
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
