@@ -83,8 +83,8 @@
                                 <p>Set {{set.set}}: {{set.reps}} Reps @ {{set.weight}} lbs.</p>
                             </div>
                             <p>{{item.complete}}</p>
-                            <p>Reps: <input type="number" v-model="item.reps"></p>
-                            <p>Weight: <input type="number" v-model="item.weight"> lbs.</p>
+                            <p>Reps: <input @keydown.enter="set(item)" type="number" v-model="item.reps"></p>
+                            <p>Weight: <input @keydown.enter="set(item)" type="number" v-model="item.weight"> lbs.</p>
                             <h4>Set<a @click="set(item)"><i class="fas fa-plus"></i></a></h4>
                             <br>
                         </div>

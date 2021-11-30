@@ -9,14 +9,11 @@ Vue.component('exercise-item', {
     props: ['results'],
     methods: {
         comp_group: function (comp_id, comp_name) {
-            console.log(comp_id)
-            console.log(comp_name)
             this.$root.group_search = comp_id
             this.$root.group_label = comp_name
             this.$root.group()
         },
         comp_info: function(comp_uuid) {
-            console.log(comp_uuid)
             this.$root.uuid = comp_uuid
             this.$root.ex_detail()
         },
@@ -33,10 +30,7 @@ Vue.component('exercise-item', {
                 
             })
         },
-        comp_img: function(comp_id, comp_name) {
-            return `https://wger.de/media/exercise-images/${comp_id}/${comp_name.replace(' ','-')}-1.png`
-            
-        }
+        
     },
     template:`
     <div>
@@ -70,7 +64,6 @@ new Vue ({
         group_search: '',
         group_label: '',
         uuid: '',
-        pic: '',
         limit: 20,
         offset: 0,
         
@@ -178,7 +171,7 @@ new Vue ({
         },
         complete: function(){
             this.complete_workouts.push({
-                date : Date().replace('GMT-0800 (Pacific Standard Time)', ''),
+                date : Date().replace('GMT-0800 (Pacific Standard Time)',''),
                 session : this.workouts
             })
             this.workouts = []

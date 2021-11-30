@@ -41,6 +41,9 @@ button {
 }
 #history h3 {
     border: 3px solid #21BF65;
+    background-color: #21BF65;
+    border-radius: 15px;
+    color: white;
     width: 270px;
     text-align: center;
     padding: .5em
