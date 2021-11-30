@@ -11,4 +11,4 @@ class Student(models.Model):
     capstone = models.URLField(max_length=500)
 
     def __str__(self):
-        return self.firstName
+        return self.firstName + " | " + self.lastName
