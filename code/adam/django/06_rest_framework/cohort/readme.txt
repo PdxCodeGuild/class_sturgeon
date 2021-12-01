@@ -26,3 +26,14 @@ The following was added to the settings page:
         'django_filters.rest_framework.DjangoFilterBackend',
         ],
     }
+
+
+Instructor Merrit made a template by adding a template section by:
+    Adding template format to with base home on the project URL page
+    Adding BASE_DIR on the templates section of the settings
+    creating a home.html page with a vue and an axios script tag, then adding script under them
+    put {% csrf_token %} in the body, but above the app so it doesn't interfere with it
+    in the creation method include the let crsf_token line he has (in the methods of the app)
+    Make the x-csrfttoken line in the header a string 'X-CsrfToken' because vue doesn't like "-"
+    Created a new view in the APIs to find current user so that title/post input can be left only by logged-in permission
+    
