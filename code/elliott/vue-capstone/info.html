@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Info</h1>
+  <div id="weatherApp">
+
+    <p>Humidity:{{ forecastReport.daily[0].humidity }}</p>
+    <p>Wind speed:{{forecastReport.daily[0].wind_speed}}</p>
+    <p>Dew point:{{forecastReport.daily[0].dew_point}}</p>
+    <p>{{forecastReport.daily[0].rain}} inches</p>
+
+
+
+  </div>
+
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

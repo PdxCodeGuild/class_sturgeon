@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% if user.is_authenticated %}
+    <div id="app">
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a>
+        <p>
+            {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a>
+        </p>
+        {% endif %}
+
+        <input type="text" v-model="name" placeholder="name"><br>
+        <input type="text" v-model="number" placeholder="number"><br>
+        <button @click="loadPokemon">Submit</button>
+
+        <div v-if="pokemon.length">
+            <p>Name: [[ pokemon[0].name ]]</p>
+            <p>number: [[ pokemon[0].number ]]</p>
+            <img :src="[[ pokemon[0].image_front ]]" alt="">
+        </div>
+
+        <div>
+            <input type="text">
+            <input type="text">
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            delimiters: ['[[', ']]'],
+            data: {
+                name: '',
+                number: '',
+                pokemon: []
+
+            },
+
+            methods: {
+                loadPokemon: function () {
+                    axios({
+                        method: 'get',
+                        url: 'api/v1/pokemon',
+
+                        params: {
+                            name: this.name,
+                            number: this.number,
+                        },
+
+                    }).then(response => {
+                        this.pokemon = response.data
+                    })
+                },
+
+                loadAllpokemon: function () {
+                    axios({
+                        method: 'get',
+                        url: 'api/v1/pokemon',
+                    }).then(response => {
+                        this.pokemon = response.data
+                    })
+                },
+
+                createPokemon: function () {
+                    axios({
+                        method: 'post',
+                        url: 'api/v1/pokemon',
+                    }).then(response => {
+                        this.pokemon = response.data
+                    })
+
+                }
+            },
+            created: function () {
+                this.loadAllpokemon()
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

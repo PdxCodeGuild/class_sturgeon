@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&family=Poppins:ital,wght@1,200&family=Source+Serif+Pro:ital@1&family=Zen+Old+Mincho:wght@900&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Elliotts Todo List</h1>
+    </header>
+    <main id="app">
+        <form @submit.prevent="addTodo">
+            <label for="newTodo">New Todo</label>
+            <input v-model="newTodo" type="text" name="newTodo" id="newTodo" />
+            <button class="add-btn" type="submit" name="button">Add</button>
+        </form>
+        <h3>My List</h2>
+            <div class="list-container">
+                <ul class="list">
+                    <li v-for="todo in todos">
+                        <input type="checkbox" v-model="todo.done" />
+                        <span :class="{ done: todo.done }">{{todo.title}}</span>
+                        <button @click="removeTodo(todo)" name="button" type="button">Delete</button>
+                    </li>
+                </ul>
+            </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
