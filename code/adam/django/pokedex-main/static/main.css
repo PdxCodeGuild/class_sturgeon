@@ -1,0 +1,58 @@
+body {
+    background-color: linen;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 190, 0.8);
+    padding: 10px;
+}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+    font-size: 2.9rem;
+    text-decoration: underline;
+}
+
+.caught {
+    border: green solid 5px;
+    font-size: 1.2rem;
+    padding: 9px;
+}
+
+.notcaught {
+    border: red solid 5px;
+    font-size: 1.2rem;
+    padding: 9px;
+}
+
+.type {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin-left: 5px;
+    margin-right: 9px;
+    padding: 9px;
+    border: blue dotted 2px;
+    border-radius: 17px;
+    font: italic small-caps bold 16px/35px Georgia, serif;
+}
+
+.pokemon {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.pokemonhead {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+a {
+    font-size: 1.6rem;
+    right: 80px;
+    width: 100px;
+    border: 3px solid black;
+    padding: 10px;
+}
