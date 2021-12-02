@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Death from Above</title>
+    </head>
+    <body>
+        <center>
+            <main>
+                <div id="app">
+                    <div class="imageContainer">
+                    <header>Death From Above?</header>
+                    <h1>Who told you? What is your source?</h1> 
+                        <a href="#" @click="selection='bruce'"><img :src="bruce" class="images" @mouseover="bruceActive = true" @mouseleave="bruceActive = false"></a>
+                        <a href="#" @click="selection='morgan'"><img :src="morgan" class="images" @mouseover="morganActive = true" @mouseleave="morganActive = false"></a>
+                        <a href="#" @click="selection='mayan'"><img :src="mayan" class="images" @mouseover="mayanActive = true" @mouseleave="mayanActive = false"></a>
+                        <a href="#" @click="selection='camping'"><img :src="camping" class="images" @mouseover="campingActive = true" @mouseleave="campingActive = false"></a>
+                        <a href="#" @click="selection='apophis'"><img :src="tyson" class="images" @mouseover="tysonActive = true" @mouseleave="tysonActive = false"></a>
+                        <br>
+                        <select v-model="selection">
+                            <option disabled value="">Pick one</option>
+                            <option value="bruce">Bruce Willis from Armageddon</option> 
+                            {% comment %} Armageddon date 30 june 1998 {% endcomment %}
+                            <option value="morgan">Morgan Freeman from Deep Impact</option>
+                            {% comment %} Deep impact date 8 may 1998 {% endcomment %}
+                            <option value="mayan">Mayan Calendar End Date</option>
+                            {% comment %} Mayan calendar 21 december 2012 {% endcomment %}
+                            <option value="camping">Bible Code: Harold Camping</option>
+                            {% comment %} 21 May 2021 - exactly 7000 years after the biblical flood {% endcomment %}
+                            <option value="apophis">Neil DeGrasse Tyson</option>
+                        </select>
+                        <button @click="isHidden = false, checkDate(), loadNASA()">Reveal the Truth of their Words!</button>
+                    </div>
+                    <div v-show="bruceActive">
+                        <h1>"Houston, you have a problem. You see, I promised my little girl that I'd be comin' home. Now I 
+                        don't know what you people are doing down there, but we've got a hole to dig up here."</h1>
+                        <img :src="bruceAsteroid" class="images">
+                    </div>
+                    <div v-show="morganActive">
+                        <h1>We watched as the bombs shattered the second comet into a million pieces of ice and rock that 
+                        burned harmlessly in our atmosphere and lit up the sky for an hour. Still, we were left with the devastation of the first. The waters reached as far inland as the Ohio and Tennessee Valleys. It washed away farms and towns, forests and skyscrapers. But, the water receded. The wave hit Europe and Africa too. Millions were lost, and countless more left homeless. But the waters receded. Cities fall, but they are rebuilt. And heroes die, but they are remembered. We honor them with every brick we lay, with every field we sow, With every child we comfort, and then teach to rejoice in what we have been re-given. Our planet. Our home. So now, let us begin.</h1>
+                        <img :src="deep" class="images">
+                    </div>
+                    <div v-show="mayanActive">
+                        <h1>Forecasting Armageddon has become trendy of late, with a great deal of attention being given to 
+                        an interpretation of the Mayan Calendar suggesting that Mother Earth is destined for doom in 
+                        December of 2012. - Author: Seth Shostak</h1>
+                        <img :src="mayanAsteroid" class="images">
+                    </div>
+                    <div v-show="campingActive">
+                        <h1>“And now, we have no option. We can't say 'maybe' 'it's possible' 'it looks very probable...' 
+                        No way! We have to say this is what the Bible teaches! This is fact! May 21, 2011 is the day of the 
+                        Rapture, it is the day that Judgment Day begins...” ― Harold Camping</h1>
+                        <img :src="campingAsteroid" class="images">
+                    </div>
+                    <div v-show="tysonActive">
+                        <h1>“On Friday the 13th, April 2029, an asteroid large enough to fill the Rose Bowl as though it were an egg cup will fly so close to Earth that it will dip below the altitude of our communication satellites. We did not name this asteroid Bambi. Instead, we named it Apophis, after the Egyptian god of darkness and death.” - Neil DeGrasse Tyson</h1>
+                        <img :src="apophis" class="images">
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                        <p>Enter a date and use my NASA ID to check for danger:</p>
+                    <input v-model="inputDate" id="inputDate" type="date"> 
+                    <br><br>
+                    <button @click="loadNASA(), isHidden = false" id="send">Tell me about this day!</button>
+                    <br>
+                    
+                    <br>
+                    <p v-if="!isHidden">
+                        According to NASA, a {{ sizeMeters }} meter asteroid traveling at {{ mph }} mph named {{ name }}
+                        <br> 
+                        has a nearest distance of {{lunar}} lunar units from the Earth on {{ date }}
+                        <br>
+                        Aproximate nearest distance: {{ missDistance - 240000 }} miles further away than our moon.
+                        <br>
+                        The moon is approximately 240,000 miles away from the Earth
+                    <hr>
+                    </p>
+                    <div class="potd">
+                        <button @click="toggleImage(), loadPotd()">Too much Doom and Gloom? Picture of The Day Button Right Here!</button>
+                        <h2 v-if='showImage'>
+                            <img :src="potd" onclick="window.open(this.src, '_blank')" class="potdimage">
+                        <br>
+                        {{ title }}
+                        <br>
+                        {{ explanation }}</h2>
+                    </div>
+                    <hr>
+                    <div>
+                        <h1 @mouseover="active = true" @mouseleave="active = false" class='elon'>Elon Musk Says</h1>
+                        <div v-show="active">
+                            <h1>“It is unknown whether we are the only civilization currently alive in the observable universe, 
+                            but any chance that we are is added impetus for extending life beyond Earth,” - Elon Musk</h1>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <p>No, I'm an astronomer and I know the ID of the asteroid I'm looking for:</p>
+                            <input type="text" placeholder="3542519" v-model="asteroid" id='asteroid' v-on:keyup.enter="loadAsteroid"></input>
+                            <input type="submit" v-if="asteroid.length > 3" value="Lookup Id" @click="loadAsteroid()" class="button1"></input>
+                        <p v-if="asteroid.length > 3">
+                            {{ asteroid }} with designation: {{ designation }} is {{ lookUpSize }} meters wide
+                            <br>
+                            and last visited the Earth on {{ lookUpDate }} from a lunar distance of {{ lookUpDistance }} at speed {{ lookUpSpeed }}mph
+                        </p>
+                    </div>
+                    <br>
+                    <div id="bag" :class="{ bag: hundred, burst1: ninety, burst2: eighty, burst3: seventy, burst4: sixty, burst5: fifty, 
+                    burst6: forty, burst7: thirty, burst8: twenty, burst9: ten, burst: ended }"></div>
+                    <div id="bag-health">
+                        <div :style="{ width: health + '%' }"></div>
+                    </div>
+                    <div id="controls">
+                        <button  @click.prevent="fire(), playSound(missileaudio)" v-if="resources.missile.count > 0" v-show="!ended">Fire Missile</button>
+                    </div>
+                    <section>
+                        <h2> Finance an effort to destroy the incoming asteroid! </h2>
+                        <p>Hint: Click the money bag</p>
+                                <button @click="money++">💰</button>
+                                <div>
+                                    Money: {{ Math.floor(money) }}
+                                    {{ displayMissiles }}
+                                </div>
+
+                                <div v-for="(resources, id) in resources">
+                                    {{ resources.count }}x {{ resources.icon }}: {{ resources.cost }}
+                                    <button @click="buy(id)"
+                                        v-if="money >= resources.cost">
+                                        Finance Lobbyist for {{ id }}: 💰{{ resources.cost }}
+                                    </button>
+                                </div>
+                        </section>
+                </div>
+            </main>
+                    <aside id="remove">
+                        <p class="warning">DoomsDay!</p>
+                        <p class="warning">Tinfoil Hats!</p>
+                        <p class="warning">Certian Doom!</p>
+                    </aside>
+        </center>
+    </body>
+                    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+                    <script src="https://unpkg.com/vue"></script>
+                    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                    <script src="secrets.js"></script>
+                    <script src="app.js"></script>
+</html>

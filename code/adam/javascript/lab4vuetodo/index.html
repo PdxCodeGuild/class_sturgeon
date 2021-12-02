@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Go to language (by the live server button on the bottom) and type html and choose vue html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+        <!-- If we are editing a list item, the button changes to update, otherwise it says add (next 11 lines) -->
+        <div id="app-todolist" class="container">
+            <h1 :title="message">To-do List</h1>
+            <h3>(What needs to be done?)</h3>
+            <div v-if="!isEditing">
+                <input type="text" v-model="todo" placeholder="Enter a todo list item..." v-on:keyup.enter="storeTodo" >
+                <input type="submit"  v-if="todo.length > 3" value="Add to-do item" @click="storeTodo" class="button1">
+            </div>
+            <div v-else>
+                <input type="text" v-model="todo" v-on:keyup.enter="updateTodo">
+                <input type="submit" v-if="todo.length > 3"  value="Update" @click="updateTodo" class="button1">
+            </div>
+
+            <div class="content">
+                <ul class="flex">
+                    <todo-item 
+                        v-for="todo in todos"
+                        :todo="todo"
+                        :key="todo.id"
+                        @edit-todo="editTodo"
+                        @remove-todo="removeTodo"
+                    ></todo-item>
+                </ul>
+            </div>
+        </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... Be sure to have my javascript code last -->
+    <script src="main.js"></script>
+</body>
+</html>

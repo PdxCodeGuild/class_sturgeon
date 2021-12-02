@@ -1,0 +1,99 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url(https://www.skillshare.com/blog/wp-content/uploads/2021/07/Wrinkle-Paper-Textures-2-Deeezy-4.jpeg) ;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+.title {
+    display: flex;
+    order: 3;
+    flex-direction: column;
+    align-items: stretch;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(15, 18, 201);
+    color:coral;
+    padding: 1rem
+}
+
+.quote {
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input[type=selection] {
+    width: 400px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+
+input[type=text]:hover {
+    background-color: #dce0ff;
+    color: rgb(0, 0, 0);
+}
+
+.image_container {
+    display: flex;
+}
+
+.images {
+    display: flex;
+    width: auto;
+    height: 100px;
+}
+
+.images:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.images:active {
+    width: 150px;
+    height: 100px;
+}
+
+.button1 {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 75px;
+}
+
+input {
+    border:none;
+    border-bottom: 2px solid rgb(70, 33, 204);
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+button {
+    color: white;
+    background-color: black;
+}

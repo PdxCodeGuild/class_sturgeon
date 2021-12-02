@@ -1,0 +1,168 @@
+body {
+  background-image: url("https://wallpaperaccess.com/full/747106.jpg");
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  color: chocolate;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+  color: chocolate;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header {
+  font-size: 150px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+}
+
+p {
+    max-width: 100%;
+    font-size: 30px;
+    background-color: rgb(0, 0, 0);
+    color: chocolate;
+}
+
+input {
+  border: chocolate 5px solid;
+  font-size: 30px;
+}
+
+button {
+  border: 5px solid chocolate;
+  font-size: 25px;
+}
+
+select {
+  font-size: 25px;
+  border: chocolate 5px solid;
+}
+
+img {
+  height: 220px;
+}
+
+img:hover {
+  border: chocolate solid 5px;
+}
+
+.potdimage {
+  height: 300px;
+}
+
+.warning {
+  font-size: 100px;
+}
+
+.elon {
+  border: solid chocolate 5px;
+  width: 25%;
+}
+
+#bag {
+  height: 500px;
+  max-width: 1200px;
+  margin: 5px;
+  background: url(asteroidbag.jpg) center no-repeat;
+  background-size: 80%;
+}
+
+#bag.burst1 {
+  background: url(asteroidburst1.png) center no-repeat;
+  background-size: 80%;
+  margin: 5px;
+}
+
+#bag.burst2 {
+  background: url(asteroidburst2.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst3 {
+  background: url(asteroidburst3.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst4 {
+  background: url(asteroidburst4.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst5 {
+  background: url(asteroidburst5.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst6 {
+  background: url(asteroidburst6.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst7 {
+  background: url(asteroidburst7.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst8 {
+  background: url(asteroidburst8.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst9 {
+  background: url(asteroidburst9.png) center no-repeat;
+  background-size: 80%
+}
+
+#bag.burst {
+  background: url(ended.png) center no-repeat;
+  background-size: 80%;
+}
+
+#bag-health {
+  width: 500px;
+  border: 2px solid #000;
+  margin: 0 auto 20px auto;
+  border: chocolate solid 3px;
+}
+
+#bag-health div {
+  height: 20px;
+  background: crimson;
+}
+
+#controls {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#controls button {
+  font-size: 75px;
+  color: red;
+  background: black;
+}
+
+section {
+  border: ridge chocolate 35px;
+  color: white;
+  font-size: 30px;
+}
