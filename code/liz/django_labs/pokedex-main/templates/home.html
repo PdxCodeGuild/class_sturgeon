@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+
+        <div id="app">
+            <!-- [[ type_info ]] -->
+            <!-- [[ pokemon ]] -->
+            
+
+            <!-- <ul v-for="pokemon in pokemon" :key="pokemon.id">
+                <li>
+                    <p>Name: [[ pokemon.name ]]</p>
+                    <p>Type(s):</p>
+                    <p v-for="type in pokemon.type_info" :key="pokemon.id">[[ type.type ]]</p>
+                </li>
+            </ul> -->
+            <h1>Caught Pokemon:</h1>
+            <ul v-if="caught_by">
+                <li v-for="pokemon in pokemon" :key="pokemon.id">
+                    <p>[[ pokemon.name ]]</p>
+
+                </li>
+            </ul>
+            
+
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            const vm = new Vue({
+                el: "#app",
+                delimiters: ['[[', ']]'],
+                data: {
+                    pokemon: {},
+                    type_info: [],
+                    caught: [],
+
+                },
+                methods: {
+                    loadPokemon: function() {
+                        axios({
+                            method: 'get',
+                            url: '/api/v1/pokemon/'
+                        }).then(response => {
+                            this.pokemon = response.data
+                            this.type_info = this.pokemon['type_info']
+                        })
+                    },
+                    catchPokemon: function() {
+                        
+                    }
+                    
+                },
+                created: function() {
+                    this.loadPokemon()
+                }
+
+            })
+        </script>
+
+
+    </body>
+</html>
