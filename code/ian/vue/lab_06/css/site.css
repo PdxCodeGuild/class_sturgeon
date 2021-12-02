@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;    
+}
+main {
+    margin: 1em;    
+}
+a{
+    cursor: pointer;
+    margin: 1em;
+   color: #21BF65
+}
+header {
+    font-size: 1.5em;
+    color: white;
+    background-color: #21BF65;
+    padding: 1em;
+    margin: 0;
+    display: flex;
+}
+header a {
+    color: white;
+    margin-right: 3em;
+}
+button {
+    font-size: 1.5em;
+    margin: 0 1em ;
+    background-color: #21BF65;
+    border: 3px solid #21BF65;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    width: 200px
+}
+.group a{
+    color: black
+}
+.group i{
+    color: #21BF65
+}
+#history h3 {
+    border: 3px solid #21BF65;
+    background-color: #21BF65;
+    border-radius: 15px;
+    color: white;
+    width: 270px;
+    text-align: center;
+    padding: .5em
+}
+#tabs{
+    font-size: 1.5em;
+}
+#logo{
+    text-align: right;    
+    width: 20%;
+    font-size: 2em;
+}
+#exercise a {
+    color: #21BF65
+}
+#empty{
+    text-align: center;
+}
+#empty i{
+    font-size: 3em;
+}
+#nav h1{
+    font-size: 3em;    
+}
+#nav{
+    text-align: center;
+}
+
+#page_btns {
+    font-size: 2em;    
+}
+#wrapper {
+    display: flex;    
+}
+#current {
+    border: 2px solid black;
+    width: 50%;
+    margin: 2em;
+    padding: 2em;
+    box-shadow: 10px 10px 10px gray;
+    background-color: white;
+}
+#left{
+    width: 100%;
+    
+}

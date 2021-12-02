@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/49d1c1eed7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@500&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css"/>
+    <title>Lab 06</title>
+</head>
+<body>
+    <div id="app">
+        
+        <header>
+                <a @click="home">Home</a>
+                <a @click="history">History</a>           
+        </header>
+        <main>
+            <div id="nav">
+                <h1> {{message}} </h1>
+                <div id="nav_wrap">
+                    <button @click="list">List</button>
+                    <button @click="categories">Categories</button>
+                </div>
+            </div>
+            
+            <div id="wrapper"> 
+                <div id="left">   
+                    <div id="history">
+                        <template  v-if=complete_workouts.length>
+                            <h2>Completed Workouts:</h2>
+                            <div v-for="item in complete_workouts.slice().reverse()">
+                                <hr>
+                                <h3>{{item.date}}</h3>
+                                <div v-for="work in item.session">
+                                    <h4>{{work.text}}</h4>
+                                    <div v-for="set in work.sets">
+                                        <p>Set {{set.set}}: {{set.reps}} Reps @ {{set.weight}} lbs.</p>
+                                    </div>
+                                </div>                
+                            </div>
+                            <hr>
+                        </template>
+                        <div id="empty">
+                            <template v-if="!complete_workouts.length">
+                                <br>
+                                <br>
+                                <h1>There is no history to display..</h1>
+                                <br>
+                                <h1><i class="fas fa-skull-crossbones"></i></h1>
+                            </template>
+                        </div>
+                    </div>
+                    <div id="home">
+                            <div id="page_btns">
+                                <a  @click="prev_page" v-if="results.previous"><i class="fas fa-arrow-circle-left"></i></a>
+                                <a  @click="next_page" v-if="results.next"><i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                            <template v-if="Object.keys(results).length">
+                                <div v-if="group_label">
+                                    <h2>Category: {{group_label}}</h2>
+                                    <hr>
+                                </div>                            
+                                <exercise-item
+                                :results="results"
+                                ></exercise-item>
+                            
+                        </template>
+                    </div>
+                </div>
+                <div id="current" v-if="workouts.length">
+                    <template v-if="workouts.length">
+                        <h3>Current Workout</h3>
+                        <hr>
+                        <div v-for="item in workouts" >
+                            <h4>{{item.text}}
+                                <a @click="del(item)"><i class="fas fa-trash-alt"></i></a>
+                            </h4>
+                            <div v-for="set in item.sets">
+                                <p>Set {{set.set}}: {{set.reps}} Reps @ {{set.weight}} lbs.</p>
+                            </div>
+                            <p>{{item.complete}}</p>
+                            <p>Reps: <input @keydown.enter="set(item)" type="number" v-model="item.reps"></p>
+                            <p>Weight: <input @keydown.enter="set(item)" type="number" v-model="item.weight"> lbs.</p>
+                            <h4>Set<a @click="set(item)"><i class="fas fa-plus"></i></a></h4>
+                            <br>
+                        </div>
+                        <h3>Workout
+                        <a @click="del(item)"><i class="fas fa-trash-alt"></i></a>
+                        <a @click="complete"><i class="fas fa-check"></i></a></h3>
+                    </template>
+                </div>
+            </div>
+        </main>
+        
+        
+    </div>
+
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/secrets.js"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>

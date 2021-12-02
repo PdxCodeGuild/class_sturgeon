@@ -1,0 +1,102 @@
+
+html {
+    box-sizing: border-box
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    display: block;
+    
+}
+
+body {
+    background-color: #D9CE9A;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 2em;
+}
+header {
+    background-color:#0F808C;
+    border-radius: 15px;
+    color: white;
+    padding: 2em;
+}
+header a {
+    color: white;
+    text-decoration: none;
+    text-align: right;
+}
+button {
+    background-color: #BF0A2B;
+    padding: 1em;
+    color: white;
+    border: 2px solid #BF0A2B;
+    border-radius: 15px;
+    cursor: pointer;
+}
+select {
+    padding: 1em;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+input {
+    padding: 1em;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+img {    
+    height: 250px
+}
+
+
+
+
+#user_div a {
+
+    cursor: pointer
+}
+#pic {
+    display: flex;
+}
+#pic2 {
+    display: flex;
+}
+#pic3{
+    display: flex;
+}
+#home_for {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 3px solid black;
+    box-shadow: 10px 10px 10px;
+    background-color: white;
+    padding: 2em;
+    border-radius: 15px;
+    margin-bottom: 2em;
+}
+
+#my_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 3px solid black;
+    box-shadow: 10px 10px 10px;
+    background-color: white;
+    padding: 2em;
+    border-radius: 15px;
+    margin-bottom: 2em;
+}
+#search_wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 3px solid black;
+    box-shadow: 10px 10px 10px;
+    background-color: white;
+    padding: 2em;
+    border-radius: 15px;
+    margin-bottom: 2em;
+}

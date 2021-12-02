@@ -30,7 +30,7 @@ let pot_earnings = {
     4: 50000,
     5: 1000000,
     6: 25000000
-
+ 
 }
 
 let balance = 0
