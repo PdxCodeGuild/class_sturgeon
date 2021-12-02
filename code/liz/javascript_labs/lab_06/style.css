@@ -1,0 +1,129 @@
+/* this is jeopardy - mini capstone */
+
+
+body {
+    background-color: rgb(235, 236, 238);
+    /* font-family: 'Abhaya Libre', serif; */
+    font-family: 'Brygada 1918', serif;
+    font-weight: bolder;
+}
+
+header {
+    padding-left: 4em;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+@font-face {
+    font-family: Gyparody;
+    src: url("gyparody/gyparody.ttf");
+  }
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 15px;
+    font-family: 'Gyparody', 'Helvetica', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-family: 'Gyparody', 'Helvetica', sans-serif;
+}
+
+button {
+    text-align: center;
+}
+
+.under-text {
+    padding-left: 6em;
+}
+
+.date-container {
+    margin-top: auto;
+    margin-left: 6em;
+    font-size: 24px;    
+}
+
+.game-container {
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 2em;
+    width: 1300px;
+    height: 1120px;
+    background-color: rgb(4, 3, 51);
+}
+
+.column-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+.category-column {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    flex-direction: row;
+    width: 205px; 
+}
+
+.clue-container, .category-container {
+    border: 5px solid black;
+    height: 135px;
+    width: 225px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgb(4, 4, 182);
+    display: flex;  
+    justify-content: center;  
+    align-items: center;
+    padding: 5px;
+}
+
+.final-container {
+    margin-top: 6em;
+    margin-right: auto;
+    margin-left: auto;
+    height: 500px;
+    width: 250px;
+}
+
+.category {
+    color: white;
+    font-size: 20px;
+}
+
+.value {
+    color: rgb(241, 218, 2);
+    font-size: 36px;
+}
+
+.clue, .answer {
+    color: white;
+}
+
+.next-round {
+    height: 40px;
+    width: 200px;
+}
+
+.btn-container {
+    display: flex;  
+    justify-content: center;  
+    align-items: center;    
+}
+
+.error-message {
+    text-align: center;
+    font-size: 64px;
+    color: red;
+    margin: 2px;
+}

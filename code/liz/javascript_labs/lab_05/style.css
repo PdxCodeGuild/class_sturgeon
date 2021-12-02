@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(153, 206, 203);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+    background-color: rgba(255,255,255,0.5);
+    border: 10px solid rgb(103, 155, 126);
+    text-align: center;
+    border-radius: 5px;
+    padding: 1em;
+    margin: 1em;
+}
+li {
+    margin: 1em;
+}
+
+
+.input-container {
+    text-align: center;
+    padding: 1em;
+}
+
+.results-container, .quote-container {
+    background-color: rgba(255,255,255,0.5);
+    border: 10px solid rgb(103, 155, 126);
+    border-radius: 5px;
+    padding: 2em;
+    margin: 1em;
+}

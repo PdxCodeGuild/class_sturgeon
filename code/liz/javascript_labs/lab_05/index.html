@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FavQs</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <h1>Welcome to Favorite Quotes!</h1>
+
+            <!-- user input and filter type -->
+            <div class="input-container">
+                <label for="selectedType">How would you like to search for a quote?</label>
+
+                <select v-model="selectedType" name="selectedType">
+                    <option disabled value="">Please select one</option>
+                    <option value="keyword">Keyword</option>
+                    <option value="author">Author</option>
+                    <option value="tag">Tag</option>
+                </select>
+
+                <input type="text" v-model="userInput" @keyup.enter="requestedQuotes">
+
+                <button @click="requestedQuotes">Find Quotes</button>
+            </div>
+
+            <br>
+
+            <!-- user results -->
+            <div class="results-container" v-if="Object.keys(results).length">
+                <ul>
+                    <list-item
+                        v-for="result in results.quotes"
+                        :key = result.id
+                        :quote = result
+                    ></list-item>
+                </ul>
+
+                <!-- pagination buttons -->
+                <button @click="backPage" v-show="page > 1">&lt; Back</button>
+                <button @click="nextPage" v-show="results.last_page === false">Next &gt;</button>
+            </div>
+
+            <!-- random quotes on load of page -->
+            <div class="quote-container" v-else>
+                <ul>
+                    <list-item
+                        v-for="quote in quotes.quotes"
+                        :key = quote.id
+                        :quote = quote
+                    ></list-item>
+                </ul>
+            </div>
+
+        </div>
+
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script src="secrets.js"></script>
+        <script src="site.js"></script>
+    </body>
+</html>

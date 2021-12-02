@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="posts:create" method="post">
+    <h1>New Chirp</h1>
+    <form action="" method="post">
         {% csrf_token %}
-        
+        {{ form.as_p }}
+        <input type="submit" value="Post Chirp">
     </form>
 {% endblock %}

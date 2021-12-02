@@ -1,0 +1,23 @@
+/* pick6 stylesheet */
+
+body {
+    background-color: rgb(245, 222, 179);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    /* font-family: 'Faster One', cursive; */
+    font-family: 'Monofett', cursive;
+    font-size: 64px;
+}
+
+header, main {
+    padding: 2em;
+}
+
+button {
+    padding: 25px;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+}

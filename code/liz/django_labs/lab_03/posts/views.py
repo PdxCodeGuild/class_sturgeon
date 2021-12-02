@@ -18,7 +18,12 @@ class ChirpDetailView (DetailView):
 class ChirpCreateView (CreateView):
     model = Post
     template_name = 'create.html'
-    fields = ['author', 'chirp']
+    fields = ['chirp']
+    success_url = reverse_lazy('posts:home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class ChirpDeleteView (DeleteView):
     model = Post

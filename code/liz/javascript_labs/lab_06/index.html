@@ -1,0 +1,129 @@
+<!-- this is jeopardy - mini capstone -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>This is Jeopardy!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600&family=Brygada+1918:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <div class="title">
+                    <h1>This is Jeopardy!</h1>
+                    <p class="under-text"><i>Relive your favorite episodes or play the ones you missed</i></p>
+                </div>
+
+<!---------------------- user input -------------------------->
+                <div class="date-container">
+                    <label for="game-date">Enter a game date here:</label>
+                    <input type="date" name="game-date" placeholder="MM/DD/YYYY" v-model="gameDate" @keyup.enter="getJeopardy">
+                    <button @click="getJeopardy">Find my game!</button>
+                </div>
+            </header>
+            
+
+<!--------------------- error message ----------------------->
+            <!-- <div v-if="error"> -->
+            <p class="error-message">{{ game.message }}</p>
+            <!-- </div> -->
+               
+
+<!----------------------- jeopardy --------------------------->
+
+            <div class="game-container" v-if="round === 1">
+
+                <h2>Jeopardy round</h2>
+
+                <div class="column-container">
+
+                    <div class="category-column" v-for="category in jeopardyCategories" :key="jeopardyCategories.indexOf(category)">
+
+                        <div class="category-container">
+                            <p class="category">{{ category }}</p>
+                        </div>
+
+                        <clue-object
+                            v-for="item in game['jeopardy']"
+                            :key = "game['jeopardy'].order"
+                            :item = item
+                            :category = category
+                        ></clue-object>
+
+                    </div>
+
+                </div>
+                
+                <div class="btn-container">
+                    <button class="next-round" @click="round += 1">Double Jeopardy</button>
+                </div>
+            </div>
+
+
+<!---------------- double jeopardy --------------------------->
+
+            <div class="game-container" v-else-if="round === 2">
+                <h2>Double Jeopardy round</h2>
+
+                <div class="column-container">
+
+                    <div class="category-column" v-for="category in doubleJeopardyCategories" :key="doubleJeopardyCategories.indexOf(category)">
+                        
+                        <div class="category-container">
+                            <p class="category">{{ category }}</p>
+                        </div>
+
+                        <clue-object
+                            v-for="item in game['double jeopardy']"
+                            :key = "game['double jeopardy'].order + 30"
+                            :item = item
+                            :category = category
+                            ></clue-object>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <button class="next-round" @click="round += 1">Final Jeopardy</button>
+                </div>
+
+            </div>
+
+<!------------------------ final jeopardy --------------------->
+
+            <div class="game-container" v-else-if="round === 3">
+                <h2>Final Jeopardy</h2>
+                
+                <div class="final-container">
+                    <div class="category-container">
+                        <p class="category">{{ finalJeopardy.category }}</p>
+                    </div>
+                    
+
+                    <div class="clue-container" @click="count += 1">
+                        <p class="blank" v-if="count === 0"></p>
+                        <p class="clue" v-else-if="count === 1">{{ finalJeopardy.clue }}</p>
+                        <p class="answer" v-else>{{ finalJeopardy.answer }}</p>
+
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script src="site.js"></script>
+    </body>
+</html>
