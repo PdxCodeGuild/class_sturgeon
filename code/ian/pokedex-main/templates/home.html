@@ -4,90 +4,139 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css">
     <title>Pokedex</title>
 </head>
 <body>
+    <header>
     {% csrf_token %}
-
     {% if user.is_authenticated %}
     <h1>Welcome {{ user.username }}!</h1>
-    <p><a href="{% url 'logout' %}">Logout</a><p>
+    
+    <h3><a href="{% url 'logout' %}">Logout</a><h3>
     {% else %}
     <h1>Welcome, visitor!</h1>
+    
     <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
     {% endif %}
+    </header>
   
 
     
     <div id="app">
+        
+        
         <h1>[[message]]</h1>
-        <input type="text" v-model="search_text" @keydown.enter="searchUser" placeholder="search"/>
-        <button @click="searchUser">Search</button>
+        <input type="text" v-model="search_text" @keydown.enter="search" placeholder="search"/>
+        <select id="term" name="term">
+            <option value="users">Users</option>
+            <option value="pokemon"selected>Pokemon</option>
+        </select>
+        <button @click="search">Search</button>
+        <br><hr>
         <button @click="show_users">Users</button>
         <button @click="my_pokemon">My Pokemon</button>
         <button @click="home">Home</button>
+        <hr>
+        <br>
+        
 
         <div id="user_div">
             <div v-for="user in users_list">
-                <h5>[[user.username]]</h5>
+                <a @click="profile(user)"><h3>[[user.username]]</h3></a>
+                
+                <hr>
             </div>
         </div>
 
         <div id="my_div">
             <h2>My Pokedex</h2>
             
-            <div v-for="pokemon in currentUser.caught_detail">
-                <img :src="pokemon.image_front"/>
-                <h3>[[pokemon.name]]</h3>
-                <p>Height: [[pokemon.height]]</p>
-                <p>Weight: [[pokemon.weight]]</p>
-                <u><p>Type</p></u>
-                <div v-for="type in pokemon.type_detail">
-                    <p>[[type.type]]</p>
+            <div id="my_wrap" v-for="pokemon in currentUser.caught_detail">
+                <div>
+                    <h3>[[pokemon.name]]</h3>
+                    <p>Height: [[pokemon.height]]</p>
+                    <p>Weight: [[pokemon.weight]]</p>
+                    <u><p>Type</p></u>
+                    <div v-for="type in pokemon.type_detail">
+                        <p>[[type.type]]</p>
+                    </div>
+                    <button @click="losePoke(pokemon)">Drop</button>
                 </div>
-                <button @click="losePoke(pokemon)">Drop</button>
-                <hr>
+                <div id="pic2">
+                    <img :src="pokemon.image_front"/>
+                    <img :src="pokemon.image_back"/>
+                </div>
+                
             </div>
         </div>
 
         
         
-        <template v-if="search_user">
-            <h2>[[this.search_user[0].username]]'s Pokedex</h2>
-            <p>Total pokemon: [[search_user[0].caught_detail.length]]</p>
-            
-            <hr>
-            <div v-for="pokemon in search_user[0].caught_detail">
-                <img :src="pokemon.image_front"/>
-                <h3>[[pokemon.name]]</h3>
-                <p>Height: [[pokemon.height]]</p>
-                <p>Weight: [[pokemon.weight]]</p>
-                <u><p>Type</p></u>
-                <div v-for="type in pokemon.type_detail">
-                    <p>[[type.type]]</p>
+        <div id="search_div">
+            <template v-if="search_user">
+                <h2>[[this.search_user[0].username]]'s Pokedex</h2>
+                <p>Total pokemon: [[search_user[0].caught_detail.length]]</p>
+                
+                
+                <div id="search_wrap" v-for="pokemon in search_user[0].caught_detail">
+                    <div>
+                        <h3>[[pokemon.name]]</h3>
+                        <p>Height: [[pokemon.height]]</p>
+                        <p>Weight: [[pokemon.weight]]</p>
+                        <u><p>Type</p></u>
+                        <div v-for="type in pokemon.type_detail">
+                            <p>[[type.type]]</p>
+                        </div>
+                    </div>
+                    <div id="pic3">
+                        <img :src="pokemon.image_front"/> 
+                        <img :src="pokemon.image_back"/> 
+                    </div>
                 </div>
-                <hr>
-            </div>
-        </template>
+                
+            </template>
+        </div>
+
+        <div id="search_p">
+            <template v-if="results">
+                <img :src="[[results[0].image_front]]"/>
+                <h2>[[results[0].number]]: [[results[0].name]]</h2>
+                <p>Height: [[results[0].height]]</p>
+                <p>Weight: [[results[0].weight]]</p>
+                <button @click="search_catch">Catch!</button>
+            </template>
+        </div>
         
         
         
-        
-        <template v-if="search_user.length<1">
-            <div v-for="pokemon in pokemons" :key="pokemon.id">
-                <img :src="[[pokemon.image_front]]"/>
-                <img :src="[[pokemon.image_back]]"/>
-                <h2>[[pokemon.number]]: [[pokemon.name]]</h2>
-                <p>Height: [[pokemon.height]] ft.</p>
-                <p>Weight: [[pokemon.weight]] lbs.</p>
-                <u><p>Type</p></u>
-                <template v-for="type in pokemon.type_detail">
-                    <p>[[type.type]]</p>
-                </template>
-                <button @click="catchPoke(pokemon)">Catch!</button>
-                <hr>
-            </div>
-        </template>
+        <div id="home">
+            <template v-if="search_user.length<1">
+                <h1>Pokemon List</h1>
+                <div id="home_for" v-for="pokemon in pokemons" :key="pokemon.id">
+                    
+                    <div>
+                        <h2>[[pokemon.number]]: [[pokemon.name]]</h2>
+                        <p>Height: [[pokemon.height]] ft.</p>
+                        <p>Weight: [[pokemon.weight]] lbs.</p>
+                        <u><p>Type</p></u>
+                        <template v-for="type in pokemon.type_detail">
+                            <p>[[type.type]]</p>
+                        </template>
+                        <button @click="catchPoke(pokemon)">Catch!</button>
+                    </div>
+                    <div id="pic">                        
+                        <img  :src="[[pokemon.image_front]]"/>
+                        <img  :src="[[pokemon.image_back]]"/>                        
+                    </div>
+                    <br>
+                </div>
+            </template>
+        </div>
+    </div>
         
 
     </div>
@@ -109,6 +158,8 @@
                 csrf_token: "",
                 currentUser: "",
                 pokedex_length: "",
+                results: "",
+                cp_list: [],
             },
             methods: {
                 loadPoke: function () {
@@ -121,11 +172,12 @@
                     })
                 },
                 catchPoke: function (item) {
-                
+                    
                     i = this.pokemons.indexOf(item)
-                    cp = this.pokemons[i].number            
                     cp_list = this.currentUser.caught
-                    console.log(cp_list)
+                    
+                    cp = this.pokemons[i].number   
+                    
 
                     cp_list.push(cp)                    
 
@@ -136,7 +188,7 @@
                             'X-CSRFToken': this.csrf_token
                         },
                         data: {
-                            caught: cp_list
+                            caught: this.cp_list
                             
                         },
                     }).then(response => { 
@@ -145,7 +197,7 @@
                 },
                 losePoke: function (item) {
                     i = this.currentUser.caught_detail.indexOf(item)
-                    cp_list = this.currentUser.caught                    
+                                        
                     cp_list.splice(i, 1)
 
                     axios ({
@@ -171,23 +223,41 @@
                         this.currentUser = response.data
                     })
                 },
-                searchUser: function () {
+                search: function () {
+        
+                    term = document.getElementById("term").value
+                    console.log(term)
                     axios({
                         method: 'get',
-                        url: 'api/v1/users',
+                        url: 'api/v1/'+term,
                         params: {
                             search: this.search_text
                         }
                     }).then(response => {
-                        this.search_user = response.data
-                        this.search_text = ""
-                        user_div.style.display = "none"
-                        my_div.style.display = "none"
+                        if (term === "users") {
+                            this.search_user = response.data
+                            this.search_text = ""
+                            user_div.style.display = "none"
+                            search_div.style.display="block"
+                            my_div.style.display = "none" 
+                            search_p.style.display = "none"
+                        } else {
+                            this.search_text = ""
+                            this.results = response.data
+                            search_p.style.display = "block"
+                            my_div.style.display = "none"
+                            home.style.display = "none"
+                            search_div.style.display="none"
+                            
+                        }
+                        
                     })
                 },
                 home: function () {
                     this.search_user = ""
                     user_div.style.display = "none"
+                    search_p.style.display = "none"
+                    home.style.display = "block"
                     this.loadPoke()                    
                 },
                 listUsers: function () {
@@ -211,20 +281,69 @@
                     
                     if (my_div.style.display === "none") {
                         my_div.style.display = "block"
-                        search_div.style.display = "none"
+                        search_div.style.display="none"
+                        search_p.style.display="none"
+                        home.style.display = "none"
+                        user_div.style.display = "none"
+
+                        
                     } else {
-                        my_div.style.display = "none"
+                      
+                      user_div.style.display = "none"
+                      
+                        
                         
                     }
-                    user_div.style.display = "none"
-                    search_div.style.display = "none"
-                    home_div.style.display = "none"
-                }
+                                  
+                },
+                profile: function (item) {
+                    this.search_text = item.username
+                    console.log(this.search_text)
+
+                    axios ({
+                        method: 'get',
+                        url: 'api/v1/users',
+                        params: {
+                            search: this.search_text
+                        },                        
+                    }).then(response =>{
+                        this.search_user = response.data
+                        this.search_text = ""
+                        user_div.style.display = "none"
+                        search_div.style.display = "block"
+                        my_div.style.display = "none"
+                    })
+                },
+                search_catch: function () {
+                    new_p = this.results[0].id
+                    cp_list = this.currentUser.caught
+                    
+                    console.log(new_p)
+                    console.log(cp_list)
+                    cp_list.push(new_p)
+                    console.log(cp_list)
+                    axios ({
+                        method: 'patch',
+                        url: 'api/v1/currentuser/',
+                        headers: {
+                            'X-CSRFToken': this.csrf_token
+                        },
+                        data: {
+                            caught: cp_list
+                            
+                        },
+                    }).then(response => { 
+                        this.loadCurrentUser()                       
+                    })
+                },
+                
+
             },
             created: function(){
                 this.loadPoke()
                 this.loadCurrentUser()
                 this.listUsers()
+                
                 
             },
             mounted: function() {
@@ -233,6 +352,17 @@
 
                 my_div = document.getElementById("my_div")
                 my_div.style.display = "none"
+
+                search_p = document.getElementById("search_p")
+
+               
+
+                
+
+                
+
+
+                
 
                
 

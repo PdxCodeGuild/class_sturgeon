@@ -12,6 +12,8 @@ from .serializers import PokemonSerializer, TypeSerializer, UserSerializer
 class PokemonViewSet(viewsets.ModelViewSet):
     queryset = Pokemon.objects.all()
     serializer_class = PokemonSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()

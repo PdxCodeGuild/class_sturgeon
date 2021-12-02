@@ -16,6 +16,7 @@ class NestedPokemonSerializer(serializers.ModelSerializer):
         fields = (
             'name',
             'image_front',
+            'image_back',
             'height',
             'weight',
             'type_detail'
