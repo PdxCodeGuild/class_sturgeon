@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+    <body>
+        <br>
+        <div id="app">
+            <h1>You have so much!</h1>
+            <p>Is there more you have to do?</p><br>
+            <div type="submit">
+                <input type="text" placeholder="Enter task here: " v-model="newTodo.text" @key.enter="addTodo">
+                <button @click="addTodo">Add to list</button> 
+            </div>
+            <br>
+            <p>This is everything you have to do today: </p>
+            <ul>
+                <li v-for="todo in todo" v-bind:key="todo.id">
+                    {{todo.text}} {{todo.complete}}
+                </li>
+            </ul>
+
+            
+        </div>
+    </body>
+    <footer>
+
+    </footer>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="/js/site.js"></script>
+</body>
+</html>

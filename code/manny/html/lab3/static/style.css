@@ -1,17 +1,9 @@
 *{
-    padding: 0px;
     margin: 0px;
-    background-color: lightblue;
-    color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 0px;
+    background-color: lightcyan;
+
 }
-
-.header{
-    background-color: lightgrey;
-    display: flex;
-}
-
-.navigation{
-    padding: 5px;
-
+header{
+    display: flex
 }

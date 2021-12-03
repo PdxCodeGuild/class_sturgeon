@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style> *{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}.prizes{padding: 0;}</style>
+    <title>Pick6 Lottery</title>
+</head>
+<body>
+    <h1>You can't win if you don't play!</h1>
+    <p>Each ticket costs 2 dollars.</p>
+    </style>
+    <ul class="prizes">
+        <li>1 number matches, you win $4</li>
+        <li>2 numbers match, you win $7</li>
+        <li>3 numbers match, you win $100</li>
+        <li>4 numbers match, you win $50,000</li>
+        <li>5 numbers match, you win $1,000,000</li>
+        <li>6 numbers match, you win $25,000,000</li>
+    </ul>
+    <div>
+        <form action="" method="get">
+            <label for='lotto'>How many tickets do you want to buy?</label>
+            <input type="number" name="lotto" id="lotto" autofocus>
+            <input type="submit" value="Submit" onclick="numberOfTickets">
+        </form>
+    </div>
+    <div class="after buying tickets" >
+        <p>The winning ticket was: </p>
+        <p id="winner"></p>
+    </div>
+
+
+    <!-- I have to get the number of tickets bought, check them with winning numbers, then measure how much money the customer won -->
+
+
+
+    <script src="pick6.js"></script>
+</body>
+</html>

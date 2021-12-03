@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>The Best Blog</h1>
+        <nav>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+    <article>
+            {% for each in range(0, len) %}
+            <ul id="article">
+                <li id="title">{{articles[each]["title"]}}</li>
+                <li id="author">{{articles[each]["author"]}}</li>
+                <li id="date">{{articles[each]["date"]}}</li>
+                <li id="content">{{articles[each]["body"]}}</li></li>
+            </ul>
+            {% endfor %}
+    </article>
+    <footer>
+        <p>Barely There Productions</p>
+    </footer>
+    
+</body>
+</html>

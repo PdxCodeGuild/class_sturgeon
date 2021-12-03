@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poem Reader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Poem Reader</h1>
+    <div id="app">
+        <input type="text" v-model="author">
+        <input type="number" v-model="poemCount">
+        <button type="submit" @click="getPoem">Search</button>
+        <br>
+
+        <div v-for = "poem in info"> 
+            <h3 @click = "readPoem(poem)">{{ poem.title }}</h3>
+            <p>Author: {{ poem.author }}</p>
+            <p>Line Count: {{ poem.linecount }}</p> 
+        
+            <ol v-if = "info.length === 1">
+                <li v-for = "line in poem.lines">
+                    {{ line }}
+                </li>
+            </ol>
+        </div>
+    </div>  
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
