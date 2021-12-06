@@ -39,6 +39,7 @@
                 <div v-for="item in loadCaughtPokemon">
                     [[ item.name ]]
                     <img :src="item.image_front">
+                    <button @click="unCatchPokemon(item)">Uncatch me</button>
                 </div>
             </div>
 
@@ -130,7 +131,11 @@
                         })
                     },
                     unCatchPokemon: function(item) {
-                        this.currentUser['caught'].splice(item['id'])
+                        console.log(item)
+                        console.log(this.currentUser['caught'])
+                        let i = this.currentUser['caught'].indexOf(item)
+                        console.log(i)
+                        this.currentUser['caught'].splice(i, 1)
                         axios({
                             method: 'patch',
                             url: 'api/v1/currentuser/',
