@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Quotes</title>
+      <script src="https://kit.fontawesome.com/7b6e1a72b7.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="CryptoPortfolio.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <section class="vh-100 gradient-custom-2">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-12 col-xl-10">
+              <div class="card mask-custom">
+                <div class="card-body p-4 text-white">
+                  <div class="text-center pt-3 pb-2">
+                    <img src="logo2.png" alt="Check" width="250">
+                    <h2 class="my-4">Crypto Porfolio</h2>
+                      <div class="input-group">
+                        <input list="coins" class="form-control" placeholder="Coin Name" v-model="coinSelected">
+                        <input type="text" class="form-control" placeholder="Amount" v-model="coinQuantity">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" @click="loadPorfolio()">Add</button>
+                          </div>
+                        <datalist id="coins" >
+                          <option v-for="eachCoin in results">{{ eachCoin.name }}</option>
+                        </datalist>             
+                      </div><br></br>
+                  </div>
+                  <table class="table text-white mb-0">
+                    <thead>
+                      <tr>
+                        <th scope="col">COIN</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">AMOUNT</th>
+                        <th scope="col">USD</th>
+                        <th scope="col">TOTAL $ {{this.total}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="fw-normal" v-for="each in porfolio">
+                        <th>
+                          <img :src='each.image' style="width: 45px; height: auto;">
+                          <span class="ms-2"> {{ each.symbol }} </span>
+                        </th>
+                        <td class="align-middle">
+                          <span >{{each.name}}</span >
+                        </td>
+                        <td class="align-middle">
+                          <span >${{each.price}}</span >
+                        </td>
+                        <td class="align-middle">
+                          <span >{{each.quantity}}</span >
+                        </td>
+                        <td class="align-middle">
+                          <span >${{each.uservalue}}</span >
+                        </td>
+                        <th>
+                          <i class="fas fa-trash-alt fa-2x" v-on:click="removeCoin(each)"></i>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+      <script src="https://unpkg.com/vue"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="CryptoPortfolio.js"></script>
+  </body>
+</html>

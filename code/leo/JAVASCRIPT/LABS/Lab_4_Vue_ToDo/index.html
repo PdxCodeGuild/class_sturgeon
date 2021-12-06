@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Todo List</title>
+        <link rel="stylesheet" href="css/site.css" />
+    </head>
+ 
+
+    <body>
+        <div id="app">
+            
+            <h1>My Todo List</h1>
+            <input v-model="newTodo" placeholder="Add new todo" />
+            <button v-on:click="addItem">Add</button>
+
+            <h2>Things to do</h2>
+            
+            <ul >
+                <li v-for="each in memoryToDos" v-if = "each.completed == false">
+                        {{ each.name }}
+                <button v-on:click="completedTodo(each)">complete</button>
+                <button v-on:click="removeTodo(each)">delete</button>
+                
+                <li v-for="each in memoryToDos" v-if = "each.completed != false">
+                        <strike>{{ each.name }}</strike> 
+                <button v-on:click="removeTodo(each)">delete</button>
+                  
+                </li>
+            </ul>
+         
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/site.js"></script>
+    </body>
+</html>

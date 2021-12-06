@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+ 
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>URL ENCODER</title>
+    </head>
+
+   <body>
+        <header>
+            <h1>The URL Encoder</h1>
+        </header>
+        
+        <main>
+        <h2>Add the Url you would like to encode</h2>
+        <p> Exp: <br>google.com<br> yahoo.com <br> amazon.com</p>
+            
+            <form action="{% url 'theapp:index' %}" method="post">
+                            
+            {% csrf_token %}
+                
+                <input type="text" name="url"></input>
+                <button type="submit" value=''> ENCODE</button>
+            </form>
+
+        <p> The URL code for " {{url}} " is  ---->  " {{ code }} " . Here is the link <a href="{{code}}"> localhost:8000/{{ code }} </a>  </p>
+        
+        </main>
+        <footer>
+        </footer>
+    
+    </body>
+</html>
