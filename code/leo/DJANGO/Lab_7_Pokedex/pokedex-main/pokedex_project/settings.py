@@ -137,5 +137,5 @@ LOGIN_URL = 'login'
 REST_FRAMEWORK = {
     "DEFAULT_REQUEST_CLASSES": [
         "rest_framework.permissions.AllowAny"
-    ]
-}
+]}
+
