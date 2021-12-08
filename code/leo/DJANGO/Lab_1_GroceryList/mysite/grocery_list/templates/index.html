@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+ 
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GROCERY LIST</title>
+    </head>
+
+   <body>
+        <header>
+            
+            <h1>Your Grocery List</h1>
+          
+        </header>
+        
+        <main>
+               
+                <ul>
+
+                    {% for Item in grocery_list %}
+            
+                <li> {{ Item.Item_Name }} 
+                        <br>
+                        added on {{Item.Date_Added|date:'M d'}}
+
+                        <br><a href="{% url 'grocery_list:purchased' Item.id %}"> <button>purchased</button> </a> 
+                        
+                        {% if Item.Date_Purchased == None%} 
+                        <br> <br><a href="{% url 'grocery_list:delete' Item.id %}"> <button>delete</button> </a>
+                        <br> <br>
+                        {% else %}
+                        on {{Item.Date_Purchased|date:'M d'}} 
+                        <br> <br><a href="{% url 'grocery_list:delete' Item.id %}"> <button>delete</button> </a>
+                        <br> <br>
+                        {% endif %}
+                    
+                    {% endfor %} 
+                </li>
+                </ul>
+
+                <form action="{% url 'grocery_list:add' %}" method="post"> 
+                {% csrf_token %} 
+                <input tpye='text' name='NewItem' value=""></input>
+                <button type="submit" name="Submit_Button" value =''> Add</button>
+                </form> 
+                       
+        
+        </main>
+        <footer>
+        </footer>
+    
+    </body>
+</html>

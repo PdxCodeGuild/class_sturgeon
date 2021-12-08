@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ROT13</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+ 
+    <header>
+    </header>
+                      
+    <main>
+        <div class= "container">
+
+        <div class="card">
+            <h1>BlackJack</h1>
+            <div class="card-inner">
+            <h4>Enter cards</h4>
+            <div class="flex">
+
+                <input type="text" id= "imputBJ1" placeholder="Enter your 1st card" />
+                <input type="text" id= "imputBJ2" placeholder="Enter your 2nd card" />
+                <input type="text" id= "imputBJ3" placeholder="Enter your 3rd card" />
+                <button type="submit" id="submitBJ">enter</button>
+            </div>
+            </div>
+            <div class="card-inner">
+            <h4>Here is your hint</h4>
+            <div class="list">
+            <p id="resultsBJ"></p>
+            </div>
+            </div>
+
+        
+        </div>
+
+
+        <div class="card">
+            <h1>ROT13</h1>
+            <div class="card-inner">
+            <h4>Enter a sequence of letters to encode or decode</h4>
+                <input type="text" id= "imputROT13" placeholder="Enter code here" />
+                <button type="submit" id="submitROT13">code</button>
+            </div>
+            <h4>Here is your code</h4>
+            <p id="resultsROT13"></p>
+        </div>
+        
+
+        <div class="card">
+            <h1>Number to Phrase</h1>
+            <div class="card-inner">
+            <h4>Enter a number between 0 and 999</h4>
+                <input type="text" id= "imputNP" placeholder="Enter number here" />
+                <button type="submit" id="submitNP">code</button>
+            </div>
+            <h4>Here is your number</h4>
+            <p id="resultsNP"></p>
+        </div>
+    </div>
+
+    
+    </main>
+
+        <script src="js/BlackJack.js"></script>
+        <script src="js/ROT13.js"></script>
+        <script src="js/Number_To_Phrase.js"></script>
+
+
+    </body>
+</html>

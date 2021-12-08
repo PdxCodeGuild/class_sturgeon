@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Pokedex</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"rel="stylesheet" />
+      <link rel="stylesheet" href="/static/main.css">
+  </head>
+
+  <body>
+    {%csrf_token%}
+    <nav class="navbar navbar-light bg-light">
+      {% if user.is_authenticated %}
+      <span class="navbar-brand mb-0 h1">&emsp;Welcome {{ user.username }}</span>
+      <img src= {{ user.last_name }} style="width: 150px; height: auto;" class="d-inline-block align-top" alt="">
+      <a href="{% url 'logout' %}">Logout&emsp;</a>
+    </nav>
+
+
+    <div id="app">
+      <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+      
+              <div class="card">
+                <div class="card-body p-5">
+      
+
+                  <ul class="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab"
+                        aria-controls="ex1-tabs-1" aria-selected="true">All Pokemons</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
+                        aria-controls="ex1-tabs-2" aria-selected="false">Your Pokemons</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content" id="ex1-content">
+                    
+<!-- All Pokemons -->
+                    <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                      <ul class="list-group mb-0" v-for="pokemon in pokemonList">
+                        <li class="list-group-item d-flex align-items-center justify-content-evenly border-5 mb-2 rounded" style="background-color: #f4f6f7;">
+                          <img :src='[[ pokemon.image_front ]]' style="width: 150px; height: auto;">
+                          <span class="ms-2"> [[ pokemon.number ]]. [[ pokemon.name ]] </span>
+                          
+                          <button class="btn btn-default" v-on:click='capturePokemon(pokemon, {{user.id}})'> 
+                            <img src="/static/image/pokeball.png" width="80" alt="Catch it">
+                            Capture it 
+                          </button>
+                    
+                        </li>
+                      </ul>
+                    </div>
+
+<!-- Your Pokemons -->
+                    <div class="tab-pane fade show active" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-1">
+                      
+                      <ul class="list-group mb-0" v-for="pokemon in pokemonList">
+                        
+                          <li v-for="trainer in pokemon.caught_by" v-if="trainer === {{user.id}}" class="list-group-item d-flex align-items-center justify-content-evenly border-5 mb-2 rounded" style="background-color: #f4f6f7;">
+                          
+                              <img :src='[[ pokemon.image_front ]]' style="width: 150px; height: auto;">
+                              <span class="ms-2"> [[ pokemon.number ]]. [[ pokemon.name ]] </span>
+                              <button class="btn btn-default" v-on:click='resealePokemon(pokemon, {{user.id}})'> 
+                                <img src="/static/image/open.png" width="150" alt="Reseale">
+                                Reseale it 
+                              </button>
+                        
+                          
+                          </li>
+                        
+                      
+                      </ul>
+                    </div>
+                  
+                  </div>
+
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+  
+  {% else %}
+  <h1>Welcome, visitor!</h1>
+  <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+  {% endif %}
+
+      <script src="https://unpkg.com/vue"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="/static/main.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
+
+  </body>
+</html>
