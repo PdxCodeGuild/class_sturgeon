@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    {% csrf_token %}
     {% if user.is_authenticated %}
     <div id="app">
         <h1>Welcome {{ user.username }}!</h1>
@@ -20,10 +20,12 @@
         <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a>
         </p>
         {% endif %}
-
-        <input type="text" v-model="name" placeholder="name"><br>
-        <input type="text" v-model="number" placeholder="number"><br>
-        <button @click="loadPokemon">Submit</button>
+        <div>
+            <h2>Search For Pokemon</h2>
+            <input type="text" v-model="name" placeholder="name"><br>
+            <input type="text" v-model="number" placeholder="number"><br>
+            <button @click="loadPokemon">Submit</button>
+        </div>
 
         <div v-if="pokemon.length">
             <p>Name: [[ pokemon[0].name ]]</p>
@@ -32,9 +34,11 @@
         </div>
 
         <div>
-            <input type="text">
-            <input type="text">
-
+            <h2>Load Your Own Pokemon</h2>
+            <input type="text" v-model="userPokemon.name" placeholder="name"><br>
+            <input type="text" v-model="userPokemon.number" placeholder="number"><br>
+            <button @click="createPokemon">Submit</button>
+            <button @click="createPokemon">Delete</button>
         </div>
     </div>
 
@@ -48,7 +52,12 @@
             data: {
                 name: '',
                 number: '',
-                pokemon: []
+                pokemon: [],
+                userPokemon: {
+                    "name": "",
+                    "number": "",
+                },
+
 
             },
 
@@ -78,10 +87,26 @@
                 },
 
                 createPokemon: function () {
+                    let csrf = document.querySelector("input[name=csrfmiddlewaretoken]").value
+                    console.log(csrf)
                     axios({
                         method: 'post',
                         url: 'api/v1/pokemon',
+
+                        header: {
+                            "X-CSRFToken": csrf
+                        },
+
+                        data: {
+                            "name": this.userPokemon.name,
+                            "number": this.userPokemon.number
+                        }
+
                     }).then(response => {
+                        this.userPokemon = {
+                            "name": "",
+                            "number": "",
+                        }
                         this.pokemon = response.data
                     })
 
