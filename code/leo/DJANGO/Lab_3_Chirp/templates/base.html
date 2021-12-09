@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Twitter</title>
+            <link rel="stylesheet" href="/static/main.css">
+        </head>
+
+
+        <body>
+            {%csrf_token%}
+                <nav class="navbar navbar-light bg-light">
+                {% if user.is_authenticated %}
+                <span class="navbar-brand mb-0 h1">&emsp;Welcome {{ user.username }}</span>
+                    <img src= {{ user.last_name }} style="width: 150px; height: auto;" class="d-inline-block align-top" alt="">
+                    <a href="{% url 'logout' %}">Logout&emsp;</a>
+                </nav>
+
+            <div class='body'>
+                <div class='container'>
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+
+            {% else %}
+            <h1>Welcome, visitor!</h1>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+
+        </body>
+    </html>
