@@ -30,16 +30,16 @@
 
             <div v-if="pokemon.length > 0">
                 <h2>Uncaught Pokemon:</h2>
-                <div v-for="item in uncaughtPokemon">
+                <div v-for="item in uncaughtPokemon" :key="item.id">
                     [[ item.name ]]
                     <img :src="item.image_front">
-                    <button @click="catchUncatchPokemon(item)">Catch me!</button>
+                    <button v-if="currentUser.id" @click="catchUncatchPokemon(item)">Catch me!</button>
                 </div>
                 <h2>Caught Pokemon:</h2>
-                <div v-for="item in caughtPokemon">
+                <div v-for="item in caughtPokemon" :key="item.id">
                     [[ item.name ]]
                     <img :src="item.image_front">
-                    <button @click="catchUncatchPokemon(item)">Uncatch me</button>
+                    <button v-if="currentUser.id" @click="catchUncatchPokemon(item)">Uncatch me</button>
                 </div>
             </div>
 
@@ -116,10 +116,10 @@
                         })
                     },
                     catchUncatchPokemon: function(pokemon) {
-                        if (!this.currentUser.caught.includes(pokemon.id)) {
-                            this.currentUser.caught.push(pokemon.id)
+                        if (!this.currentUser['caught'].includes(pokemon.id)) {
+                            this.currentUser['caught'].push(pokemon.id)
                         } else {
-                            this.currentUser.caught.splice(this.currentUser.caught.indexOf(pokemon.id, 1))
+                            this.currentUser['caught'].splice(this.currentUser.caught.indexOf(pokemon.id), 1)
                         }
                         axios({
                             method: 'patch',
@@ -128,7 +128,7 @@
                                 'X-CSRFToken' : this.csrf_token
                             },
                             data: {
-                                'caught' : this.currentUser.caught
+                                'caught' : this.currentUser['caught']
                             }
                         }).then(response => {
                             this.loadCurrentUser()
@@ -180,12 +180,12 @@
                 computed: {
                     caughtPokemon: function() {
                         return this.pokemon.filter(pokemon => {
-                            return this.currentUser.caught.includes(pokemon.id)
+                            return this.currentUser['caught'].includes(pokemon.id)
                         })
                     },
                     uncaughtPokemon: function() {
                         return this.pokemon.filter(pokemon => {
-                            return !this.currentUser.caught.includes(pokemon.id)
+                            return !this.currentUser['caught'].includes(pokemon.id)
                         })
                     }
                     // loadCaughtPokemon: function() {
