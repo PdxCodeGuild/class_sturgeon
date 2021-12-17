@@ -30,16 +30,16 @@
 
             <div v-if="pokemon.length > 0">
                 <h2>Uncaught Pokemon:</h2>
-                <div v-for="item in loadUncaughtPokemon">
+                <div v-for="item in uncaughtPokemon">
                     [[ item.name ]]
                     <img :src="item.image_front">
-                    <button @click="catchPokemon(item)">Catch me!</button>
+                    <button @click="catchUncatchPokemon(item)">Catch me!</button>
                 </div>
                 <h2>Caught Pokemon:</h2>
-                <div v-for="item in loadCaughtPokemon">
+                <div v-for="item in caughtPokemon">
                     [[ item.name ]]
                     <img :src="item.image_front">
-                    <button @click="unCatchPokemon(item)">Uncatch me</button>
+                    <button @click="catchUncatchPokemon(item)">Uncatch me</button>
                 </div>
             </div>
 
@@ -115,40 +115,59 @@
                             this.currentUser = response.data
                         })
                     },
-                    catchPokemon: function(item) {
-                        this.currentUser['caught'].push(item['id'])
+                    catchUncatchPokemon: function(pokemon) {
+                        if (!this.currentUser.caught.includes(pokemon.id)) {
+                            this.currentUser.caught.push(pokemon.id)
+                        } else {
+                            this.currentUser.caught.splice(this.currentUser.caught.indexOf(pokemon.id, 1))
+                        }
                         axios({
                             method: 'patch',
                             url: 'api/v1/currentuser/',
                             headers: {
-                                'X-CSRFToken': this.csrf_token
+                                'X-CSRFToken' : this.csrf_token
                             },
                             data: {
-                                'caught': this.currentUser['caught']
+                                'caught' : this.currentUser.caught
                             }
                         }).then(response => {
                             this.loadCurrentUser()
                         })
-                    },
-                    unCatchPokemon: function(item) {
-                        console.log(item)
-                        console.log(this.currentUser['caught'])
-                        let i = this.currentUser['caught'].indexOf(item)
-                        console.log(i)
-                        this.currentUser['caught'].splice(i, 1)
-                        axios({
-                            method: 'patch',
-                            url: 'api/v1/currentuser/',
-                            headers: {
-                                'X-CSRFToken': this.csrf_token
-                            },
-                            data: {
-                                caught: this.currentUser['caught']
-                            },
-                        }).then(response => {
-                            this.loadCurrentUser
-                        })
                     }
+                    // catchPokemon: function(item) {
+                    //     this.currentUser['caught'].push(item['id'])
+                    //     axios({
+                    //         method: 'patch',
+                    //         url: 'api/v1/currentuser/',
+                    //         headers: {
+                    //             'X-CSRFToken': this.csrf_token
+                    //         },
+                    //         data: {
+                    //             'caught': this.currentUser['caught']
+                    //         }
+                    //     }).then(response => {
+                    //         this.loadCurrentUser()
+                    //     })
+                    // },
+                    // unCatchPokemon: function(item) {
+                    //     console.log(item)
+                    //     console.log(this.currentUser['caught'])
+                    //     let i = this.currentUser['caught'].indexOf(item)
+                    //     console.log(i)
+                    //     this.currentUser['caught'].splice(i, 1)
+                    //     axios({
+                    //         method: 'patch',
+                    //         url: 'api/v1/currentuser/',
+                    //         headers: {
+                    //             'X-CSRFToken': this.csrf_token
+                    //         },
+                    //         data: {
+                    //             caught: this.currentUser['caught']
+                    //         },
+                    //     }).then(response => {
+                    //         this.loadCurrentUser
+                    //     })
+                    // }
                     
                 },
                 created: function() {
@@ -159,26 +178,36 @@
                     
                 },
                 computed: {
-                    loadCaughtPokemon: function() {
-                        let caught = []
-                        for (pokemon of this.pokemon) {
-                            if (this.currentUser['caught'].includes(pokemon['id'])) {
-                                caught.push(pokemon)
-                            }
-                        }
-                        this.caught = caught
-                        return caught
+                    caughtPokemon: function() {
+                        return this.pokemon.filter(pokemon => {
+                            return this.currentUser.caught.includes(pokemon.id)
+                        })
                     },
-                    loadUncaughtPokemon: function() {
-                        let uncaught = []
-                        for (pokemon of this.pokemon) {
-                            if (!this.currentUser['caught'].includes(pokemon['id'])) {
-                                uncaught.push(pokemon)
-                            }
-                        }
-                        this.uncaught = uncaught
-                        return uncaught
+                    uncaughtPokemon: function() {
+                        return this.pokemon.filter(pokemon => {
+                            return !this.currentUser.caught.includes(pokemon.id)
+                        })
                     }
+                    // loadCaughtPokemon: function() {
+                    //     let caught = []
+                    //     for (pokemon of this.pokemon) {
+                    //         if (this.currentUser['caught'].includes(pokemon['id'])) {
+                    //             caught.push(pokemon)
+                    //         }
+                    //     }
+                    //     this.caught = caught
+                    //     return caught
+                    // },
+                    // loadUncaughtPokemon: function() {
+                    //     let uncaught = []
+                    //     for (pokemon of this.pokemon) {
+                    //         if (!this.currentUser['caught'].includes(pokemon['id'])) {
+                    //             uncaught.push(pokemon)
+                    //         }
+                    //     }
+                    //     this.uncaught = uncaught
+                    //     return uncaught
+                    // }
                 },
                 mounted: function() {
                 this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
