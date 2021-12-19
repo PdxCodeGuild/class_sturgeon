@@ -13,29 +13,29 @@
     <h1>Quote Generator</h1>
     <div id="app">
 
+        <div>
+            <input v-model="filter" type="text">
+            <select v-model="type" name="" id="params">
+                <option value="author">Author</option>
+                <!--type para -->
+                <option value="tag">Tag</option>
+                <!--type para -->
+            </select>
+            <button @click="loadQotd" class="searchBtn" type="submit">Search</button>
+        </div>
 
-        <input v-model="filter" type="text">
-        <select v-model="type" name="" id="params">
-            <option value="keyword">Keyword</option>
-            <!--filter para -->
-            <option value="author">Author</option>
-            <!--type para -->
-            <option value="tag">Tag</option>
-            <!--type para -->
-        </select>
-        <button @click="loadQuotes" class="searchBtn" type="submit">Search</button>
-
-
-        <h3>25 Random Quotes</h3>
+        <h1>quote</h1>
+        <template v-if="Object.keys(qotd).length">
+            <p>{{ qotd.quotes[0].body }}</p>
+        </template>
+        <h1>Random Quotes</h1>
         <ul v-if="Object.keys(results).length">
             <li v-for="quote in results.quotes" :key="quote.id">
                 <p>{{ quote.body }}</p>
-                <p>By: {{ quote.author }}</p>
+                <p><a :href="quote.url">{{ quote.author }}</a></p>
             </li>
         </ul>
     </div>
-
-
 
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
