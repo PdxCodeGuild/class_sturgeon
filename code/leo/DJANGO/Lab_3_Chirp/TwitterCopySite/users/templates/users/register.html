@@ -1,0 +1,23 @@
+<head>
+	<style>
+		body {
+			margin: 3rem;
+		}
+	</style>
+</head>
+
+<h3>register</h3>
+
+<form action="{% url 'users:register' %}" method="POST">
+	{% csrf_token %}
+	<label for="username">username:</label>
+	<input type="text" id="username" name="username">
+	<br />
+	<label for="password"1>password:</label>
+	<input type="password" id="password1" name="password1">
+	<br />
+	<label for="password2">password again:</label>
+	<input type="password" id="password2" name="password2">
+	<br />
+	<button type="submit">login</button>
+</form>
