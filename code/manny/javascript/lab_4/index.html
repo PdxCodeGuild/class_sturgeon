@@ -8,32 +8,52 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
-        
-    </header>
     <body>
-        <br>
         <div id="app">
-            <h1>You have so much!</h1>
-            <p>Is there more you have to do?</p><br>
-            <div type="submit">
-                <input type="text" placeholder="Enter task here: " v-model="newTodo.text" @key.enter="addTodo">
-                <button @click="addTodo">Add to list</button> 
+            <h1>You have so much to do!</h1>
+            
+            <div id="nowTodo">
+                <input type="text" v-model="newTodo" placeholder="Enter task here: " @key.enter="addTodo">
+                <button v-on:click="newTodo">Add to list</button> 
+            </div>
+    
+            <div id="thingsTodo">
+                <p>This is everything you have to do today: </p>
+                <ul>
+                    <li v-for="todo in todo" v-bind:key="todo.id">
+                        {{todo.text}} {{todo.complete}}
+                    </li>
+                </ul>
+            </div>            
+        </div>
+        <div id="app">
+            <div class="input">
+                <input type="text" v-model="newTodo" @keyup.enter="createTodo">
+                <button v-on:click="createTodo">Add Todo</button>
             </div>
             <br>
-            <p>This is everything you have to do today: </p>
-            <ul>
-                <li v-for="todo in todo" v-bind:key="todo.id">
-                    {{todo.text}} {{todo.complete}}
-                </li>
-            </ul>
-
-            
+            <div class="container">
+                <h2>Things to do:</h2>
+                <ul>
+                    <li v-for="todo in incomplete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Complete</button>
+                        <button v-on:click="remove(todo)" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>Things I've done:</h2>
+                <ul>
+                    <li v-for="todo in complete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Incomplete</button>
+                        <button v-on:click="remove" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </body>
-    <footer>
-
-    </footer>
     <script src="https://unpkg.com/vue"></script>
     <script src="/js/site.js"></script>
 </body>

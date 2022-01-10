@@ -1,5 +1,4 @@
 #Version 1 
-from typing import final
 
 feet_multiplier = 0.3048
 

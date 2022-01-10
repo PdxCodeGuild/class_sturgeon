@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Convertor</title>
+</head>
+<body>
+    <h1>Distance Convertor</h1>    
+    <p>Enter amount below: </p>
+    <form action="/" method="POST">
+        <!-- Value from -->
+        <input type="number" name="value_from" min="0">
+        <!-- Units from -->
+        <p>Select unit from:</p>
+        <input type="radio" name="units_from" value="feet" checked>
+        <label for="feet">Feet</label>
+        <input type="radio" name="units_from" value="miles">
+        <label for="">Miles</label>
+        <input type="radio" name="units_from" value="meters">
+        <label for="">Meters</label>
+        <input type="radio" name="units_from" value="kilometers">
+        <label for="">Kilometers</label>
+        <input type="radio" name="units_from" value="yards">
+        <label for="">Yards</label>
+        <input type="radio" name="units_from" value="inches">
+        <label for="">Inches</label>
+
+        <!-- Units to -->
+        <p>Select unit To:</p>
+        <input type="radio" name="units_to" value="feet">
+        <label for="feet">Feet</label>
+        <input type="radio" name="units_to" value="miles">
+        <label for="">Miles</label>
+        <input type="radio" name="units_to" value="meters" checked>
+        <label for="">Meters</label>
+        <input type="radio" name="units_to" value="kilometers">
+        <label for="">Kilometers</label>
+        <input type="radio" name="units_to" value="yards">
+        <label for="">Yards</label>
+        <input type="radio" name="units_to" value="inches">
+        <label for="">Inches</label>
+        <br>
+        <button type="submit">Convert!</button>
+        
+
+    </form>
+    <p>{{final_conversion}} {{units_to}}</p>
+</body>
+</html>

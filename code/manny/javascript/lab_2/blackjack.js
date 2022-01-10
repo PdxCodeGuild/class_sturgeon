@@ -1,24 +1,39 @@
-//key/value pair object
+//key + value pair object
 const cardValues = {"A": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 10, "Q": 10, "K": 10}
 
-//ask for card values
-function question(){
-    let totalValue = 0 
-    var cardOne = prompt("What's the first card that you drew?", "Enter card ");
-    var cardTwo = prompt("What's the second card?", "Enter 2nd card");
-    var cardThree = prompt("What's the third card?", "Enter 3rd card here");
+//Creates user hand object
+let userHand = []
+let userValue = 0
+
+//main function
+function playBlackjack(){
+    let firstCard = prompt('What is your first card?')
+    let secondCard = prompt('What is your second card?')
+    let thirdCard = prompt('What is your third card?')
+
+    userHand.push(firstCard)
+    userHand.push(secondCard)
+    userHand.push(thirdCard)
     
-    //math stuff
-    totalValue += cardValues[cardOne] + cardValues[cardTwo] + cardValues[cardThree]
-    //outputs suggestings t
-    
-    if (totalValue < 21){
-        alert(totalValue + "Hit!! You have a chance to win!")
+    console.log(userHand)
+
+    for (let each in userHand) {
+        if (userHand[each] in cardValues){
+            userValue += cardValues[userHand[each]]
+        } else {
+            alert("Error, one of your inputs was incorrect")
+        }
     }
-    if (totalValue = 21){
-        alert(totalValue + "Stay you have Blackjack!")
-    }
-    if (totalValue > 21) {
-        alert(totalValue + "Bust, you're too good at this game.")
+
+    console.log(userValue)
+
+    if (userValue < 17) {
+        document.getElementById('advice').innerHTML = `The total value of your hand is ${userValue}, Hit`
+    } else if (userValue >= 17 && userValue < 21) {
+        document.getElementById('advice').innerHTML = `The total value of your hand is ${userValue}, Stay`
+    } else if (userValue === 21) {
+        document.getElementById('advice').innerHTML = `The total value of your hand is ${userValue}, Blackjack!`
+    } else {
+        document.getElementById('advice').innerHTML = `The total value of your hand is ${userValue}, Already Busted`
     }
 }

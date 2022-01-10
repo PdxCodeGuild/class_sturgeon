@@ -3,7 +3,7 @@ import string
 alphabet = [letter for letter in string.ascii_lowercase]
 
 #Asks client to input their word
-client_word = input("Would you like to encrypt or unencrypt a word? Please enter the word: ")
+client_word = input("Would you like to encrypt or decrypt a word? Please enter the word: ")
 
 #checks index and create a new list
 cw_index = [alphabet.index(each) for each in client_word]

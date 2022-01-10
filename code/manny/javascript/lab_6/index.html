@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poem Reader</title>
     <link rel="stylesheet" href="style.css">
+    <title>Poem Reader</title>
 </head>
 <body>
-    <h1>Poem Reader</h1>
+    <header class="header">
+        <h1>Poem Reader</h1>
+        <p> A litany of poems! Please search by your favorite poets. Or choose a number of random poems to be delivered to you.</p>
+    </header>
     <div id="app">
-        <input type="text" v-model="author">
-        <input type="number" v-model="poemCount">
-        <button type="submit" @click="getPoem">Search</button>
-        <br>
-
-        <div v-for = "poem in info"> 
-            <h3 @click = "readPoem(poem)">{{ poem.title }}</h3>
+        <div class="container ">
+            <form class="search">
+                <h4>Search for Poems</h4>
+                <label for="fname">By author:</label><br>
+                <input type="text" v-model="author" class='fname'>
+                <button type="submit" @click="getPoem">Search</button> <br>
+                
+                <label for="lNumber">Or number of poems</label><br>
+                <input type="number" v-model="poemCount" class="lNumber"> 
+                <button type="submit" @click="getPoem">Search</button><br>
+            </form>  
+        </div>    
+        
+        <div v-for = "poem in info" class="output"> 
+            <h3 @click = "readPoem(poem)"> {{ poem.title }} </h3>
             <p>Author: {{ poem.author }}</p>
-            <p>Line Count: {{ poem.linecount }}</p> 
+            <p>Line Count: {{ poem.lineCount }}</p> 
         
             <ol v-if = "info.length === 1">
                 <li v-for = "line in poem.lines">

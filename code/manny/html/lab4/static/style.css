@@ -1,0 +1,17 @@
+*{
+    background-color: rgb(255, 236, 236);
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-flow: column;
+}
+.mouthwater {
+    display: flex;
+    background: red;
+    justify-content: space-around;
+    padding: 10px;
+    border: 5px solid greenyellow;
+    margin: 0; 
+}

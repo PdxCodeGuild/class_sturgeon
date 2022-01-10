@@ -1,7 +1,7 @@
 const vm= new Vue({
     el: '#app',
     data : {
-        info: null,
+        info: {},
         author : "",
         poemCount : "1",
     },
@@ -31,4 +31,4 @@ const vm= new Vue({
     },
   })
 
-//even listeners
+//event listeners

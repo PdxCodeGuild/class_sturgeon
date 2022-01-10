@@ -21,12 +21,12 @@ def valley(test_data):
     return(depressions)
 
 def peak_and_valleys(test_data):
-    plateu = []
+    plateau = []
 
     for i, num in enumerate(test_data):        
         try:
             if test_data[i -1] < num > test_data[i + 1]:
-                plateu.append(i) 
+                plateau.append(i) 
         except IndexError:
             pass
 
@@ -35,6 +35,6 @@ def peak_and_valleys(test_data):
                 pass    
             else:
                 if test_data[i-1] > num < test_data[i+1]:
-                    plateu.append(i)
-    plateu.sort()                 
-    return(plateu)
+                    plateau.append(i)
+    plateau.sort()                 
+    return(plateau)
