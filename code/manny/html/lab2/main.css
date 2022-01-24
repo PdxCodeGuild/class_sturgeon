@@ -1,0 +1,43 @@
+html {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    background-color: cornsilk;
+    text-align: center;
+    border: 2px black;
+}
+
+body{
+    background-color: lightblue;
+}
+
+img {
+    display: block;
+    max-width: 90%;
+}
+
+h4 h5{
+    border: 0px;
+    margin: 0px;
+}
+
+p {
+    margin-top: 0px;
+}
+
+img{
+    justify-self: center;
+}
+
+
+@media (min-width: 600px) {
+    
+
+}
+
+@media (min-width: 1100px) {
+
+}

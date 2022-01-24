@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style> *{font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}.prizes{padding: 0;}</style>
+    <title>Pick6 Lottery</title>
+</head>
+<body>
+    <h1>You can't win if you don't play!</h1>
+    <p>Each ticket costs 2 dollars.</p>
+    </style>
+    <ul class="prizes">
+        <li>If 1 number matches, you win $4</li>
+        <li>If 2 numbers match, you win $7</li>
+        <li>If 3 numbers match, you win $100</li>
+        <li>If 4 numbers match, you win $50,000</li>
+        <li>If 5 numbers match, you win $1,000,000</li>
+        <li>If 6 numbers match, you win $25,000,000</li>
+    </ul>
+    <form>
+        <div>
+            <label for='amountBought'>How many tickets do you want to buy?</label><br>
+            <input type="number" id="amountBought" min="1">
+            <input type="button" value="Purchase" onclick= "createWinner(); numberOfTickets()";>
+        </div>
+    </form>
+    
+    <p id="results"></p>
+    <p id="winner"></p>
+    <p id="money"></p>
+
+    <script src="pick6.js"></script>
+</body>
+</html>

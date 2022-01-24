@@ -9,7 +9,7 @@ print(f"These are the winning numbers: {winning_ticket} \nBest of luck! \nRememb
 win_purse = 0
 how_many = int(input("How many tickets do you want to buy? ")) #For now, lets assume the customer only inputs digits
 
-#Function takes how many tickets they want to play, and compares it to the winning ticket from earlier. Annoucing each lottery number and if they won, then prints out the total values.
+#Function takes how many tickets they want to play, and compares it to the winning ticket from earlier. Announcing each lottery number and if they won, then prints out the total values.
 def vegas_alternative(how_many, winning_ticket, win_purse=0):
     while how_many > 0:
         ticket_purchased = [random.randint(1,100) for hope in range(6)]

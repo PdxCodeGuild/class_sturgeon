@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grocery List</title>
+</head>
+<body>
+    <form action="{%url "grocery:new"%}", method="poast">
+        {%csrf_token%}
+        <label for='description'>Descriptions:</label>
+        <input type="text" name='description' id='description'>
+        <input type="submit" value="add item">
+
+    <h1>
+        grocery!!
+    </h1>
+    <ul>
+    {% for item in incompletes %}
+        <li>
+            {{%item.description%}}
+          <form action="{{%url "grocery:delete" item.pk%}}" method="post">
+            {%csrf_token%}
+            <input type = "submit" value='delete'>
+            
+        </li>
+    {% endfor %}
+    </ul>
+
+    
+</body>
+</html>

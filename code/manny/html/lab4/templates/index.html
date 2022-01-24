@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manny's Burritos!</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Manny's Burritos Deliciosos!</h1><br>
+        <p><strong>Serving the SoCal area delicious burritos since 1992.</strong></p>
+    </header>
+    <div class="mouthwater">
+        <img src="https://www.seriouseats.com/thmb/GxLifPi_UfDpEpi53Z00ySYnu6Q=/1500x844/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__10__20201002-mission-style-burrito-jillian-atkinson-2-6841455590ed4c3981529b232166643a.jpg" alt="b1" width="200">
+        <img src="https://inmamamaggieskitchen.com/wp-content/uploads/2021/07/Mexican-Corned-Beef-Burritos.jpg" alt="b2" width="200">
+        <img src="https://secretnyc.co/wp-content/uploads/2019/02/oxido-ft-image.jpg" alt="b3" width="200">
+    </div>
+
+    <div>
+        <form action="https://webhook.site/cc5190a1-fc12-4f2e-bd2c-b3e3f590b85b" method="post">
+            <h4>We only sell burittos!</h4>
+            <p>Order to your liking</p>
+
+            <strong>Name:</strong> <input type="text" name="person_name"/><br>
+            <strong>Phone:</strong> <input type="tel" name="telephone"/><br>
+            <strong>Tortilla:</strong> 
+            <input type="radio" id="flour" name="tortilla" value="flour">
+            <label for="flour">Flour</label>
+            <input type="radio" id="wheat" name="tortilla" value="wheat">
+            <label for="wheat">Wheat</label>
+            <input type="radio" id="spinach" name="tortilla" value="spinach">
+            <label for="spinach">Spinach</label><br>
+
+            <strong>Meat:</strong> 
+            <input type="radio" id="carnitas" name="meat" value="carnitas">
+            <label for="carnitas">Carnitas</label>
+            <input type="radio" id="asada" name="meat" value="asada">
+            <label for="asada">Carne Asada</label>
+            <input type="radio" id="lengua" name="meat" value="lengua">
+            <label for="lengua">Lengua</label><br>
+            
+            <strong>Beans:</strong> 
+            <input type="radio" id="pinto" name="beans" value="pinto">
+            <label for="pinto">Pinto Beans</label>
+            <input type="radio" id="black" name="beans" value="black">
+            <label for="black">Black Beans</label><br>
+        
+            <strong>Rice:</strong> 
+            <input type="radio" id="white" name="rice" value="white">
+            <label for="white">White Rice</label>
+            <input type="radio" id="red" name="rice" value="red">
+            <label for="red">Mexican Rice</label><br>
+            
+            <strong>Extras</strong> (no extra cost)<br>
+            <input type="checkbox" id="salsa" name="salsa" value="salsa">
+            <label for="salsa">Aguacate</label>
+            <input type="checkbox" id="hot" name="special" value="hot">
+            <label for="hot"> Salsa Picante (HOT!)</label>
+            <input type="checkbox" id="cheese" name="special" value="cheese">
+            <label for="cheese"> Cheese</label>
+            <input type="checkbox" id="cream" name="special" value="cream">
+            <label for="cream"> Sour Cream</label><br>
+            <label for="special">Special Instructions:</label>
+            
+            <input type="text" name="special" id="special"><br>
+
+            <button type="submit">submit</button>
+        </form>
+        <div class="total">
+
+
+        </div>
+    </div>  
+</body>
+</html>

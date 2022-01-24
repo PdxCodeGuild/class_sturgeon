@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <body>
+        <div id="app">
+            <h1>You have so much to do!</h1>
+            
+            <div id="nowTodo">
+                <input type="text" v-model="newTodo" placeholder="Enter task here: " @key.enter="addTodo">
+                <button v-on:click="newTodo">Add to list</button> 
+            </div>
+    
+            <div id="thingsTodo">
+                <p>This is everything you have to do today: </p>
+                <ul>
+                    <li v-for="todo in todo" v-bind:key="todo.id">
+                        {{todo.text}} {{todo.complete}}
+                    </li>
+                </ul>
+            </div>            
+        </div>
+        <div id="app">
+            <div class="input">
+                <input type="text" v-model="newTodo" @keyup.enter="createTodo">
+                <button v-on:click="createTodo">Add Todo</button>
+            </div>
+            <br>
+            <div class="container">
+                <h2>Things to do:</h2>
+                <ul>
+                    <li v-for="todo in incomplete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Complete</button>
+                        <button v-on:click="remove(todo)" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="container">
+                <h2>Things I've done:</h2>
+                <ul>
+                    <li v-for="todo in complete" :key="todo.id">
+                        {{ todo.text }}
+                        <button v-on:click="completed(todo)" class="complete">Incomplete</button>
+                        <button v-on:click="remove" class="remove">Remove</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="/js/site.js"></script>
+</body>
+</html>
