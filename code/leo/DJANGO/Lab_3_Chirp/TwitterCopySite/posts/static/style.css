@@ -1,0 +1,35 @@
+nav {
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	z-index: 1; 
+	top: 0; 
+	left: 0;
+	background-color: rgb(75, 69, 69);
+	color: white;
+	font-weight: bold;
+	overflow-x: hidden;
+	padding-top: 50px;
+}
+.header {
+	margin-left: 230px;
+
+}
+
+.post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5px;
+	border: 2px solid black;
+	background-color: rgb(75, 69, 69);
+	color: white;
+}
+
+a { 
+	color: white;
+}
+
+a:visited {
+	color: #77cae6;
+}
